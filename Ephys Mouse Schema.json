@@ -12,8 +12,12 @@
 			"type": "string",
 			"format": "date"	
 			},
-		"Full Genotype": {
+		"Genotype": {
 			"type": "string"
+			},
+		"Background Strain":{
+			"type": "string",
+			"enum": ["C57BL/6J", "BALB/c"]
 			},
 		"Source": {
 			"type": "string"
@@ -23,6 +27,7 @@
 		"Specimen ID",
 		"Sex",
 		"Date of Birth",
-		"Full Genotype"
+		"Genotype",
+		"Background Strain"
 		]
 	}
