@@ -1,0 +1,28 @@
+{
+	"type": "object",
+	"properties": {
+		"Specimen ID": {
+			"type": "integer"
+			},
+		"Sex": {
+			"type": "string",
+			"enum": ["Female", "Male"]
+			},	
+		"Date of Birth": {
+			"type": "string",
+			"format": "date"	
+			},
+		"Full Genotype": {
+			"type": "string"
+			},
+		"Source": {
+			"type": "string"
+			}
+		},
+	"required": [
+		"Specimen ID",
+		"Sex",
+		"Date of Birth",
+		"Full Genotype"
+		]
+	}

@@ -1,0 +1,245 @@
+
+{
+	"type": "object",
+	"properties": {
+	"Experimenter first name": {
+		"type": "string"
+		},
+	"Experimenter last name": {
+		"type": "string"
+		},
+	"Session start time": {
+		"type": "string", 
+		"format": "date-time"
+		},
+	"Specimen ID": {
+		"type": "integer"
+		},
+	"Project ID": {
+		"type": "integer"
+		},
+	"Session Type": {
+		"type": "string", 
+		"enum": ["Test", "Foraging A", "Spontaneous", "Foraging B"]
+		},
+	"Stimulus Protocol ID": {
+		"type": "integer"
+		},
+	"Rig ID": {
+		"type": "integer"
+		},
+	"Session end time": {
+		"type": "string", 
+		"format": "date-time"
+		},	
+	"Probe A": {
+		"type": "boolean"
+		},
+	"Probe B": {
+		"type": "boolean"
+		},
+	"Probe C": {
+		"type": "boolean"
+		}, 
+	"Probe D": {
+		"type": "boolean"
+		},
+	"Probe E": {
+		"type": "boolean"
+		},
+	"Probe F": {
+		"type": "boolean"
+		},
+	"Probe G": {
+		"type": "boolean"
+		},	
+	"Probe H": {
+		"type": "boolean"
+		},
+	"Probe I": {
+		"type": "boolean"
+		},
+	"Probe J": {
+		"type": "boolean"
+		}
+
+	},
+	"required": [
+		"Experimenter first name", 
+		"Experimenter last name",
+		"Session start time",
+		"Specimen ID",
+		"Project ID",
+		"Session Types",
+		"Rig ID",
+		"Session end time"
+
+	],
+	"dependentSchemas": {
+		"Probe A": {
+			"properties": {
+				"Probe A targeted structure": {
+					"type": "string"
+					},
+				"Probe A CCF coordinate ML": {
+					"type": "float"
+					},
+				"Probe A CCF coordinate AP": {
+					"type": "float"
+					},
+				"Probe A CCF coordinate DV": {
+					"type": "float"
+					},
+				"Probe A MRI coordinate ML": {
+					"type": "float"
+					},
+				"Probe A MRI coordinate AP": {
+					"type": "float"
+					},
+				"Probe A MRI coordinate DV": {
+					"type": "float"
+					},
+				"Probe A coordinate ML": {
+					"type": "float"
+					},
+				"Probe A coordinate AP": {
+					"type": "float"
+					},
+				"Probe A coordinate depth": {
+					"type": "float"
+					},
+				"Probe A angle ML": {
+					"type": "float"
+					},
+				"Probe A angle AP": {
+					"type": "float"
+					}
+				},
+			"required": [
+				"Probe A targeted structure",
+				"Probe A CCF coordinate ML",
+				"Probe A CCF coordinate AP",
+				"Probe A CCF coordinate DV",
+				"Probe A MRI coordinate ML",
+				"Probe A MRI coordinate AP",
+				"Probe A MRI coordinate DV",
+				"Probe A coordinate ML",
+				"Probe A coordinate AP",
+				"Probe A coordinate depth",
+				"Probe A angle ML",
+				"Probe A angle AP"
+				]
+			},
+		"Probe B": {
+			"properties": {
+				"Probe B targeted structure": {
+					"type": "string"
+					},
+				"Probe B CCF coordinate ML": {
+					"type": "float"
+					},
+				"Probe B CCF coordinate AP": {
+					"type": "float"
+					},
+				"Probe B CCF coordinate DV": {
+					"type": "float"
+					},
+				"Probe B MRI coordinate ML": {
+					"type": "float"
+					},
+				"Probe B MRI coordinate AP": {
+					"type": "float"
+					},
+				"Probe B MRI coordinate DV": {
+					"type": "float"
+					},
+				"Probe B coordinate ML": {
+					"type": "float"
+					},
+				"Probe B coordinate AP": {
+					"type": "float"
+					},
+				"Probe B coordinate depth": {
+					"type": "float"
+					},
+				"Probe B angle ML": {
+					"type": "float"
+					},
+				"Probe B angle AP": {
+					"type": "float"
+					}
+				},
+			"required": [
+				"Probe B targeted structure",
+				"Probe B CCF coordinate ML",
+				"Probe B CCF coordinate AP",
+				"Probe B CCF coordinate DV",
+				"Probe B MRI coordinate ML",
+				"Probe B MRI coordinate AP",
+				"Probe B MRI coordinate DV",
+				"Probe B coordinate ML",
+				"Probe B coordinate AP",
+				"Probe B coordinate depth",
+				"Probe B angle ML",
+				"Probe B angle AP"
+				]
+			},
+		"Probe C": {
+			"properties": {
+				"Probe C targeted structure": {
+					"type": "string"
+					},
+				"Probe C CCF coordinate ML": {
+					"type": "float"
+					},
+				"Probe C CCF coordinate AP": {
+					"type": "float"
+					},
+				"Probe C CCF coordinate DV": {
+					"type": "float"
+					},
+				"Probe C MRI coordinate ML": {
+					"type": "float"
+					},
+				"Probe C MRI coordinate AP": {
+					"type": "float"
+					},
+				"Probe C MRI coordinate DV": {
+					"type": "float"
+					},
+				"Probe C coordinate ML": {
+					"type": "float"
+					},
+				"Probe C coordinate AP": {
+					"type": "float"
+					},
+				"Probe C coordinate depth": {
+					"type": "float"
+					},
+				"Probe C angle ML": {
+					"type": "float"
+					},
+				"Probe C angle AP": {
+					"type": "float"
+					}
+				},
+			"required": [
+				"Probe C targeted structure",
+				"Probe C CCF coordinate ML",
+				"Probe C CCF coordinate AP",
+				"Probe C CCF coordinate DV",
+				"Probe C MRI coordinate ML",
+				"Probe C MRI coordinate AP",
+				"Probe C MRI coordinate DV",
+				"Probe C coordinate ML",
+				"Probe C coordinate AP",
+				"Probe C coordinate depth",
+				"Probe C angle ML",
+				"Probe C angle AP"
+				]
+			}
+
+		}
+
+
+}

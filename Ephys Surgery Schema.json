@@ -1,0 +1,79 @@
+{
+    "type": "object",
+    "properties": {
+        "Specimen ID": {
+            "type": "integer"
+        },
+        "Procedure Date": {
+            "type": "string",
+            "format": "date"
+        },
+        "Experimenter first name": {
+            "type": "string"
+        },
+        "Experimenter last name": {
+            "type": "string"
+        },
+        "Protocol ID": {
+            "type": "integer"
+        },
+        "Surgery": {
+            "type": "string",
+            "enum": ["Head Plate Craniotomy", "Injection"]
+        }
+    },
+
+    "allof": [
+        {
+            "if": {
+                "properties": {"Surgery": {"const": "Head Plate Craniotomy" } } 
+            },
+            "then": {
+                "properties": {
+                    "HPC Coordinates ML": {"type": "float"},
+                    "HPC Coordinates AP": {"type": "float"},
+                    "HPC Size (mm)": {"type": "float"},
+                    "HPC Angle roll (deg)": {"type": "float"},
+                    "HPC Angle pitch (deg)": {"type": "float"}
+                },
+                "required": [
+                    "HPC Coordinates ML",
+                    "HPC Coordinates AP",
+                    "HPC Size (mm)",
+                    "HPC Angle roll (deg)",
+                    "HPC Angle pitch (deg)"
+                    ]
+            }
+        },
+        {
+            "if": {
+                "properties": {"Surgery": {"const": "Injection"} }
+            },
+            "then": {
+                "properties": {
+                    "Injection Coodinates ML": {"type": "float"},
+                    "Injection Coordinates AP": {"type": "float"},
+                    "Injection Coordinates depth": {"type": "float"},
+                    "Injection Construct": {"type": "string"},
+                    "Injection Volume": {"type": "float"}
+                },
+                "required": [
+                    "Injection Coordinates ML",
+                    "Injection Coordinates AP",
+                    "Injection Coordinates depth",
+                    "Injection Construct",
+                    "Injection Volume"
+                    ]
+            }
+        }
+        ],
+    "required": [
+        "Specimen ID",
+        "Procedure Date",
+        "Experimenter first name",
+        "Experimenter last name",
+        "Protocol ID",
+        "Surgery"
+        ]
+}
+

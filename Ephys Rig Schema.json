@@ -1,0 +1,163 @@
+{
+	"type": "object",
+	"properties": {
+		"Devices Used": {
+			"type": "string",
+			"enum": [
+				"Neuropixels Probe A",
+				"Neuropixels Probe B",
+				"Neuropixels Probe C",  
+				"Eye Camera",
+				"Face Camera",
+				"Body Camera",
+				"Running Disk",
+				"Laser A",
+				"Laser B",
+				"Stimulus device",
+				"Behavior device"
+				] 
+			}
+	},
+	"required": ["Devices Used"],
+	"allof": [
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Neuropixels Probe A" } }
+        		},
+        	"then": {
+        		"properties": {
+        			"Neuropixels Probe A Probe Type": {"type": "string"},
+        			"Neuropixels Probe A Serial Number": {"type": "float"}
+        			},
+        		"required": ["Neuropixels Probe A Probe Type", "Neuropixels Probe A Serial Number"]
+        		}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Neuropixels Probe B" } }
+        		},
+        	"then": {
+        		"properties": {
+        			"Neuropixels Probe B Probe Type": {"type": "string"},
+        			"Neuropixels Probe B Serial Number": {"type": "float"}
+        			},
+        		"required": ["Neuropixels Probe B Probe Type", "Neuropixels Probe B Serial Number"]
+        		}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Neuropixels Probe C" } }
+        		},
+        	"then": {
+        		"properties": {
+        			"Neuropixels Probe C Probe Type": {"type": "string"},
+        			"Neuropixels Probe C Serial Number": {"type": "string"}
+        			},
+        		"required": ["Neuropixels Probe C Probe Type", "Neuropixels Probe C Serial Number"]
+        		}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Eye Camera" } }
+        		},
+        	"then": {
+        		"properties": {
+        			"Eye Camera Model": {"type": "string"},
+        			"Eye Camera Serial Number": {"type": "string"},
+        			"Eye Camera Recording Software and version": {"type": "string"},
+        			"Eye Camera Coordinates X": {"type": "float"},
+        			"Eye Camera Coordinates Y": {"type": "float"},
+        			"Eye Camera Angle": {"type": "float"}
+        			},
+        		"required": [
+        			"Eye Camera Model",
+        			"Eye Camera Serial Number",
+        			"Eye Camera Recording Software and version",
+        			"Eye Camera Coordinates X",
+        			"Eye Camera Coordinates Y",
+        			"Eye Camera Angle"
+        			]
+        		}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Face Camera" } }
+        		},
+        	"then": {
+        		"properties": {
+        			"Face Camera Model": {"type": "string"},
+        			"Face Camera Serial Number": {"type": "string"},
+        			"Face Camera Recording Software and version": {"type": "string"},
+        			"Face Camera Coordinates X": {"type": "float"},
+        			"Face Camera Coordinates Y": {"type": "float"},
+        			"Face Camera Angle": {"type": "float"}
+        			},
+        		"required": [
+        			"Face Camera Model",
+        			"Face Camera Serial Number",
+        			"Face Camera Recording Software and version",
+        			"Face Camera Coordinates X",
+        			"Face Camera Coordinates Y",
+        			"Face Camera Angle"
+        			]
+        		}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Body Camera" } }
+        		},
+        	"then": {
+        		"properties": {
+        			"Body Camera Model": {"type": "string"},
+        			"Body Camera Serial Number": {"type": "string"},
+        			"Body Camera Recording Software and version": {"type": "string"},
+        			"Body Camera Coordinates X": {"type": "float"},
+        			"Body Camera Coordinates Y": {"type": "float"},
+        			"Body Camera Angle": {"type": "float"}
+        			},
+        		"required": [
+        			"Body Camera Model",
+        			"Body Camera Serial Number",
+        			"Body Camera Recording Software and version",
+        			"Body Camera Coordinates X",
+        			"Body Camera Coordinates Y",
+        			"Body Camera Angle"
+        			]
+        		}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Laser A"} }
+        		},
+        	"then": {
+        		"properties": {
+        			"Laser A Model": {"type": "string"},
+        			"Laser A Serial Number": {"type": "string"},
+        			"Laser A Wavelength (nm)": {"type": "integer"}
+        			},
+        		"required": [
+        			"Laser A Model",
+        			"Laser A Serial Number",
+        			"Laser A Wavelength (nm)"
+        			]
+        		}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Laser B"} }
+        		},
+        	"then": {
+        		"properties": {
+        			"Laser B Model": {"type": "string"},
+        			"Laser B Serial Number": {"type": "string"},
+        			"Laser B Wavelength (nm)": {"type": "integer"}
+        			},
+        		"required": [
+        			"Laser B Model",
+        			"Laser B Serial Number",
+        			"Laser B Wavelength (nm)"
+        			]
+        		}
+	    }
+	]
+}
