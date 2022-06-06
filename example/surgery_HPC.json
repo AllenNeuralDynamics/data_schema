@@ -7,8 +7,8 @@
 	"Protocol ID": 227,
 	
 	"HPC Coordinates ML": 2.8,
-    "HPC Coordinates AP": 1.3,
-    "HPC Size (mm)": 5,
-    "HPC Angle roll (deg)": 23,
-    "HPC Angle pitch (deg)": 6
+	"HPC Coordinates AP": 1.3,
+	"HPC Size (mm)": 5,
+	"HPC Angle roll (deg)": 23,
+	"HPC Angle pitch (deg)": 6
 }
