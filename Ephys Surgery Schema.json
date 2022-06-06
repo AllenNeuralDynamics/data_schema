@@ -54,15 +54,54 @@
                     "Injection Coodinates ML": {"type": "float"},
                     "Injection Coordinates AP": {"type": "float"},
                     "Injection Coordinates depth": {"type": "float"},
-                    "Injection Construct": {"type": "string"},
-                    "Injection Volume": {"type": "float"}
+                    "Injection Angle": {"type": "float"},
+                    "Injection Virus": {"type": "string"},
+                    "Injection Type": {
+                        "type": "string",
+                        "enum": ["Iontophoresis","Nanoject"]
+                    },
+                    "Injection Duration": {
+                        "type": "string",
+                        "format": "time"
+                    }
                 },
+                "allof": [
+                    {
+                        "if": {
+                            "properties": {"Injection Type": {"const": "Iontophoresis"} }   
+                        },
+                        "then": {
+                            "properties": {
+                                "Injection Current (uA)": {"type": "float"},
+                                "Alternating Current": {"type": "string"}
+                            },
+                            "required": [
+                                "Injection Current (uA)",
+                                "Alternating Current"
+                            ]
+                        }
+                    },
+                    {
+                        "if":{
+                            "properties": {"Injection Type": {"const": "Nanoject"} }
+                        },
+                        "then": {
+                            "properties": {
+                                "Injection Volume (nL)": {"type": "float"}
+                            },
+                            "required": [
+                                "Injection Volume (nL)"
+                            ]
+                        }
+                    }
+                ],
                 "required": [
                     "Injection Coordinates ML",
                     "Injection Coordinates AP",
                     "Injection Coordinates depth",
                     "Injection Construct",
-                    "Injection Volume"
+                    "Injection Type",
+                    "Injection Duration"
                     ]
             }
         }
