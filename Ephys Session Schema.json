@@ -26,7 +26,7 @@
 		"type": "integer"
 		},
 	"Rig ID": {
-		"type": "float"
+		"type": "number"
 		},
 	"Session end time": {
 		"type": "string", 
@@ -82,37 +82,37 @@
 					"type": "string"
 					},
 				"Probe A CCF coordinate ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe A CCF coordinate AP": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe A CCF coordinate DV": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe A MRI coordinate ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe A MRI coordinate AP": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe A MRI coordinate DV": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe A coordinate ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe A coordinate AP": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe A coordinate depth": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe A angle ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe A angle AP": {
-					"type": "float"
+					"type": "number"
 					}
 				},
 			"required": [
@@ -136,37 +136,37 @@
 					"type": "string"
 					},
 				"Probe B CCF coordinate ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe B CCF coordinate AP": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe B CCF coordinate DV": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe B MRI coordinate ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe B MRI coordinate AP": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe B MRI coordinate DV": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe B coordinate ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe B coordinate AP": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe B coordinate depth": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe B angle ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe B angle AP": {
-					"type": "float"
+					"type": "number"
 					}
 				},
 			"required": [
@@ -190,37 +190,37 @@
 					"type": "string"
 					},
 				"Probe C CCF coordinate ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe C CCF coordinate AP": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe C CCF coordinate DV": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe C MRI coordinate ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe C MRI coordinate AP": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe C MRI coordinate DV": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe C coordinate ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe C coordinate AP": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe C coordinate depth": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe C angle ML": {
-					"type": "float"
+					"type": "number"
 					},
 				"Probe C angle AP": {
-					"type": "float"
+					"type": "number"
 					}
 				},
 			"required": [

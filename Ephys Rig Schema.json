@@ -27,7 +27,7 @@
         	"then": {
         		"properties": {
         			"Neuropixels Probe A Probe Type": {"type": "string"},
-        			"Neuropixels Probe A Serial Number": {"type": "float"}
+        			"Neuropixels Probe A Serial Number": {"type": "number"}
         			},
         		"required": ["Neuropixels Probe A Probe Type", "Neuropixels Probe A Serial Number"]
         		}
@@ -39,7 +39,7 @@
         	"then": {
         		"properties": {
         			"Neuropixels Probe B Probe Type": {"type": "string"},
-        			"Neuropixels Probe B Serial Number": {"type": "float"}
+        			"Neuropixels Probe B Serial Number": {"type": "number"}
         			},
         		"required": ["Neuropixels Probe B Probe Type", "Neuropixels Probe B Serial Number"]
         		}
@@ -65,9 +65,9 @@
         			"Eye Camera Model": {"type": "string"},
         			"Eye Camera Serial Number": {"type": "string"},
         			"Eye Camera Recording Software and version": {"type": "string"},
-        			"Eye Camera Coordinates X": {"type": "float"},
-        			"Eye Camera Coordinates Y": {"type": "float"},
-        			"Eye Camera Angle": {"type": "float"}
+        			"Eye Camera Coordinates X": {"type": "number"},
+        			"Eye Camera Coordinates Y": {"type": "number"},
+        			"Eye Camera Angle": {"type": "number"}
         			},
         		"required": [
         			"Eye Camera Model",
@@ -88,9 +88,9 @@
         			"Face Camera Model": {"type": "string"},
         			"Face Camera Serial Number": {"type": "string"},
         			"Face Camera Recording Software and version": {"type": "string"},
-        			"Face Camera Coordinates X": {"type": "float"},
-        			"Face Camera Coordinates Y": {"type": "float"},
-        			"Face Camera Angle": {"type": "float"}
+        			"Face Camera Coordinates X": {"type": "number"},
+        			"Face Camera Coordinates Y": {"type": "number"},
+        			"Face Camera Angle": {"type": "number"}
         			},
         		"required": [
         			"Face Camera Model",
@@ -111,9 +111,9 @@
         			"Body Camera Model": {"type": "string"},
         			"Body Camera Serial Number": {"type": "string"},
         			"Body Camera Recording Software and version": {"type": "string"},
-        			"Body Camera Coordinates X": {"type": "float"},
-        			"Body Camera Coordinates Y": {"type": "float"},
-        			"Body Camera Angle": {"type": "float"}
+        			"Body Camera Coordinates X": {"type": "number"},
+        			"Body Camera Coordinates Y": {"type": "number"},
+        			"Body Camera Angle": {"type": "number"}
         			},
         		"required": [
         			"Body Camera Model",
