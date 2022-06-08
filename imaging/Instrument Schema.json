@@ -1,0 +1,67 @@
+{
+	"type": "object",
+	"properties": {
+		"Microscope Type": {
+		  "type": "string"
+		},
+		"Microscope Manufacturer": {
+		  "type": "string"
+		},
+		"Microscope Model": {
+		  "type": "number"
+		},
+		"Objective Manufacturer": {
+		  "type": "string"
+	  },
+	  "Objective Model": {
+	    "type": "number"
+	  },
+	  "Objective Immersion": {
+	    "type": "string",
+	    "enum": ["air", "oil", "water", "glycerol"]
+	  },
+	  "Objective Numerical Aperture": {
+	    "type": "number"
+	  },
+	  "Objective Magnification": {
+	    "type": "number"
+	  },
+	  "Detector Type": {
+	    "type": "string",
+	    "enum": ["CCD", "PMT", "CMOS"]
+	  },
+	  "Detector Manufacturer": {
+	    "type": "string"
+	  },
+	  "Detector Model": {
+	    "type": "number"
+	  },
+	  "Illumination Type": {
+	    "type": "string"
+	  },
+	  "Illumination Wavelength (nm)": {
+	    "type": "int"
+	  },
+	  "Detection Wavelength (nm)": {
+	    "type": "int"
+	  }
+	  },
+	  "required": [
+	    "Microscope Type",
+	    "Microscope Manufacturer",
+	    "Microscope Model",
+	    "Microscope Manufacturer",
+	    "Microscope Model",
+	    "Objective Manufacturer",
+	    "Objective Model",
+	    "Objective Immersion",
+	    "Objective Numerical Aperture",
+	    "Objective Magnification",
+	    "Detector Type",
+	    "Detector Manufacturer",
+	    "Detector Model",
+	    "Illumination Type",
+	    "Illumination Wavelength (nm)",
+	    "Detection Wavelength (nm)"
+	    ]
+}
