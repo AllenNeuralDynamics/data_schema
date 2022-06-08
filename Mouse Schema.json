@@ -20,6 +20,16 @@
 			"enum": ["C57BL/6J", "BALB/c"]
 			},
 		"Source": {
+			"type": "string",
+			"description": "If the mouse was not bred in house, where was it acquired from."
+			},
+		"Breeding Group": {
+			"type": "string"
+			},
+		"Maternal genotype": {
+			"type": "string"
+			},
+		"Paternal genotype": {
 			"type": "string"
 			}
 		},
