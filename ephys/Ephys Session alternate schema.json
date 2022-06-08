@@ -34,7 +34,8 @@
 		},	
 	"Probes": {
 		"type": "array",
-		"items": { "$ref": "#/$defs/probies" }
+		"items": { "$ref": "#/$defs/probies" },
+		"uniqueitems": true
 		}
 	},
 	"$defs": {
