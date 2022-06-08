@@ -1,20 +1,26 @@
 {
 	"type": "object",
 	"properties": {
-		"Microscope Type": {
-		  "type": "string"
-		},
-		"Microscope Manufacturer": {
-		  "type": "string"
-		},
-		"Microscope Model": {
-		  "type": "number"
-		},
-		"Objective Manufacturer": {
-		  "type": "string"
+	  "Microscope Type": {
+	    "type": "string"
+	  },
+	  "Microscope Manufacturer": {
+	    "type": "string"
+	  },
+	  "Microscope Model": {
+	    "type": "number"
+	  },
+	  "Microscope Serial Number": {
+	    "type": "string"
+	  },
+	  "Objective Manufacturer": {
+	    "type": "string"
 	  },
 	  "Objective Model": {
 	    "type": "number"
+	  },
+	  "Objective Serial Number": {
+	    "type": "string"
 	  },
 	  "Objective Immersion": {
 	    "type": "string",
@@ -36,6 +42,9 @@
 	  "Detector Model": {
 	    "type": "number"
 	  },
+	  "Detector Serial Number": {
+	    "type": "string"
+	  },
 	  "Illumination Type": {
 	    "type": "string"
 	  },
@@ -52,14 +61,17 @@
 	    "Microscope Model",
 	    "Microscope Manufacturer",
 	    "Microscope Model",
+	    "Microscope Serial Number",
 	    "Objective Manufacturer",
 	    "Objective Model",
+	    "Objective Serial Number",
 	    "Objective Immersion",
 	    "Objective Numerical Aperture",
 	    "Objective Magnification",
 	    "Detector Type",
 	    "Detector Manufacturer",
 	    "Detector Model",
+	    "Detector Serial Number",
 	    "Illumination Type",
 	    "Illumination Wavelength (nm)",
 	    "Detection Wavelength (nm)"
