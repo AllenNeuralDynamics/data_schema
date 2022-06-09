@@ -36,6 +36,11 @@
 		"type": "array",
 		"items": { "$ref": "#/$defs/probies" },
 		"uniqueitems": true
+		},
+	"Lasers": {
+		"type": "array",
+		"items": {"$ref": "#/$defs/lasies"},
+		"uniqueitems": true
 		}
 	},
 	"$defs": {
@@ -97,7 +102,65 @@
 					"Angle ML",
 					"Angle AP"
 					]
-
+		},
+		"lasies": {
+			"type": "object",
+			"properties": {
+				"Name": {
+					"type": "string"
+					},
+				"Targeted Structure": {
+					"type": "string"
+					},
+				"CCF coordinate ML": {
+					"type": "number"
+					},
+				"CCF coordinate AP": {
+					"type": "number"
+					},
+				"CCF coordinate DV": {
+					"type": "number"
+					},
+				"MRI coordinate ML": {
+					"type": "number"
+					},
+				"MRI coordinate AP": {
+					"type": "number"
+					},
+				"MRI coordinate DV": {
+					"type": "number"
+					},
+				"Coordinate ML": {
+					"type": "number"
+					},
+				"Coordinate AP": {
+					"type": "number"
+					},
+				"Coordinate depth": {
+					"type": "number"
+					},
+				"Angle ML": {
+					"type": "number"
+					},
+				"Angle AP": {
+					"type": "number"
+					}
+				},
+			"required": [
+					"Name",
+					"Targeted structure",
+					"CCF coordinate ML",
+					"CCF coordinate AP",
+					"CCF coordinate DV",
+					"MRI coordinate ML",
+					"MRI coordinate AP",
+					"MRI coordinate DV",
+					"Coordinate ML",
+					"Coordinate AP",
+					"Coordinate depth",
+					"Angle ML",
+					"Angle AP"
+					]
 		},
 
 	},	
