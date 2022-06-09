@@ -51,61 +51,74 @@
             },
             "then": {
                 "properties": {
-                    "Injection Coodinates ML": {"type": "number"},
-                    "Injection Coordinates AP": {"type": "number"},
-                    "Injection Coordinates depth": {"type": "number"},
-                    "Injection Angle": {"type": "number"},
-                    "Injection Virus": {"type": "string"},
-                    "Injection Type": {
-                        "type": "string",
-                        "enum": ["Iontophoresis","Nanoject"]
-                    },
-                    "Injection Duration": {
-                        "type": "string",
-                        "format": "time"
-                    }
-                },
-                "allof": [
-                    {
-                        "if": {
-                            "properties": {"Injection Type": {"const": "Iontophoresis"} }   
+                    "Injections": {
+                        "type": "array",
+                        "items": { "$ref": "#/$defs/injecties" },
+                        "uniqueitems": true
                         },
-                        "then": {
-                            "properties": {
-                                "Injection Current (uA)": {"type": "number"},
-                                "Alternating Current": {"type": "string"}
-                            },
-                            "required": [
-                                "Injection Current (uA)",
-                                "Alternating Current"
-                            ]
-                        }
                     },
-                    {
-                        "if":{
-                            "properties": {"Injection Type": {"const": "Nanoject"} }
-                        },
-                        "then": {
-                            "properties": {
-                                "Injection Volume (nL)": {"type": "number"}
+                "required": ["Injections"],
+                "$defs": {
+                    "injecties": {
+                        "type": "object",
+                        "properties": {
+                            "Injection Coodinates ML": {"type": "number"},
+                            "Injection Coordinates AP": {"type": "number"},
+                            "Injection Coordinates depth": {"type": "number"},
+                            "Injection Angle": {"type": "number"},
+                            "Injection Virus": {"type": "string"},
+                            "Injection Type": {
+                                "type": "string",
+                                "enum": ["Iontophoresis","Nanoject"]
                             },
-                            "required": [
-                                "Injection Volume (nL)"
+                            "Injection Duration": {
+                                "type": "string",
+                                "format": "time"
+                            }
+                        },
+                        "allof": [
+                            {
+                                "if": {
+                                    "properties": {"Injection Type": {"const": "Iontophoresis"} }   
+                                },
+                                "then": {
+                                    "properties": {
+                                        "Injection Current (uA)": {"type": "number"},
+                                        "Alternating Current": {"type": "string"}
+                                    },
+                                    "required": [
+                                        "Injection Current (uA)",
+                                        "Alternating Current"
+                                    ]
+                                }
+                            },
+                            {
+                                "if":{
+                                    "properties": {"Injection Type": {"const": "Nanoject"} }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "Injection Volume (nL)": {"type": "number"}
+                                    },
+                                    "required": [
+                                        "Injection Volume (nL)"
+                                    ]
+                                }
+                            }
+                        ],
+                        "required": [
+                            "Injection Coordinates ML",
+                            "Injection Coordinates AP",
+                            "Injection Coordinates depth",
+                            "Injection Construct",
+                            "Injection Type",
+                            "Injection Duration"
                             ]
-                        }
                     }
-                ],
-                "required": [
-                    "Injection Coordinates ML",
-                    "Injection Coordinates AP",
-                    "Injection Coordinates depth",
-                    "Injection Construct",
-                    "Injection Type",
-                    "Injection Duration"
-                    ]
+                }
             }
         }
-        ],
+    ],
     "required": [
         "Specimen ID",
         "Procedure Date",
