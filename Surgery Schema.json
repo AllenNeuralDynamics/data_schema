@@ -55,7 +55,7 @@
                         "type": "array",
                         "items": { "$ref": "#/$defs/injecties" },
                         "uniqueitems": true
-                        },
+                        }
                     },
                 "required": ["Injections"],
                 "$defs": {
