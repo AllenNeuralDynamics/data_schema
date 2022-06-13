@@ -22,7 +22,6 @@
             "enum": ["Head Plate Craniotomy", "Injection"]
         }
     },
-
     "allof": [
         {
             "if": {
@@ -128,4 +127,3 @@
         "Surgery"
         ]
 }
-
