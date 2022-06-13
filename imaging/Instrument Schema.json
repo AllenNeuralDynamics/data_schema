@@ -49,16 +49,14 @@
 	    "type": "string"
 	  },
 	  "Illumination Wavelength (nm)": {
-	    "type": "int"
+	    "type": "integer"
 	  },
 	  "Detection Wavelength (nm)": {
-	    "type": "int"
+	    "type": "integer"
 	  }
 	  },
 	  "required": [
 	    "Microscope Type",
-	    "Microscope Manufacturer",
-	    "Microscope Model",
 	    "Microscope Manufacturer",
 	    "Microscope Model",
 	    "Microscope Serial Number",
