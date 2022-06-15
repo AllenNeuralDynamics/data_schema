@@ -8,32 +8,52 @@
     "Stimulus Protocol ID": 101,
     "Rig ID": 2.2,
     "Session end time": "2022-04-01T11:12:53+00:00",
-    "Probe A": true,
-    "Probe B": true,
-    
-    "Probe A targeted structure": "VISp",
-    "Probe A CCF coordinate ML": -1.2,
-    "Probe A CCF coordinate AP": 2.0,
-    "Probe A CCF coordinate DV": 0.7,
-    "Probe A MRI coordinate ML": -17.3,
-    "Probe A MRI coordinate AP": 23,
-    "Probe A MRI coordinate DV": 45.2,
-    "Probe A coordinate ML": 72.3,
-    "Probe A coordinate AP": 7.0,
-    "Probe A coordinate depth": 2.1,
-    "Probe A angle ML": -12.1,
-    "Probe A angle AP": 32.2,
-    
-    "Probe B targeted structure": "LP",
-    "Probe B CCF coordinate ML": -4.2,
-    "Probe B CCF coordinate AP": 12.8,
-    "Probe B CCF coordinate DV": 1.8,
-    "Probe B MRI coordinate ML": 47.8,
-    "Probe B MRI coordinate AP": 138,
-    "Probe B MRI coordinate DV": 22.2,
-    "Probe B coordinate ML": 53.4,
-    "Probe B coordinate AP": 11.0,
-    "Probe B coordinate depth": 1.3,
-    "Probe B angle ML": 22.3,
-    "Probe B angle AP": -7.1
+    "Probes": [
+        {
+            "Name": "Probe A",
+            "Targeted Structure": "VISp",
+            "CCF coordinate ML": -1.2,
+            "CCF coordinate AP": 2.0,
+            "CCF coordinate DV": 0.7,
+            "MRI coordinate ML": -17.3,
+            "MRI coordinate AP": 23,
+            "MRI coordinate DV": 45.2,
+            "Coordinate ML": 72.3,
+            "Coordinate AP": 7.0,
+            "Coordinate depth": 2.1,
+            "Angle ML": -12.1,
+            "Angle AP": 32.2
+        },
+        {
+            "Name": "Probe B",
+            "CCF coordinate ML": -4.2,
+            "CCF coordinate AP": 12.8,
+            "CCF coordinate DV": 1.8,
+            "MRI coordinate ML": 47.8,
+            "MRI coordinate AP": 138,
+            "MRI coordinate DV": 22.2,
+            "Coordinate ML": 53.4,
+            "Coordinate AP": 11.0,
+            "Coordinate depth": 1.3,
+            "Angle ML": 22.3,
+            "Angle AP": -7.1
+        }
+    ],
+    "Lasers": [
+        {
+            "Name": "Laser A",
+            "Targeted Structure": "VISp",
+            "CCF coordinate ML": -1.2,
+            "CCF coordinate AP": 2.0,
+            "CCF coordinate DV": 0.7,
+            "MRI coordinate ML": -17.3,
+            "MRI coordinate AP": 23,
+            "MRI coordinate DV": 45.2,
+            "Coordinate ML": 72.3,
+            "Coordinate AP": 7.0,
+            "Coordinate depth": 2.1,
+            "Angle ML": -12.1,
+            "Angle AP": 32.2
+        }
+    ]
 }
