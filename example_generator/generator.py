@@ -1,4 +1,5 @@
 import os
+import glob
 import ntpath
 import argparse
 import json
@@ -135,13 +136,6 @@ def json_contents_from_filepath(filepath):
     return json_contents
 
 
-def json_files_in_dir(file_dir):
-    for subdir, dirs, files in os.walk(file_dir):
-        for file in files:
-            if file.endswith('.json'):
-                yield os.path.join(subdir, file)
-
-
 def write_json_to_file(json_contents, filepath):
     """
     Writes json contents to a file
@@ -174,10 +168,11 @@ def write_json_iter_to_files(schema_location,
         faker = FakeJsonGenerator(rng_seed)
     if (os.path.isfile(schema_location) and
             str(schema_location).endswith(".json")):
-        json_iter = iter([schema_location])
+        json_files = glob.glob(schema_location)
     else:
-        json_iter = json_files_in_dir(schema_location)
-    for json_file in json_iter:
+        glob_path = os.path.join(schema_location, "**", "*.json")
+        json_files = glob.glob(glob_path, recursive=True)
+    for json_file in json_files:
         file_name = ntpath.basename(json_file)
         json_schema = json_contents_from_filepath(json_file)
         for _ in range(num_of_examples):

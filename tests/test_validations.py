@@ -1,4 +1,5 @@
 import os
+import glob
 import unittest
 import logging
 from pathlib import Path
@@ -44,17 +45,14 @@ class TestValidSchemas(unittest.TestCase):
         Walks through the schemas directory and validates each of the json
         files
         """
-        for subdir, dirs, files in os.walk(SCHEMAS_DIR):
-            for file in files:
-                if file.endswith('.json'):
-                    try:
-                        filepath = os.path.join(subdir, file)
-                        json_schema = (
-                            json_contents_from_filepath(filepath))
-                        cls = validators.validator_for(json_schema)
-                        cls.check_schema(json_schema)
-                    finally:
-                        logging.debug(f"Validating file: {file}")
+        glob_path = os.path.join(SCHEMAS_DIR, "**", "*.json")
+        for json_file in glob.glob(glob_path, recursive=True):
+            try:
+                json_schema = json_contents_from_filepath(json_file)
+                cls = validators.validator_for(json_schema)
+                cls.check_schema(json_schema)
+            finally:
+                logging.debug(f"Validating file: {json_file}")
 
     def test_examples(self):
         """
@@ -77,17 +75,15 @@ class TestGenerators(unittest.TestCase):
         Walks through the schema directory, generates 3 random examples,
         and validates the examples against the original schema
         """
-        for subdir, dirs, files in os.walk(SCHEMAS_DIR):
-            for file in files:
-                if file.endswith('.json'):
-                    try:
-                        filepath = os.path.join(subdir, file)
-                        schema = json_contents_from_filepath(filepath)
-                        for _ in range(3):
-                            fake_example = self.my_faker.random_example(schema)
-                            validate(instance=fake_example, schema=schema)
-                    finally:
-                        logging.debug(f"Validating file: {file}")
+        glob_path = os.path.join(SCHEMAS_DIR, "**", "*.json")
+        for json_file in glob.glob(glob_path, recursive=True):
+            try:
+                json_schema = json_contents_from_filepath(json_file)
+                for _ in range(3):
+                    fake_example = self.my_faker.random_example(json_schema)
+                    validate(instance=fake_example, schema=json_schema)
+            finally:
+                logging.debug(f"Processing file: {json_file}")
 
 
 if __name__ == '__main__':
