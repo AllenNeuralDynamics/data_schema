@@ -177,7 +177,7 @@ def write_json_iter_to_files(schema_location,
         json_schema = json_contents_from_filepath(json_file)
         for _ in range(num_of_examples):
             random_example = faker.random_example(schema=json_schema)
-            random_example_string = json.dumps(json_schema)
+            random_example_string = json.dumps(random_example)
             hash_str = hashlib.md5(random_example_string.encode()).hexdigest()
             out_file_name = (file_name
                              .replace('.json', '-' + hash_str + '.json'))
@@ -187,7 +187,7 @@ def write_json_iter_to_files(schema_location,
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('-n', '--num', default=1)
+    parser.add_argument('-n', '--num', default=1, type=int)
     parser.add_argument('-s', '--schemas', required=True)
     parser.add_argument('-o', '--output', required=True)
     parser.add_argument('-r', '--rseed', required=False)
