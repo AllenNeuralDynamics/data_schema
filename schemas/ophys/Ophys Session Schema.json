@@ -1,0 +1,151 @@
+{
+	"type": "object",
+	"properties":{
+		"Institution": {
+			"type": "string",
+			"enum": ["AIND","AIBS"]
+		},
+		"Experimenter first name": {
+			"type": "string"
+		},
+		"Experimenter last name": {
+			"type": "string"
+		},
+		"Session start time": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Specimen ID": {
+			"type": "integer"
+		},
+		"Project ID": {
+			"type": "integer"
+		},
+		"Session Type": {
+			"type": "string",
+			"enum": ["Test", "Foraging A", "Spontaneous"]
+		},
+		"Stimulus Protocol ID": {
+			"type": "integer"
+		},
+		"Rig ID": {
+			"type": "number"
+		},
+		"Session end time": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Photometry Probes": {
+			"type": "array",
+			"items": {"$ref": "#/$defs/photprobies"},
+			"uniqueItems": true
+		},
+		"Lasers": {
+			"type": "array",
+			"items": {"$ref": "#/$defs/lasies"},
+			"uniqueItems": true
+		}
+
+	},
+	"$defs": {
+		"photprobies": {
+			"type": "object",
+			"properties": {
+				"Name": {
+					"type": "string",
+					"enum":[
+						"Photometry Probe A", 
+						"Photometry Probe B",
+						"Photometry Probe C",
+						"Photometry Probe D",
+						"Photometry Probe E",
+						"Photometry Probe F"
+					]
+				},
+				"Targeted Structure": {
+					"type": "string"
+				},
+				"Coordinate ML": {
+					"type": "number"
+				},
+				"Coordinate AP": {
+					"type": "number"
+				},
+				"Coordinate depth": {
+					"type": "number"
+				},
+				"Angle ML": {
+					"type": "number"
+				},
+				"Angle AP": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"Name",
+				"Targeted Structure",
+				"Coordinate ML",
+				"Coordinate AP",
+				"Coordinate depth",
+				"Angle ML",
+				"Angle AP"
+			]
+		},
+		"lasies": {
+			"type": "object",
+			"properties": {
+				"Name": {
+					"type": "string",
+					"enum": [
+						"Laser A",
+						"Laser B",
+						"Laser C",
+						"Laser D",
+						"Laser E",
+						"Laser F"
+					]
+				},
+				"Targeted Structure": {
+					"type": "string"
+				},
+				"Coordinate ML": {
+					"type": "number"
+				},
+				"Coordinate AP": {
+					"type": "number"
+				},
+				"Coordinate depth": {
+					"type": "number"
+				},
+				"Angle ML": {
+					"type": "number"
+				},
+				"Angle AP": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"Name",
+				"Targeted Structure",
+				"Coordinate ML",
+				"Coordinate AP",
+				"Coordinate depth",
+				"Angle ML",
+				"Angle AP"
+			]
+		}
+	},
+	"required": [
+		"Institution",
+		"Experimenter first name",
+		"Experimenter last name",
+		"Session start time",
+		"Specimen ID",
+		"Project ID",
+		"Session Type",
+		"Rig ID",
+		"Session end time",
+		"Photometry Probes",
+		"Lasers"
+	]
+}

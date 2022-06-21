@@ -1,0 +1,189 @@
+{
+	"type": "object",
+	"properties": {
+		"Devices Used": {
+			"type": "string",
+			"enum": [
+				"Photometry Probe A",
+				"Photometry Probe B",
+				"Photometry Probe C",
+				"Eye Camera",
+				"Face Camera",
+				"Body Camera",
+				"Laser A",
+				"Laser B",
+				"Laser C",
+				"Stimulus device",
+				"Behavior device"
+			]
+		}
+	},
+	"required": ["Devices Used"],
+	"allOf": [
+		{
+			"if": {
+				"properties": {"Devices Used": {"const": "Photometry Probe A"} }
+			},
+			"then": {
+				"properties": {
+					"Photometry Probe A Manufacturer": {"type": "string"},
+					"Photometry Probe A Model": {"type": "string"},
+					"Photometry Probe A Serial Number": {"type": "string"}
+				},
+				"required": ["Photometry Probe A Manufacturer", "Photometry Probe A Model", "Photometry Probe A Serial Number"]
+			}
+		},
+		{
+			"if": {
+				"properties": {"Devices Used": {"const": "Photometry Probe B"} }
+			},
+			"then": {
+				"properties": {
+					"Photometry Probe B Manufacturer": {"type": "string"},
+					"Photometry Probe B Model": {"type": "string"},
+					"Photometry Probe B Serial Number": {"type": "string"}
+				},
+				"required": ["Photometry Probe B Manufacturer", "Photometry Probe B Model", "Photometry Probe B Serial Number"]
+			}
+		},
+		{
+			"if": {
+				"properties": {"Devices Used": {"const": "Photometry Probe C"} }
+			},
+			"then": {
+				"properties": {
+					"Photometry Probe C Manufacturer": {"type": "string"},
+					"Photometry Probe C Model": {"type": "string"},
+					"Photometry Probe C Serial Number": {"type": "string"}
+				},
+				"required": ["Photometry Probe C Manufacturer", "Photometry Probe C Model", "Photometry Probe C Serial Number"]
+			}
+		},
+		{
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Eye Camera" } }
+        		},
+        	"then": {
+        		"properties": {
+        			"Eye Camera Model": {"type": "string"},
+        			"Eye Camera Serial Number": {"type": "string"},
+        			"Eye Camera Recording Software and version": {"type": "string"},
+        			"Eye Camera Coordinates X": {"type": "number"},
+        			"Eye Camera Coordinates Y": {"type": "number"},
+        			"Eye Camera Angle": {"type": "number"}
+        			},
+        		"required": [
+        			"Eye Camera Model",
+        			"Eye Camera Serial Number",
+        			"Eye Camera Recording Software and version",
+        			"Eye Camera Coordinates X",
+        			"Eye Camera Coordinates Y",
+        			"Eye Camera Angle"
+        			]
+        		}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Face Camera" } }
+        		},
+        	"then": {
+        		"properties": {
+        			"Face Camera Model": {"type": "string"},
+        			"Face Camera Serial Number": {"type": "string"},
+        			"Face Camera Recording Software and version": {"type": "string"},
+        			"Face Camera Coordinates X": {"type": "number"},
+        			"Face Camera Coordinates Y": {"type": "number"},
+        			"Face Camera Angle": {"type": "number"}
+        		},
+        		"required": [
+        			"Face Camera Model",
+        			"Face Camera Serial Number",
+        			"Face Camera Recording Software and version",
+        			"Face Camera Coordinates X",
+        			"Face Camera Coordinates Y",
+        			"Face Camera Angle"
+        		]
+        	}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Body Camera" } }
+        		},
+        	"then": {
+        		"properties": {
+        			"Body Camera Model": {"type": "string"},
+        			"Body Camera Serial Number": {"type": "string"},
+        			"Body Camera Recording Software and version": {"type": "string"},
+        			"Body Camera Coordinates X": {"type": "number"},
+        			"Body Camera Coordinates Y": {"type": "number"},
+        			"Body Camera Angle": {"type": "number"}
+        		},
+        		"required": [
+        			"Body Camera Model",
+        			"Body Camera Serial Number",
+        			"Body Camera Recording Software and version",
+        			"Body Camera Coordinates X",
+        			"Body Camera Coordinates Y",
+        			"Body Camera Angle"
+        		]
+        	}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Laser A"} }
+        		},
+        	"then": {
+        		"properties": {
+        			"Laser A Manufacturer": {"type": "string"},
+        			"Laser A Model": {"type": "string"},
+        			"Laser A Serial Number": {"type": "string"},
+        			"Laser A Wavelength (nm)": {"type": "integer"}
+        		},
+        		"required": [
+        			"Laser A Manufacturer",
+        			"Laser A Model",
+        			"Laser A Serial Number",
+        			"Laser A Wavelength (nm)"
+        		]
+        	}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Laser B"} }
+        		},
+        	"then": {
+        		"properties": {
+        			"Laser B Manufacturer": {"type": "string"},
+        			"Laser B Model": {"type": "string"},
+        			"Laser B Serial Number": {"type": "string"},
+        			"Laser B Wavelength (nm)": {"type": "integer"}
+        		},
+        		"required": [
+        			"Laser B Manufacturer",
+        			"Laser B Model",
+        			"Laser B Serial Number",
+        			"Laser B Wavelength (nm)"
+        		]
+        	}
+	    },
+	    {
+        	"if": {
+        		"properties": {"Devices Used": {"const": "Laser C"} }
+        		},
+        	"then": {
+        		"properties": {
+        			"Laser C Manufacturer": {"type": "string"},
+        			"Laser C Model": {"type": "string"},
+        			"Laser C Serial Number": {"type": "string"},
+        			"Laser C Wavelength (nm)": {"type": "integer"}
+        		},
+        		"required": [
+        			"Laser C Manufacturer",
+        			"Laser C Model",
+        			"Laser C Serial Number",
+        			"Laser C Wavelength (nm)"
+        		]
+        	}
+	    }
+	]
+}
