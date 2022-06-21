@@ -7,13 +7,25 @@ A repository for acquisition metadata schemata. The formats follow the standards
 * Tested against Python 3.8
 * Python packages are listed in `requirements.txt`
 
-### Validating the schemas
-
+### Installing
 * If using conda, run:
  ```
 conda create -n data-schema python=3.8
 conda activate data-schema
 pip install -r requirements.txt
+```
+
+### Creating fake data sets
+* Run
+```
+python example_generator/generator.py -s schemas_directory -o output_directory
+```
+* Optionally, set `-n 10` to create 10 examples for each schema. Change it to any number desired.
+
+### Validating the schemas
+
+* Run
+ ```
 python -m unittest
 ```
 * Errors will be thrown if a schema is invalid

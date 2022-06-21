@@ -19,7 +19,7 @@
 			}
 	},
 	"required": ["Devices Used"],
-	"allof": [
+	"allOf": [
 	    {
         	"if": {
         		"properties": {"Devices Used": {"const": "Neuropixels Probe A" } }

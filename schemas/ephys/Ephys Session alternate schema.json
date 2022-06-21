@@ -34,12 +34,12 @@
 	"Probes": {
 		"type": "array",
 		"items": { "$ref": "#/$defs/probies" },
-		"uniqueitems": true
+		"uniqueItems": true
 		},
 	"Lasers": {
 		"type": "array",
 		"items": {"$ref": "#/$defs/lasies"},
-		"uniqueitems": true
+		"uniqueItems": true
 		}
 	},
 	"$defs": {
@@ -88,7 +88,7 @@
 				},
 			"required": [
 					"Name",
-					"Targeted structure",
+					"Targeted Structure",
 					"CCF coordinate ML",
 					"CCF coordinate AP",
 					"CCF coordinate DV",
@@ -147,7 +147,7 @@
 				},
 			"required": [
 					"Name",
-					"Targeted structure",
+					"Targeted Structure",
 					"CCF coordinate ML",
 					"CCF coordinate AP",
 					"CCF coordinate DV",
