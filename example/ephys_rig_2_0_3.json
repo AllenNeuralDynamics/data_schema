@@ -3,45 +3,46 @@
     "Devices": {
     	"Probes": [
           {
-            "Probe name": "Probe A",
-            "Probe type": "NP1.0",
-            "Probe serial number": "34sd2"
+            "Name": "Probe A",
+            "Type": "NP1.0",
+            "Serial number": "34sd2"
           },
           {
-            "Probe name": "Probe B",
-            "Probe type": "NP1.0",
-            "Probe serial number": "23sd2"
+            "Name": "Probe B",
+            "Type": "NP1.0",
+            "Serial number": "23sd2"
           }
         ],
         "Lasers": [
           {
-            "Laser name": "Laser A",
-            "Laser manufacturer": "Sears",
-            "Laser model": "Laser5000",
-            "Laser serial number": "pr425"
+            "Name": "Laser A",
+            "Manufacturer": "Sears",
+            "Model": "Laser5000",
+            "Serial number": "pr425"
           }        
         ],
         "Cameras": [
           {
-            "Camera name": "Body Camera",
-            "Camera manufacturer": "Kodak",
-            "Camera model": "Kodachrome",
-            "Camera serial number": "vme93s",
-            "Camera position x": 22.3,
-            "Camera position y": 66.1,
-            "Camera angle (deg)": 33
+            "Name": "Body Camera",
+            "Manufacturer": "Kodak",
+            "Model": "Kodachrome",
+            "Serial number": "vme93s",
+            "Position x": 22.3,
+            "Position y": 66.1,
+            "Angle (deg)": 33
           }
         ],
           "Visual Monitor": [
             {
-              "Monitor width (pixels)": 1920,
-              "Monitor height (pixels)": 1024,
-              "Monitor distance (cm)": 15,
-              "Monitor position x": 40,
-              "Monitor position y": 0,
-              "Monitor angle (deg)": 22,
-              "Monitor contrast (percent)": 50,
-              "Monitor brightness": 30
+              "Refresh rate (Hz)": 60,
+              "Width (pixels)": 1920,
+              "Height (pixels)": 1024,
+              "Distance (cm)": 15,
+              "Position x": 40,
+              "Position y": 0,
+              "Angle (deg)": 22,
+              "Contrast (percent)": 50,
+              "Brightness": 30
             }
         ]
     }

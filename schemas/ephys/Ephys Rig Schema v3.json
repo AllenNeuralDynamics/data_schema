@@ -39,134 +39,138 @@
 		"lasies": {
 			"type": "object",
 			"properties": {
-				"Laser name": {
+				"Name": {
 					"type": "string",
 					"enum": ["Laser A", "Laser B"]
 				},
-				"Laser manufacturer": {
+				"Manufacturer": {
 					"type": "string"
 				},
-				"Laser model": {
+				"Model": {
 					"type": "string"
 				},
-				"Laser serial number": {
+				"Serial number": {
 					"type": "string"
 				},
-				"Laser wavelength (nm)": {
+				"Wavelength (nm)": {
 					"type": "integer"
 				}
 			},
 			"required": [
-				"Laser name",
-				"Laser manufacturer",
-				"Laser model",
-				"Laser serial number",
+				"Name",
+				"Manufacturer",
+				"Model",
+				"Serial number",
 			]
 		},
 		"camies": {
 			"type": "object",
 			"properties": {
-				"Camera name": {
+				"Name": {
 					"type": "string",
 					"enum": ["Body Camera", "Eye Camera", "Face Camera"]
 				},
-				"Camera manufacturer": {
+				"Manufacturer": {
 					"type": "string"
 				},
-				"Camera model": {
+				"Model": {
 					"type": "string"
 				},
-				"Camera serial number": {
+				"Serial number": {
 					"type": "string"
 				},
-				"Camera position x": {
+				"Position x": {
 					"type": "number"
 				},
-				"Camera position y": {
+				"Position y": {
 					"type": "number"
 				},
-				"Camera angle (deg)": {
+				"Angle (deg)": {
 					"type": "number"
 				} ,
-				"Camera recording software": {
+				"Recording software": {
 					"type": "string"
 				},
-				"Camera recording software version": {
+				"Recording software version": {
 					"type": "number"
 				}
 			},
 			"required": [
-				"Camera name",
-				"Camera manufacturer",
-				"Camera model",
-				"Camera serial number",
-				"Camera position x",
-				"Camera position y",
-				"Camera angle (deg)"
+				"Name",
+				"Manufacturer",
+				"Model",
+				"Serial number",
+				"Position x",
+				"Position y",
+				"Angle (deg)"
 			]	
 		},
 		"probies": {
 			"type": "object",
 			"properties": {
-				"Probe name": {
+				"Name": {
 					"type": "string",
 					"enum": ["Probe A", "Probe B", "Probe C", "Probe D", "Probe E", "Probe F", "Probe G", "Probe H", "Probe I", "Probe J"]
 				},
-				"Probe type": {
+				"Type": {
 					"type": "string"
 				},
-				"Probe serial number": {
+				"Serial number": {
 					"type": "string"
 				}
 			},
-			"required": ["Probe name", "Probe type", "Probe serial number"]
+			"required": ["Name", "Type", "Serial number"]
 		},
 		"monities": {
 			"type": "object",
 			"properties": {
-				"Monitor width (pixels)": {
+				"Refresh rate (Hz)": {
 					"type": "integer"
 				},
-				"Montior height (pixels)": {
+				"Width (pixels)": {
 					"type": "integer"
 				},
-				"Monitor distance (cm)": {
-					"type": "number"
-				},
-				"Monitor position x": {
-					"type": "number"
-				},
-				"Monitor position y": {
-					"type": "number"
-				},
-				"Monitor angle (deg)": {
-					"type": "number"
-				},
-				"Monitor contrast (percent)": {
+				"Height (pixels)": {
 					"type": "integer"
 				},
-				"Monitor brightness": {
+				"Distance (cm)": {
+					"type": "number"
+				},
+				"Position x": {
+					"type": "number"
+				},
+				"Position y": {
+					"type": "number"
+				},
+				"Angle (deg)": {
+					"type": "number"
+				},
+				"Contrast (percent)": {
+					"type": "integer"
+				},
+				"Brightness": {
 					"type": "integer"
 				}
 			},
 			"required": [
-				"Monitor width (pixels)",
-				"Monitor height (pixels)",
-				"Monitor distance (cm)",
-				"Monitor position x",
-				"Monitor position y",
-				"Monitor angle (deg)",
-				"Monitor contrast (percent)",
-				"Monitor brightness"
+				"Refresh rate (Hz)",
+				"Width (pixels)",
+				"Height (pixels)",
+				"Distance (cm)",
+				"Position x",
+				"Position y",
+				"Angle (deg)",
+				"Contrast (percent)",
+				"Brightness"
 			]
 		},
 		"diskies": {
 			"type": "object",
 			"properties": {
-				"Disk radius (cm)": {
+				"Radius (cm)": {
 					"type": "number"
 				},
-				"Disk surface": {
+				"Surface": {
 					"type": "string",
 					"enum": ["none", "foam"]
 				},
@@ -175,7 +179,7 @@
 					"format": "date-time"
 				}
 			},
-			"required": ["Disk radius (cm)"]
+			"required": ["Radius (cm)"]
 		}		
 	}
 }
