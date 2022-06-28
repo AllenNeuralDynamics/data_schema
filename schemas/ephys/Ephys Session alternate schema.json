@@ -1,6 +1,10 @@
 {
 	"type": "object",
 	"properties": {
+	"Institution": {
+      	"type": "string",
+        "enum": ["AIND", "MSP"]
+    	},
 	"Experimenter first name": {
 		"type": "string"
 		},
@@ -25,7 +29,7 @@
 		"type": "integer"
 		},
 	"Rig ID": {
-		"type": "number"
+		"type": "string"
 		},
 	"Session end time": {
 		"type": "string", 
@@ -108,6 +112,12 @@
 				"Name": {
 					"type": "string"
 					},
+				"Wavelength (nm)": {
+					"type": "integer"
+				},
+				"Power": {
+					"type": "number"
+				},
 				"Targeted Structure": {
 					"type": "string"
 					},
@@ -147,6 +157,8 @@
 				},
 			"required": [
 					"Name",
+					"Wavelength (nm)",
+					"Power",
 					"Targeted Structure",
 					"CCF coordinate ML",
 					"CCF coordinate AP",
@@ -164,6 +176,7 @@
 
 	},	
 	"required": [
+		"Institution",
 		"Experimenter first name", 
 		"Experimenter last name",
 		"Session start time",

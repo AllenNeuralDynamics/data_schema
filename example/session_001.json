@@ -1,4 +1,5 @@
 {
+    "Institution": "AIND",
     "Experimenter first name": "Jane",
     "Experimenter last name": "Doe",
     "Session start time": "2022-04-01T10:34:17+00:00",
@@ -6,7 +7,7 @@
     "Project ID": 7,
     "Session Type": "Foraging A",
     "Stimulus Protocol ID": 101,
-    "Rig ID": 2.2,
+    "Rig ID": "2.0.3",
     "Session end time": "2022-04-01T11:12:53+00:00",
     "Probes": [
         {
@@ -26,6 +27,7 @@
         },
         {
             "Name": "Probe B",
+            "Targeted Structure": "VISl",
             "CCF coordinate ML": -4.2,
             "CCF coordinate AP": 12.8,
             "CCF coordinate DV": 1.8,
@@ -42,6 +44,8 @@
     "Lasers": [
         {
             "Name": "Laser A",
+            "Wavelength (nm)": 920,
+            "Power": 2.0,
             "Targeted Structure": "VISp",
             "CCF coordinate ML": -1.2,
             "CCF coordinate AP": 2.0,
