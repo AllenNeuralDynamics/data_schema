@@ -1,0 +1,212 @@
+{
+	"type": "object",
+	"properties": {
+		"Rig ID": {
+			"type": "string"
+		},
+		"Neuropixels Probes": {
+			"type": "boolean"
+		},
+		"Video Cameras": {
+			"type": "boolean"
+		},
+		"Stimulation Lasers": {
+			"type": "boolean"
+		},
+		"Running Disk": {
+			"type": "boolean"
+		},
+		"Behavior Apparatus": {
+			"type": "boolean"
+		},
+		"Visual Monitor": {
+			"type": "boolean"
+		}
+	},
+	"required": [
+		"Rig ID",
+		"Neuropixels Probes",
+		"Video Cameras",
+		"Stimulation Lasers"
+	],
+	"anyOf": [
+		{
+			"if": {
+				"properties": {"Visual Monitor": {"const": true} }
+			},
+			"then": {
+				"properties": {
+					"Monitor width (pixels)": {
+						"type": "integer"
+					},
+					"Montior height (pixels)": {
+						"type": "integer"
+					},
+					"Monitor distance (cm)": {
+						"type": "number"
+					},
+					"Monitor position x": {
+						"type": "number"
+					},
+					"Monitor position y": {
+						"type": "number"
+					},
+					"Monitor angle (deg)": {
+						"type": "number"
+					},
+					"Monitor contrast (percent)": {
+						"type": "integer"
+					},
+					"Monitor brightness": {
+						"type": "integer"
+					}
+				},
+				"required": [
+					"Monitor width (pixels)",
+					"Monitor height (pixels)",
+					"Monitor distance (cm)",
+					"Monitor position x",
+					"Monitor position y",
+					"Monitor angle (deg)",
+					"Monitor contrast (percent)",
+					"Monitor brightness"
+				]
+			}
+		},
+		{
+			"if": {
+				"properties": {"Neuropixels Probes": {"const": true } }
+			},
+			"then": {
+				"properties": {
+					"Probes": {
+						"type": "array",
+						"items": { "$ref": "#/$defs/probies" },
+						"uniqueItems": true
+					}
+				},
+				"required": ["Probes"],
+				"$defs": {
+					"probies": {
+						"type": "object",
+						"properties": {
+							"Probe name": {
+								"type": "string",
+								"enum": ["Probe A", "Probe B", "Probe C", "Probe D", "Probe E", "Probe F", "Probe G", "Probe H", "Probe I", "Probe J"]
+							},
+							"Probe type": {
+								"type": "string"
+							},
+							"Probe serial number": {
+								"type": "string"
+							}
+						},
+						"required": ["Probe name", "Probe type", "Probe serial number"]
+					}
+				}
+			}
+		},
+		{
+			"if": {
+				"properties": {"Video Cameras": {"const": true} }
+			},
+			"then": {
+				"properties": {
+					"Cameras": {
+						"type": "array",
+						"items": {"$ref": "#/$defs/camies" },
+						"uniqueItems": true
+					}
+				},
+				"required": ["Cameras"],
+				"$defs": {
+					"camies": {
+						"type": "object",
+						"properties": {
+							"Camera name": {
+								"type": "string",
+								"enum": ["Body Camera", "Eye Camera", "Face Camera"]
+							},
+							"Camera manufacturer": {
+								"type": "string"
+							},
+							"Camera model": {
+								"type": "string"
+							},
+							"Camera serial number": {
+								"type": "string"
+							},
+							"Camera position x": {
+								"type": "number"
+							},
+							"Camera position y": {
+								"type": "number"
+							},
+							"Camera angle (deg)": {
+								"type": "number"
+							} ,
+							"Camera recording software": {
+								"type": "string"
+							},
+							"Camera recording software version": {
+								"type": "number"
+							}
+						},
+						"required": [
+							"Camera name",
+							"Camera manufacturer",
+							"Camera model",
+							"Camera serial number",
+							"Camera position x",
+							"Camera position y",
+							"Camera angle (deg)"
+						]	
+					}
+				}
+			},
+		},
+		{
+			"if": {
+				"properties": {"Stimulation Lasers": {"const": true} }
+			},
+			"then": {
+				"properties": {
+					"Lasers": {
+						"type": "array",
+						"items": {"$ref": "#/$defs/lasies" },
+						"uniqueItems": true
+					}
+				},
+				"required": ["Lasers"],
+				"$defs": {
+					"lasies": {
+						"type": "object",
+						"properties": {
+							"Laser name": {
+								"type": "string"
+							},
+							"Laser manufacturer": {
+								"type": "string"
+							},
+							"Laser model": {
+								"type": "string"
+							},
+							"Laser serial number": {
+								"type": "string"
+							},
+							"Laser wavelength (nm)": {
+								"type": "integer"
+							}
+						},
+						"required": [
+							"Laser name",
+							"Laser manufacturer",
+							"Laser model",
+							"Laser serial number",
+						]
+					}
+				}
+			}
+		}
+	]
+}
