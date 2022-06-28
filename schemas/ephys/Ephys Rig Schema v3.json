@@ -1,0 +1,181 @@
+{
+	"type": "object",
+	"properties": {
+		"Rig ID": {
+			"type": "string"
+		},
+		"Devices": {
+			"type": "object",
+			"properties": {
+				"Probes": {
+					"type": "array",
+					"items": { "$ref": "#/$defs/probies" },
+					"uniqueItems": true
+				},
+				"Cameras": {
+					"type": "array",
+					"items": {"$ref": "#/$defs/camies" },
+					"uniqueItems": true
+				},
+				"Lasers": {
+					"type": "array",
+					"items": {"$ref": "#/$defs/lasies" },
+					"uniqueItems": true
+				},
+				"Visual Monitor": {
+					"type": "array",
+					"items": {"$ref": "#/$defs/monities"},
+					"uniqueItems": true
+				},
+				"Running Disk": {
+					"type": "array",
+					"items": {"$ref": "#/$defs/diskies"},
+					"maxItems": 1
+				}
+			}
+		}
+	},
+	"$defs": {
+		"lasies": {
+			"type": "object",
+			"properties": {
+				"Laser name": {
+					"type": "string",
+					"enum": ["Laser A", "Laser B"]
+				},
+				"Laser manufacturer": {
+					"type": "string"
+				},
+				"Laser model": {
+					"type": "string"
+				},
+				"Laser serial number": {
+					"type": "string"
+				},
+				"Laser wavelength (nm)": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"Laser name",
+				"Laser manufacturer",
+				"Laser model",
+				"Laser serial number",
+			]
+		},
+		"camies": {
+			"type": "object",
+			"properties": {
+				"Camera name": {
+					"type": "string",
+					"enum": ["Body Camera", "Eye Camera", "Face Camera"]
+				},
+				"Camera manufacturer": {
+					"type": "string"
+				},
+				"Camera model": {
+					"type": "string"
+				},
+				"Camera serial number": {
+					"type": "string"
+				},
+				"Camera position x": {
+					"type": "number"
+				},
+				"Camera position y": {
+					"type": "number"
+				},
+				"Camera angle (deg)": {
+					"type": "number"
+				} ,
+				"Camera recording software": {
+					"type": "string"
+				},
+				"Camera recording software version": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"Camera name",
+				"Camera manufacturer",
+				"Camera model",
+				"Camera serial number",
+				"Camera position x",
+				"Camera position y",
+				"Camera angle (deg)"
+			]	
+		},
+		"probies": {
+			"type": "object",
+			"properties": {
+				"Probe name": {
+					"type": "string",
+					"enum": ["Probe A", "Probe B", "Probe C", "Probe D", "Probe E", "Probe F", "Probe G", "Probe H", "Probe I", "Probe J"]
+				},
+				"Probe type": {
+					"type": "string"
+				},
+				"Probe serial number": {
+					"type": "string"
+				}
+			},
+			"required": ["Probe name", "Probe type", "Probe serial number"]
+		},
+		"monities": {
+			"type": "object",
+			"properties": {
+				"Monitor width (pixels)": {
+					"type": "integer"
+				},
+				"Montior height (pixels)": {
+					"type": "integer"
+				},
+				"Monitor distance (cm)": {
+					"type": "number"
+				},
+				"Monitor position x": {
+					"type": "number"
+				},
+				"Monitor position y": {
+					"type": "number"
+				},
+				"Monitor angle (deg)": {
+					"type": "number"
+				},
+				"Monitor contrast (percent)": {
+					"type": "integer"
+				},
+				"Monitor brightness": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"Monitor width (pixels)",
+				"Monitor height (pixels)",
+				"Monitor distance (cm)",
+				"Monitor position x",
+				"Monitor position y",
+				"Monitor angle (deg)",
+				"Monitor contrast (percent)",
+				"Monitor brightness"
+			]
+		},
+		"diskies": {
+			"type": "object",
+			"properties": {
+				"Disk radius (cm)": {
+					"type": "number"
+				},
+				"Disk surface": {
+					"type": "string",
+					"enum": ["none", "foam"]
+				},
+				"Date surface replaced": {
+					"type": "string",
+					"format": "date-time"
+				}
+			},
+			"required": ["Disk radius (cm)"]
+		}		
+	}
+}
