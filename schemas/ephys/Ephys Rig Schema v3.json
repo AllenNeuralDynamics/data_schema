@@ -1,6 +1,10 @@
 {
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"type": "object",
 	"properties": {
+		"version": {
+			"type": "number"
+		},
 		"Rig ID": {
 			"type": "string"
 		},
@@ -54,6 +58,20 @@
 				},
 				"Wavelength (nm)": {
 					"type": "integer"
+				},
+				"Maximum power": {
+					"type": "number"
+				},
+				"Coupling efficiency": {
+					"type": "number"
+				},
+				"Calibration data": {
+					"type": "string",
+					"description": "path to calibration data"
+				},
+				"Calibration date":{
+					"type": "string",
+					"format": "date-time"
 				}
 			},
 			"required": [
@@ -85,9 +103,18 @@
 				"Position y": {
 					"type": "number"
 				},
-				"Angle (deg)": {
+				"Position z": {
 					"type": "number"
-				} ,
+				},
+				"Angle pitch (deg)": {
+					"type": "number"
+				},
+				"Angle yaw (deg)": {
+					"type": "number"
+				},
+				"Angle roll (deg)": {
+					"type": "number"
+				},
 				"Recording software": {
 					"type": "string"
 				},
@@ -102,7 +129,10 @@
 				"Serial number",
 				"Position x",
 				"Position y",
-				"Angle (deg)"
+				"Position z",
+				"Angle pitch (deg)",
+				"Angle yaw (deg)",
+				"Angle roll (deg)"
 			]	
 		},
 		"probies": {
@@ -110,7 +140,8 @@
 			"properties": {
 				"Name": {
 					"type": "string",
-					"enum": ["Probe A", "Probe B", "Probe C", "Probe D", "Probe E", "Probe F", "Probe G", "Probe H", "Probe I", "Probe J"]
+					"enum": ["Probe A", "Probe B", "Probe C", "Probe D", "Probe E", "Probe F", 
+						"Probe G", "Probe H", "Probe I", "Probe J"]
 				},
 				"Type": {
 					"type": "string"
@@ -124,6 +155,15 @@
 		"monities": {
 			"type": "object",
 			"properties": {
+				"Manufacturer": {
+					"type": "string"
+				},
+				"Model": {
+					"type": "string"
+				},
+				"Serial number": {
+					"type": "string"
+				},
 				"Refresh rate (Hz)": {
 					"type": "integer"
 				},

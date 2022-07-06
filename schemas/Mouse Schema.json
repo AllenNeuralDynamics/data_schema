@@ -1,43 +1,74 @@
 {
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"type": "object",
 	"properties": {
+		"version": {
+			"type": "number",
+			"description": "schema version"
+		},
 		"Specimen ID": {
 			"type": "integer"
-			},
+		},
 		"Sex": {
 			"type": "string",
 			"enum": ["Female", "Male"]
-			},	
+		},	
 		"Date of Birth": {
 			"type": "string",
 			"format": "date"	
-			},
+		},
 		"Genotype": {
 			"type": "string"
-			},
+		},
 		"Background Strain":{
 			"type": "string",
 			"enum": ["C57BL/6J", "BALB/c"]
-			},
+		},
 		"Source": {
 			"type": "string",
 			"description": "If the mouse was not bred in house, where was it acquired from."
-			},
+		},
+		"Restrictions": {
+			"type": "string",
+			"description": "Any restrictions based on specimen source"
+		},
 		"Breeding Group": {
 			"type": "string"
 			},
+		"Maternal ID": {
+			"type": "number"
+		},
 		"Maternal genotype": {
 			"type": "string"
-			},
+		},
+		"Paternal ID": {
+			"type": "number"
+		},
 		"Paternal genotype": {
 			"type": "string"
-			}
 		},
+		"Light cycle": {
+			"type": "string",
+			"enum": ["regular", "reverse"]
+		},
+		"Home cage enrichment": {
+			"type": "string",
+			"enum": ["none", "running wheel","other"]
+		},
+		"Water restriction protocol": {
+			"type": "number"
+		},
+		"Training protocol": {
+			"type": "number"
+		},
+	},
 	"required": [
+		"version",
 		"Specimen ID",
 		"Sex",
 		"Date of Birth",
 		"Genotype",
-		"Background Strain"
+		"Background Strain",
+		"Light cycle"
 		]
 	}
