@@ -9,7 +9,7 @@ from jsonschema import validators, validate
 from example_generator.generator import json_contents_from_filepath
 from example_generator.generator import FakeJsonGenerator
 
-LOG_LEVEL = os.environ.get('LOG_LEVEL', logging.INFO)
+LOG_LEVEL = os.environ.get('LOG_LEVEL', logging.DEBUG)
 TEST_DIR = Path(os.path.dirname(os.path.realpath(__file__)))
 SCHEMAS_DIR = TEST_DIR / ".." / "schemas"
 EXAMPLES_DIR = TEST_DIR / ".." / "example"
@@ -26,7 +26,10 @@ EXAMPLES_AND_SCHEMAS = (
          os.path.join(SCHEMAS_DIR, "Surgery Schema.json")
          ),
         (os.path.join(EXAMPLES_DIR, "session_001.json"),
-         os.path.join(SCHEMAS_DIR, "ephys", "Ephys Session Schema.json"))
+         os.path.join(SCHEMAS_DIR, "ephys",
+                      "Ephys Session alternate schema.json")),
+        (os.path.join(EXAMPLES_DIR, "ephys_rig_2_0_3.json"),
+         os.path.join(SCHEMAS_DIR, "ephys", "Ephys Rig Schema v3.json"))
     ])
 
 
