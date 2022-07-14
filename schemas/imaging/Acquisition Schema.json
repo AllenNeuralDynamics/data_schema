@@ -1,0 +1,116 @@
+{
+	"type": "object",
+	"properties":{
+		"version": {
+			"type": "number"
+		},
+		"Institution": {
+			"type": "string",
+			"enum": ["AIND","AIBS"]
+		},
+		"Experimenter first name": {
+			"type": "string"
+		},
+		"Experimenter last name": {
+			"type": "string"
+		},
+		"Session start time": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Specimen ID": {
+			"type": "integer"
+		},
+		"Project ID": {
+			"type": "integer"
+		},
+		"Instrument ID": {
+			"type": "string"
+		},
+		"Session end time": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Positions": {
+			"type": "array",
+			"items": {"$ref": "#/$defs/posities"},
+			"uniqueItems": true
+		},
+		"Lasers": {
+			"type": "array",
+			"items": {"$ref": "#/$defs/lasies"},
+			"uniqueItems": true
+		}
+
+	},
+	"$defs": {
+		"posities": {
+			"type": "object",
+			"properties": {
+				"x_start_um": {
+					"type": "number"
+				},
+				"x_end_um": {
+					"type": "number"
+				},
+				"y_start_um": {
+					"type": "number"
+				},
+				"x_step_um": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"x_start_um",
+				"x_end_um",
+				"y_start_um",
+				"x_step_um"
+			]
+		},
+		"lasies": {
+			"type": "object",
+			"properties": {
+				"Name": {
+					"type": "string"
+				},
+				"Channel": {
+					"type": "integer"
+				},
+				"Enabled": {
+					"type": "boolean"
+				},
+				"Wavelength": {
+					"type": "integer"
+				},
+				"Power": {
+					"type": "number"
+				},
+				"Delay (s)": {
+					"type": "number"
+				},
+				
+			},
+			"required": [
+				"Name",
+				"Channel",
+				"Enabled",
+				"Wavelength (nm)",
+				"Power",
+				"Delay (s)"
+			]
+		}
+	},
+	"required": [
+		"version",
+		"Institution",
+		"Experimenter first name",
+		"Experimenter last name",
+		"Session start time",
+		"Session end time",
+		"Specimen ID",
+		"Project ID",
+		"Instrument ID",
+		"Positions",
+		"Lasers"
+	]
+}

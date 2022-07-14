@@ -72,7 +72,8 @@
                     "enum": [
                         "Duragel", 
                         "SORTA-clear", 
-                        "Kwik-Cast"
+                        "Kwik-Cast",
+                        "Other - see notes"
                     ]
                 }
             },
@@ -90,8 +91,9 @@
                 "Injection coordinates ML": {"type": "number"},
                 "Injection coordinates AP": {"type": "number"},
                 "Injection coordinates depth": {"type": "number"},
-                "Injection angle": {"type": "number"},
+                "Injection angle (deg)": {"type": "number"},
                 "Injection virus": {"type": "string"},
+                "Injection virus ID": {"type": "number"},
                 "Injection type": {
                     "type": "string",
                     "enum": ["Iontophoresis","Nanoject"]
@@ -136,6 +138,8 @@
                 "Injection coordinates ML",
                 "Injection coordinates AP",
                 "Injection coordinates depth",
+                "Injection angle (deg)",
+                "Injection virus",
                 "Injection type",
                 "Injection duration"
             ]
