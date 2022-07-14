@@ -171,8 +171,8 @@
 				"Manufacturer",
 				"Model",
 				"Coupling",
-				"Wavelength",
-				"Power"
+				"Wavelength (nm)",
+				"Max power (mW)"
 			]
 		},
 		"filters": {
@@ -198,7 +198,7 @@
 				"Type",
 				"Manufacturer",
 				"Model",
-				"Size"
+				"Size (mm)"
 			]
 		},
 		"stages": {
