@@ -2,10 +2,9 @@
 	"Specimen ID": 296929,
 	"Experimenter first name": "Frank",
 	"Experimenter last name": "Borman",
-	"Procedure Date": "2022-03-15",
+	"Procedure date": "2022-03-15",
 	"Surgery": "Head Plate Craniotomy",
 	"Protocol ID": 227,
-	
 	"HPC Coordinates ML": 2.8,
 	"HPC Coordinates AP": 1.3,
 	"HPC Size (mm)": 5,

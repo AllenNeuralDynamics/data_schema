@@ -163,7 +163,7 @@
 						]	
 					}
 				}
-			},
+			}
 		},
 		{
 			"if": {
@@ -202,7 +202,7 @@
 							"Laser name",
 							"Laser manufacturer",
 							"Laser model",
-							"Laser serial number",
+							"Laser serial number"
 						]
 					}
 				}

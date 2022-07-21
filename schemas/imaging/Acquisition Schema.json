@@ -79,7 +79,7 @@
 				"Enabled": {
 					"type": "boolean"
 				},
-				"Wavelength": {
+				"Wavelength (nm)": {
 					"type": "integer"
 				},
 				"Power": {
@@ -87,8 +87,7 @@
 				},
 				"Delay (s)": {
 					"type": "number"
-				},
-				
+				}
 			},
 			"required": [
 				"Name",

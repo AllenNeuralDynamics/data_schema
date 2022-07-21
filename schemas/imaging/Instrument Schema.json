@@ -48,15 +48,15 @@
 		},
 		"Flourescence filters": {
 			"type": "array",
-			"items": { "$ref": "#/defs/filters"}
+			"items": { "$ref": "#/$defs/filters"}
 		},
 		"Motorized stages": {
 			"type": "array",
-			"items": { "$ref": "#/defs/stages"}
+			"items": { "$ref": "#/$defs/stages"}
 		},
 		"Additional devices": {
 			"type": "array",
-			"items": { "$ref": "#/defs/devices"}
+			"items": { "$ref": "#/$defs/devices"}
 		},
 		"Notes": {
 			"type": "string"
@@ -234,7 +234,7 @@
 				},
 				"Manufacturer": {
 					"type": "string",
-					"enum": ["Hamamtsu", "PCO", "other"]
+					"enum": ["Hamamatsu", "PCO", "other"]
 				},
 				"Model": {
 					"type": "string"

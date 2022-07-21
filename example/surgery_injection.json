@@ -2,20 +2,21 @@
     "Specimen ID": 296929,
     "Experimenter first name": "Sally",
     "Experimenter last name": "Ride",
-    "Procedure Date": "2022-03-07",
+    "Procedure date": "2022-03-07",
     "Surgery": "Injection",
     "Protocol ID": 228,
     "Injections": [
         {
-            "Injection Coordinates ML": 4,
-            "Injection Coordinates AP": -4.16,
-            "Injection Coordinates depth": 0.7,
-            "Injection Angle": 0,
-            "Injection Virus": "AAV1-pSyn-CVS-N2C-g-TVA-tdTomato",
-            "Injection Type": "Iontophoresis",
-            "Injection Current (uA)": 5,
-            "Injection Duration": "00:05:00+00:00",
-            "Alternating Current": "7/7"
+            "Injection protocol ID": 123,
+            "Injection coordinates ML": 4,
+            "Injection coordinates AP": -4.16,
+            "Injection coordinates depth": 0.7,
+            "Injection angle (deg)": 0,
+            "Injection virus": "AAV1-pSyn-CVS-N2C-g-TVA-tdTomato",
+            "Injection type": "Iontophoresis",
+            "Injection current (uA)": 5,
+            "Injection duration": "00:05:00+00:00",
+            "Alternating current": "7/7"
             }
     ]
 }

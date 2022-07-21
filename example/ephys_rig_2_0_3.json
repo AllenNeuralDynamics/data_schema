@@ -29,6 +29,10 @@
             "Serial number": "vme93s",
             "Position x": 22.3,
             "Position y": 66.1,
+            "Position z": 0,
+            "Angle pitch (deg)": 0,
+            "Angle yaw (deg)": 0,
+            "Angle roll (deg)": 0,
             "Angle (deg)": 33
           }
         ],
