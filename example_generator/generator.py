@@ -7,11 +7,9 @@ import hashlib
 import operator
 import random
 from functools import reduce
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict
 
 from jsf import JSF
-from jsf.schema_types.base import ProviderNotSetException
-from jsf.schema_types.array import Array
 
 
 class FakeJsonGenerator:
@@ -23,7 +21,6 @@ class FakeJsonGenerator:
         """Apply patches to jsf library. Optionally apply seed to rng."""
         if rng_seed is not None:
             random.seed(rng_seed)
-        self.__patch_generate(Array)
         self.__patch_parse(JSF)
 
     def random_example(self, schema):
@@ -31,6 +28,7 @@ class FakeJsonGenerator:
         fake_data_object = JSF(schema)
         fake_json = fake_data_object.generate()
         self._handle_if_then(fake_json, schema)
+        self._handle_sub_if_then(fake_json, schema)
         self._handle_dependant_schemas(fake_json, schema)
         return fake_json
 
@@ -65,7 +63,23 @@ class FakeJsonGenerator:
                                               json_schema,
                                               dep_json)
                         fake_json.update(dep_json)
-        return fake_json
+
+    def _handle_sub_if_then(self, fake_json, json_schema):
+        """jsf library doesn't handle if then properties yet"""
+        for property_name in json_schema['properties']:
+            prop = json_schema['properties'][property_name]
+            if((prop['type'] == 'array')
+                    and (prop.get('items') is not None)
+                    and ('$ref' in prop['items'])):
+                ref_key_str = prop['items']['$ref']
+                ref_key = ref_key_str.replace('#/', '').split('/')
+                dict_item = reduce(operator.getitem, ref_key, json_schema)
+                if 'allOf' in dict_item and property_name in fake_json:
+                    new_array = []
+                    for instance in fake_json[property_name]:
+                        self._handle_if_then(instance, dict_item)
+                        new_array.append(instance)
+                    fake_json[property_name] = new_array
 
     def _handle_dep_refs(self, all_of_item, json_schema, dep_json):
         """jsf library doesn't handle if then in array items"""
@@ -83,36 +97,8 @@ class FakeJsonGenerator:
                     dep_json[prop_key] = new_array
 
     @staticmethod
-    def __patch_generate(cls):
-        """Monkey patches bug in jsf library"""
-        __class__ = cls
-
-        def generate(obj, context: Dict[str, Any]) -> Optional[List[Any]]:
-            try:
-                return super().generate(context)
-            except ProviderNotSetException:
-
-                if isinstance(obj.fixed, str):
-                    obj.minItems = obj.maxItems = eval(obj.fixed, context)()
-                elif isinstance(obj.fixed, int):
-                    obj.minItems = obj.maxItems = obj.fixed
-
-                output = ([obj.items.generate(context)
-                           for _
-                           in
-                           range(random.randint(obj.minItems, obj.maxItems))])
-                if obj.uniqueItems:
-                    output = [dict(s) for
-                              s in set(frozenset(d.items()) for d in output)]
-                    while len(output) < obj.minItems:
-                        output.append(obj.items.generate(context))
-                return output
-
-        cls.generate = generate
-
-    @staticmethod
     def __patch_parse(cls):
-        """Monkey patches bug in jsf library."""
+        """Monkey patches definitions in jsf library."""
         __class__ = cls
 
         def parse(obj, schema: Dict[str, Any]):

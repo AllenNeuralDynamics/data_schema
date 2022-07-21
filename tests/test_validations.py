@@ -16,6 +16,9 @@ EXAMPLES_DIR = TEST_DIR / ".." / "example"
 
 EXAMPLES_AND_SCHEMAS = (
     [
+        (os.path.join(EXAMPLES_DIR, "ephys_rig_2_0_3.json"),
+         os.path.join(SCHEMAS_DIR, "ephys", "Ephys Rig Schema v3.json")
+         ),
         (os.path.join(EXAMPLES_DIR, "mouse_296929.json"),
          os.path.join(SCHEMAS_DIR, "Mouse Schema.json")
          ),
@@ -26,7 +29,8 @@ EXAMPLES_AND_SCHEMAS = (
          os.path.join(SCHEMAS_DIR, "Surgery Schema.json")
          ),
         (os.path.join(EXAMPLES_DIR, "session_001.json"),
-         os.path.join(SCHEMAS_DIR, "ephys", "Ephys Session Schema.json"))
+         os.path.join(SCHEMAS_DIR, "ephys",
+                      "Ephys Session alternate schema.json"))
     ])
 
 
@@ -60,6 +64,7 @@ class TestValidSchemas(unittest.TestCase):
         them against a schema definition
         """
         for example_and_schema in EXAMPLES_AND_SCHEMAS:
+            logging.debug(f"Checking: {example_and_schema}")
             schema = json_contents_from_filepath(example_and_schema[1])
             example = json_contents_from_filepath(example_and_schema[0])
             validate(instance=example, schema=schema)
@@ -73,10 +78,13 @@ class TestGenerators(unittest.TestCase):
     def test_random_examples(self):
         """
         Walks through the schema directory, generates 3 random examples,
-        and validates the examples against the original schema
+        and validates the examples against the original schema. Ignores
+        schemas in old versions folder.
         """
         glob_path = os.path.join(SCHEMAS_DIR, "**", "*.json")
-        for json_file in glob.glob(glob_path, recursive=True):
+        paths = glob.glob(glob_path, recursive=True)
+        filtered_paths = [p for p in paths if 'old versions' not in p]
+        for json_file in filtered_paths:
             try:
                 json_schema = json_contents_from_filepath(json_file)
                 for _ in range(3):
