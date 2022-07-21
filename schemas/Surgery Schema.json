@@ -27,7 +27,7 @@
         },
         "Injections": {
             "type": "array",
-            "items": {"$ref": "#/$defs/injects" },
+            "items": {"$ref": "#/$defs/injection" },
             "uniqueItems": true
         },
         "Notes": {
@@ -83,7 +83,7 @@
                 "Craniotomy size (mm)"
             ]
         },
-        "injects": {
+        "injection": {
             "type": "object",
             "properties": {
                 "Injection protocol ID": {"type": "number"},
