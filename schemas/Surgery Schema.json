@@ -3,10 +3,10 @@
     "type": "object",
     "properties": {
         "version": {
-			"type": "string",
-			"const": "0.0.1",
-			"description": "schema version"
-		},
+            "type": "string",
+            "const": "0.0.1",
+            "description": "schema version"
+        },
         "Specimen ID": {
             "type": "integer"
         },
@@ -23,7 +23,7 @@
         "Headframe": {
             "type": "array",
             "items": { "$ref": "#/$defs/frames" },
-			"uniqueItems": true
+            "uniqueItems": true
         },
         "Craniotomy": {
             "type": "array",
@@ -32,7 +32,7 @@
         },
         "Injections": {
             "type": "array",
-            "items": {"$ref": "#/$defs/injects" },
+            "items": {"$ref": "#/$defs/injecties" },
             "uniqueItems": true
         },
         "Notes": {
@@ -40,7 +40,6 @@
         }
 
     },
-    
     "$defs": {
         "frames": {
             "type": "object",
@@ -60,7 +59,7 @@
             "required": [
                 "Headframe protocol ID",
                 "Headframe part number",
-                "Headframe material" 
+                "Headframe material"
             ]
         },
         "cranes": {
@@ -75,8 +74,8 @@
                 "Protective material": {
                     "type": "string",
                     "enum": [
-                        "Duragel", 
-                        "SORTA-clear", 
+                        "Duragel",
+                        "SORTA-clear",
                         "Kwik-Cast",
                         "Other - see notes"
                     ]
@@ -99,45 +98,45 @@
                 "Injection angle (deg)": {"type": "number"},
                 "Injection virus": {"type": "string"},
                 "Injection virus ID": {"type": "number"},
-                "Injection type": {
-                    "type": "string",
-                    "enum": ["Iontophoresis","Nanoject"]
-                },
-                "Injection Duration": {
+                "Injection duration": {
                     "type": "string",
                     "format": "time"
+                },
+                "Injection class": {
+                    "anyOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "Injection type": {
+                                    "type": "string",
+                                    "const": "Nanoject"
+                                },
+                                "Injection volume (nL)": {"type": "number"}
+                            },
+                            "required": [
+                                "Injection type",
+                                "Injection volume (nL)"
+                            ]
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "Injection type": {
+                                    "type": "string",
+                                    "const": "Iontophoresis"
+                                },
+                                "Injection current (uA)": {"type": "number"},
+                                "Alternating current": {"type": "string"}
+                            },
+                            "required": [
+                                "Injection type",
+                                "Injection current (uA)",
+                                "Alternating current"
+                            ]
+                        }
+                    ]
                 }
             },
-            "allOf": [
-                {
-                    "if": {
-                        "properties": {"Injection Type": {"const": "Iontophoresis"} }
-                    },
-                    "then": {
-                        "properties": {
-                            "Injection current (uA)": {"type": "number"},
-                            "Alternating current": {"type": "string"}
-                        },
-                        "required": [
-                            "Injection current (uA)",
-                            "Alternating current"
-                        ]
-                    }
-                },
-                {
-                    "if":{
-                        "properties": {"Injection Type": {"const": "Nanoject"} }
-                    },
-                    "then": {
-                        "properties": {
-                            "Injection Volume (nL)": {"type": "number"}
-                        },
-                        "required": [
-                            "Injection volume (nL)"
-                        ]
-                    }
-                }
-            ],
             "required": [
                 "Injection protocol ID",
                 "Injection coordinates ML",
@@ -145,7 +144,7 @@
                 "Injection coordinates depth",
                 "Injection angle (deg)",
                 "Injection virus",
-                "Injection type",
+                "Injection class",
                 "Injection duration"
             ]
         }
@@ -155,5 +154,5 @@
         "Procedure date",
         "Experimenter first name",
         "Experimenter last name"
-        ]
+    ]
 }
