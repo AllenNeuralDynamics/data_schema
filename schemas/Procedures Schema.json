@@ -10,16 +10,6 @@
         "Specimen ID": {
             "type": "integer"
         },
-        "Procedure date": {
-            "type": "string",
-            "format": "date"
-        },
-        "Experimenter first name": {
-            "type": "string"
-        },
-        "Experimenter last name": {
-            "type": "string"
-        },
         "Headframe": {
             "type": "array",
             "items": { "$ref": "#/$defs/frames" },
@@ -35,16 +25,26 @@
             "items": {"$ref": "#/$defs/injects" },
             "uniqueItems": true
         },
+        "Tissue Prep": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/preps"},
+            "uniqueItems": true
+        },
         "Notes": {
             "type": "string"
         }
-
     },
     
     "$defs": {
         "frames": {
             "type": "object",
             "properties": {
+                "Date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "Experimenter first name": {"type": "string"},
+                "Experimenter last name": {"type": "string"},
                 "Headframe protocol ID": {"type": "number"},
                 "Headframe part number": {"type": "number"},
                 "Headframe material": {
@@ -55,9 +55,13 @@
                 "Well type": {
                     "type": "string",
                     "enum": ["A","B"]
-                }
+                },
+                "Notes": {"type": "string"}
             },
             "required": [
+                "Date",
+                "Experimenter first name",
+                "Experimenter last name",
                 "Headframe protocol ID",
                 "Headframe part number",
                 "Headframe material" 
@@ -66,6 +70,12 @@
         "cranes": {
             "type": "object",
             "properties": {
+                "Date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "Experimenter first name": {"type": "string"},
+                "Experimenter last name": {"type": "string"},
                 "Craniotomy protocol ID": {"type": "number"},
                 "Craniotomy coordinates ML": {"type": "number"},
                 "Craniotomy coordinates AP": {"type": "number"},
@@ -80,9 +90,13 @@
                         "Kwik-Cast",
                         "Other - see notes"
                     ]
-                }
+                },
+                "Notes": {"type": "string"}
             },
             "required": [
+                "Date",
+                "Experimenter first name",
+                "Experimenter last name",
                 "Craniotomy protocol ID",
                 "Craniotomy coordinates ML",
                 "Craniotomy coordinates AP",
@@ -92,6 +106,12 @@
         "injecties": {
             "type": "object",
             "properties": {
+                "Date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "Experimenter first name": {"type": "string"},
+                "Experimenter last name": {"type": "string"},
                 "Injection protocol ID": {"type": "number"},
                 "Injection coordinates ML": {"type": "number"},
                 "Injection coordinates AP": {"type": "number"},
@@ -106,7 +126,8 @@
                 "Injection Duration": {
                     "type": "string",
                     "format": "time"
-                }
+                },
+                "Notes": {"type": "string"}
             },
             "allOf": [
                 {
@@ -139,6 +160,9 @@
                 }
             ],
             "required": [
+                "Date",
+                "Experimenter first name",
+                "Experimenter last name",
                 "Injection protocol ID",
                 "Injection coordinates ML",
                 "Injection coordinates AP",
@@ -148,12 +172,33 @@
                 "Injection type",
                 "Injection duration"
             ]
+        },
+        "preps": {
+            "type": "object",
+            "properties": {
+                "Date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "Experimenter first name": {"type": "string"},
+                "Experimenter last name": {"type": "string"},
+                "Type": {
+                    "type": "string",
+                    "enum": ["expansion", "perfusion", "dissection"]
+                },
+                "Protocol ID": {"type": "string"},
+                "Notes": {"type": "string"}
+            },
+            "required": [
+                "Date",
+                "Experimenter first name",
+                "Experimenter last name",
+                "Type",
+                "Protocol ID"
+            ]
         }
     },
     "required": [
-        "Specimen ID",
-        "Procedure date",
-        "Experimenter first name",
-        "Experimenter last name"
+        "Specimen ID"
         ]
 }

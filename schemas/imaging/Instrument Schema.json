@@ -1,7 +1,12 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"type": "object",
-	"properties": {	
+	"properties": {
+		"version": {
+			"type": "string",
+			"const": "0.0.1",
+			"description": "schema version"
+		},	
 		"Microscope Type": {
 	    	"type": "string",
 	    	"enum": ["mesoSPIM", "exaSPIM", "diSPIM", "confocal", "two photon","other"]

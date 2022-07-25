@@ -3,7 +3,9 @@
 	"type": "object",
 	"properties": {
 		"version": {
-			"type": "number"
+			"type": "string",
+			"const": "0.0.1",
+			"description": "schema version"
 		},
 		"Rig ID": {
 			"type": "string"

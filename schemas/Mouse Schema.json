@@ -3,8 +3,13 @@
 	"type": "object",
 	"properties": {
 		"version": {
-			"type": "number",
+			"type": "string",
+			"const": "0.0.1",
 			"description": "schema version"
+		},
+		"Species": {
+			"type": "string",
+			"enum": ["mus musculus"]
 		},
 		"Specimen ID": {
 			"type": "integer"
@@ -64,6 +69,7 @@
 	},
 	"required": [
 		"version",
+		"Species",
 		"Specimen ID",
 		"Sex",
 		"Date of Birth",
@@ -71,4 +77,5 @@
 		"Background Strain",
 		"Light cycle"
 		]
-	}
+}
+
