@@ -15,34 +15,34 @@
 			"properties": {
 				"Probes": {
 					"type": "array",
-					"items": { "$ref": "#/$defs/probies" },
+					"items": { "$ref": "#/$defs/probe" },
 					"uniqueItems": true
 				},
 				"Cameras": {
 					"type": "array",
-					"items": {"$ref": "#/$defs/camies" },
+					"items": {"$ref": "#/$defs/camera" },
 					"uniqueItems": true
 				},
 				"Lasers": {
 					"type": "array",
-					"items": {"$ref": "#/$defs/lasies" },
+					"items": {"$ref": "#/$defs/laser" },
 					"uniqueItems": true
 				},
 				"Visual Monitor": {
 					"type": "array",
-					"items": {"$ref": "#/$defs/monities"},
+					"items": {"$ref": "#/$defs/monitor"},
 					"uniqueItems": true
 				},
 				"Running Disk": {
 					"type": "array",
-					"items": {"$ref": "#/$defs/diskies"},
+					"items": {"$ref": "#/$defs/disk"},
 					"maxItems": 1
 				}
 			}
 		}
 	},
 	"$defs": {
-		"lasies": {
+		"laser": {
 			"type": "object",
 			"properties": {
 				"Name": {
@@ -83,7 +83,7 @@
 				"Serial number"
 			]
 		},
-		"camies": {
+		"camera": {
 			"type": "object",
 			"properties": {
 				"Name": {
@@ -137,7 +137,7 @@
 				"Angle roll (deg)"
 			]	
 		},
-		"probies": {
+		"probe": {
 			"type": "object",
 			"properties": {
 				"Name": {
@@ -154,7 +154,7 @@
 			},
 			"required": ["Name", "Type", "Serial number"]
 		},
-		"monities": {
+		"monitor": {
 			"type": "object",
 			"properties": {
 				"Manufacturer": {
@@ -206,7 +206,7 @@
 				"Brightness"
 			]
 		},
-		"diskies": {
+		"disk": {
 			"type": "object",
 			"properties": {
 				"Radius (cm)": {

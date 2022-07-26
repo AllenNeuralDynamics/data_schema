@@ -37,17 +37,17 @@
 		},	
 	"Probes": {
 		"type": "array",
-		"items": { "$ref": "#/$defs/probies" },
+		"items": { "$ref": "#/$defs/probe" },
 		"uniqueItems": true
 		},
 	"Lasers": {
 		"type": "array",
-		"items": {"$ref": "#/$defs/lasies"},
+		"items": {"$ref": "#/$defs/laser"},
 		"uniqueItems": true
 		}
 	},
 	"$defs": {
-		"probies": {
+		"probe": {
 			"type": "object",
 			"properties": {
 				"Name": {
@@ -106,7 +106,7 @@
 					"Angle AP"
 					]
 		},
-		"lasies": {
+		"laser": {
 			"type": "object",
 			"properties": {
 				"Name": {

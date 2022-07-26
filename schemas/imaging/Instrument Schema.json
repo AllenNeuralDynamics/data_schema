@@ -41,34 +41,34 @@
 	  	},
 	  	"Objectives": {
 			"type": "array",
-			"items": { "$ref": "#/$defs/objecties" }
+			"items": { "$ref": "#/$defs/objective" }
 		},
 		"Detectors": {
 			"type": "array",
-			"items": { "$ref": "#/$defs/detecties"}
+			"items": { "$ref": "#/$defs/detector"}
 		},
 		"Light sources": {
 			"type": "array",
-			"items": { "$ref": "#/$defs/sourcies"}
+			"items": { "$ref": "#/$defs/lightsource"}
 		},
 		"Flourescence filters": {
 			"type": "array",
-			"items": { "$ref": "#/defs/filters"}
+			"items": { "$ref": "#/defs/filter"}
 		},
 		"Motorized stages": {
 			"type": "array",
-			"items": { "$ref": "#/defs/stages"}
+			"items": { "$ref": "#/defs/stage"}
 		},
 		"Additional devices": {
 			"type": "array",
-			"items": { "$ref": "#/defs/devices"}
+			"items": { "$ref": "#/defs/device"}
 		},
 		"Notes": {
 			"type": "string"
 		}
 	  },
 	  "$defs": {
-		"objecties": {
+		"objective": {
 			"type": "object",
 			"properties": {
 				"Manufacturer": {
@@ -102,7 +102,7 @@
 				"Immersion"
 			]
 		},
-		"detecties": {
+		"detector": {
 			"type": "object",
 			"properties": {
 				"Type": {
@@ -141,7 +141,7 @@
 				"Immersion"
 			]
 		},
-		"sourcies": {
+		"lightsource": {
 			"type": "object",
 			"properties": {
 				"Type": {
@@ -180,7 +180,7 @@
 				"Max power (mW)"
 			]
 		},
-		"filters": {
+		"filter": {
 			"type": "object",
 			"properties": {
 				"Type": {
@@ -206,7 +206,7 @@
 				"Size (mm)"
 			]
 		},
-		"stages": {
+		"stage": {
 			"type": "object",
 			"properties": {
 				"Type": {
@@ -230,7 +230,7 @@
 				"Model"
 			]
 		},
-		"devices": {
+		"device": {
 			"type": "object",
 			"properties": {
 				"Type": {

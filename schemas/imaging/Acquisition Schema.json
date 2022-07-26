@@ -2,7 +2,9 @@
 	"type": "object",
 	"properties":{
 		"version": {
-			"type": "number"
+			"type": "string",
+			"const": "0.0.1",
+			"description": "schema version"
 		},
 		"Institution": {
 			"type": "string",
@@ -33,18 +35,18 @@
 		},
 		"Positions": {
 			"type": "array",
-			"items": {"$ref": "#/$defs/posities"},
+			"items": {"$ref": "#/$defs/position"},
 			"uniqueItems": true
 		},
 		"Lasers": {
 			"type": "array",
-			"items": {"$ref": "#/$defs/lasies"},
+			"items": {"$ref": "#/$defs/laser"},
 			"uniqueItems": true
 		}
 
 	},
 	"$defs": {
-		"posities": {
+		"position": {
 			"type": "object",
 			"properties": {
 				"x_start_um": {
@@ -67,7 +69,7 @@
 				"x_step_um"
 			]
 		},
-		"lasies": {
+		"laser": {
 			"type": "object",
 			"properties": {
 				"Name": {
@@ -87,7 +89,7 @@
 				},
 				"Delay (s)": {
 					"type": "number"
-				},
+				}
 				
 			},
 			"required": [
