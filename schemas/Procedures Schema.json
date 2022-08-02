@@ -30,6 +30,20 @@
             "items": {"$ref": "#/$defs/prep"},
             "uniqueItems": true
         },
+        "Water restriction protocol": {
+			"type": "number"
+		},
+        "Water restriction start date": {
+            "type": "string",
+            "format": "date"
+        },
+		"Training protocol": {
+			"type": "number"
+		},
+        "Training start date": {
+            "type": "string",
+            "format": "date"
+        },
         "Notes": {
             "type": "string"
         }
