@@ -1,0 +1,67 @@
+{
+    "version": "0.0.1",
+    "Instrument ID": "0.1.2",
+    "Microscope Type": "mesoSPIM",
+    "Microscope Manufacturer": "Olympus",
+    "Microscope Model": 2300,
+    "Microscope Serial Number": "R2D2",
+    "Microscope Location": "420",
+    "Temperature control": true,
+    "Humidity control": true,
+    "Vibration control": true,
+    "Objectives": [
+        {
+            "Manufacturer": "Olympus",
+            "Model": 231,
+            "Serial number": "C3P0",
+            "Numerical aperture": 0.4,
+            "Magnification": "20X",
+            "Immersion": "water"
+        }
+    ],
+    "Detectors": [
+        {
+            "Type": "PMT",
+            "Manufacturer": "Hamamatsu",
+            "Model": "C43",
+            "Serial number": "ET40",
+            "Data interface": "USB",
+            "Cooling": "air",
+            "Immersion": "air"
+        },
+        {
+            "Type": "PMT",
+            "Manufacturer": "Hamamatsu",
+            "Model": "C43",
+            "Serial number": "ET82",
+            "Data interface": "USB",
+            "Cooling": "air",
+            "Immersion": "air"
+        }
+    ],
+    "Light sources": [
+        {
+            "Type": "laser",
+            "Manufacturer": "Coherent",
+            "Model": "L4539",
+            "Serial number": "242434",
+            "Coupling": "MMF",
+            "Wavelength (nm)": 920,
+            "Max power (mW)": 200
+        }
+    ],
+    "Flourescence filters": [
+        {
+            "Type": "Long pass",
+            "Manufacturer": "Chroma",
+            "Model": "f40",
+            "Size (mm)": 25
+        },
+        {
+            "Type": "Long pass",
+            "Manufacturer": "Chroma",
+            "Model": "p23",
+            "Size (mm)": 25
+        }
+    ]
+}

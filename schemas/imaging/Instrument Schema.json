@@ -115,7 +115,7 @@
 				},
 				"Manufacturer": {
 					"type": "string",
-					"enum": ["Hamamtsu", "PCO", "other"]
+					"enum": ["Hamamatsu", "PCO", "other"]
 				},
 				"Model": {
 					"type": "string"
