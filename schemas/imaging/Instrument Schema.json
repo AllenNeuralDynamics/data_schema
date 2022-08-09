@@ -9,11 +9,11 @@
 		},	
 		"Microscope Type": {
 	    	"type": "string",
-	    	"enum": ["mesoSPIM", "exaSPIM", "diSPIM", "confocal", "two photon","other"]
+	    	"enum": ["mesoSPIM", "exaSPIM", "diSPIM", "smartSPIM", "confocal", "two photon","other"]
 	  	},
 	  	"Microscope Manufacturer": {
 	    	"type": "string",
-			"enum": ["Olympus", "Leica", "custom"]
+			"enum": ["Olympus", "Leica", "LifeCanvas", "custom"]
 	  	},
 	  	"Microscope Model": {
 	    	"type": "number"
@@ -73,7 +73,7 @@
 			"properties": {
 				"Manufacturer": {
 					"type": "string",
-					"enum": ["Olympus", "Nikon", "Special Optics"] 
+					"enum": ["Olympus", "Nikon", "Special Optics", "ThorLabs"] 
 				},
 				"Model": {
 					"type": "number"
@@ -83,15 +83,15 @@
 				},
 				"Numerical aperture": {
 					"type": "number",
-					"enum": [0.4, 0.7]
+					"enum": [0.2, 0.4, 0.7]
 				},
 				"Magnification": {
 					"type": "string",
-					"enum": ["10X", "20X"]
+					"enum": ["3.6X", "10X", "20X"]
 				},
 				"Immersion": {
 					"type": "string",
-					"enum": ["air","water", "oil"]
+					"enum": ["air","water", "oil", "multi"]
 				}
 			},
 			"required": [
