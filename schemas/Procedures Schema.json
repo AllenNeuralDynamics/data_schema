@@ -3,10 +3,10 @@
     "type": "object",
     "properties": {
         "version": {
-			"type": "string",
-			"const": "0.1.0",
-			"description": "schema version"
-		},
+		"type": "string",
+		"const": "0.1.0",
+		"description": "schema version"
+	},
         "specimen_id": {
             "type": "string",
             "title": "Specimen ID",
