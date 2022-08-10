@@ -3,101 +3,184 @@
     "type": "object",
     "properties": {
         "version": {
+			"type": "string",
+			"const": "0.1.0",
+			"description": "schema version"
+		},
+        "specimen_ID": {
             "type": "string",
-            "const": "0.0.1",
-            "description": "schema version"
+            "title": "Specimen ID",
+            "description": "Unique identifier for the subject. If this is not a Allen LAS ID, indicate this in the Notes."
         },
-        "Specimen ID": {
-            "type": "integer"
-        },
-        "Headframe": {
+        "headframe": {
             "type": "array",
             "items": { "$ref": "#/$defs/frame" },
-            "uniqueItems": true
+			"uniqueItems": true,
+            "title": "Headframe"
         },
-        "Craniotomy": {
+        "craniotomy": {
             "type": "array",
             "items": {"$ref": "#/$defs/cran" },
-            "uniqueItems": true
+            "uniqueItems": true,
+            "title": "Craniotomy"
         },
-        "Injections": {
+        "injections": {
             "type": "array",
             "items": {"$ref": "#/$defs/injection" },
-            "uniqueItems": true
+            "uniqueItems": true,
+            "title": "Injections"
         },
-        "Tissue Prep": {
+        "tissue_prep": {
             "type": "array",
             "items": {"$ref": "#/$defs/prep"},
-            "uniqueItems": true
+            "uniqueItems": true,
+            "title": "Tissue Prep"
         },
-        "Water restriction protocol": {
-            "type": "number"
-        },
-        "Water restriction start date": {
+        "water_restriction_protocol_ID": {
+			"type": "string",
+            "title": "Water restriction protocol number"
+		},
+        "water_restriction_start_date": {
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "title": "Water restriction start date"
         },
-        "Training protocol": {
-            "type": "number"
-        },
-        "Training start date": {
+        "water_restriction_end_date": {
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "title": "Water restriction end date"
         },
-        "Notes": {
-            "type": "string"
+        "training_protocols":{
+            "type": "array",
+            "items": {"$ref": "#/$defs/training"},
+            "uniqueItems": true,
+            "title": "Training protocols"
+        },
+        "notes": {
+            "type": "string",
+            "title": "Notes"
         }
     },
     
     "$defs": {
+        "training": {
+            "type": "object",
+            "properties": {
+                "training_protocol_ID": {
+                    "type": "string",
+                    "title": "Training protocol ID"
+                },
+                "training_protocol_start_date": {
+                    "type": "string",
+                    "format": "date",
+                    "title": "Training protocol start date"
+                },
+                "training_protocol_end_date":{
+                    "type": "string",
+                    "format": "date",
+                    "title": "Training protocol end date"
+                },
+                "notes": {
+                    "type": "string",
+                    "title": "Notes"
+                }
+            },
+            "required": [
+                "training_protocol_ID",
+                "training_protocol_start_date"
+            ]
+        },
         "frame": {
             "type": "object",
             "properties": {
-                "Date": {
+                "date": {
                     "type": "string",
-                    "format": "date"
+                    "format": "date",
+                    "title": "Date"
                 },
-                "Experimenter first name": {"type": "string"},
-                "Experimenter last name": {"type": "string"},
-                "Headframe protocol ID": {"type": "number"},
-                "Headframe part number": {"type": "number"},
-                "Headframe material": {
+                "experimenter_full_name": {
                     "type": "string",
+                    "title": "Experimenter full name",
+                    "description": "First and last name of the experimenter."
+                },
+                "headframe_protocol_ID": {
+                    "type": "string",
+                    "title": "Headframe protocol ID"
+                },
+                "headframe_part_number": {
+                    "type": "string",
+                    "title": "Headframe part number"
+                },
+                "headframe_material": {
+                    "type": "string",
+                    "title": "Headframe material",
                     "enum": ["Titanium", "Steel"]
                 },
-                "Well part number": {"type": "number"},
-                "Well type": {
+                "well_part_number": {
                     "type": "string",
+                    "title": "Well part number"
+                },
+                "well_type": {
+                    "type": "string",
+                    "title": "Well type",
                     "enum": ["A","B"]
                 },
-                "Notes": {"type": "string"}
+                "notes": {
+                    "type": "string",
+                    "title": "Notes"
+                }
             },
             "required": [
-                "Date",
-                "Experimenter first name",
-                "Experimenter last name",
-                "Headframe protocol ID",
-                "Headframe part number",
-                "Headframe material" 
+                "date",
+                "experimenter_full_name",
+                "headframe_protocol_ID",
+                "headframe_part_number",
+                "headframe_material" 
             ]
         },
         "cran": {
             "type": "object",
             "properties": {
-                "Date": {
+                "date": {
                     "type": "string",
-                    "format": "date"
+                    "format": "date",
+                    "title": "Date"
                 },
-                "Experimenter first name": {"type": "string"},
-                "Experimenter last name": {"type": "string"},
-                "Craniotomy protocol ID": {"type": "number"},
-                "Craniotomy coordinates ML": {"type": "number"},
-                "Craniotomy coordinates AP": {"type": "number"},
-                "Craniotomy size (mm)": {"type": "number"},
-                "Implant part number": {"type": "number"},
-                "Dura removed": {"type": "boolean"},
-                "Protective material": {
+                "experimenter_full_name": {
                     "type": "string",
+                    "title": "Experimenter full name",
+                    "description": "First and last name of the experimenter."
+                },
+                "craniotomy_protocol_ID": {
+                    "type": "string",
+                    "title": "Craniotomy protocol ID"
+                },
+                "craniotomy_coordinate_ML": {
+                    "type": "number",
+                    "title": "Craniotomy coordinate ML (mm)",
+                    "units": "mm"
+                },
+                "craniotomy_coordinates_AP": {
+                    "type": "number",
+                    "title": "Craniotomy coordinates AP (mm)",
+                    "units": "mm"
+                },
+                "craniotomy_size": {
+                    "type": "number",
+                    "title": "Craniotomy size (mm)",
+                    "units": "mm"
+                },
+                "implant_part_number": {
+                    "type": "string",
+                    "title": "Implant part number"
+                },
+                "dura_removed": {
+                    "type": "boolean",
+                    "title": "Dura removed"
+                },
+                "protective_material": {
+                    "type": "string",
+                    "title": "Protective material",
                     "enum": [
                         "Duragel", 
                         "SORTA-clear", 
@@ -105,118 +188,174 @@
                         "Other - see notes"
                     ]
                 },
-                "Notes": {"type": "string"}
+                "notes": {
+                    "type": "string",
+                    "title": "Notes"
+                }
             },
             "required": [
-                "Date",
-                "Experimenter first name",
-                "Experimenter last name",
-                "Craniotomy protocol ID",
-                "Craniotomy coordinates ML",
-                "Craniotomy coordinates AP",
-                "Craniotomy size (mm)"
+                "date",
+                "experimenter_full_name",
+                "craniotomy_protocol_ID",
+                "craniotomy_coordinates_ML",
+                "craniotomy_coordinates_AP",
+                "craniotomy_size"
             ]
         },
         "injection": {
             "type": "object",
             "properties": {
-                "Date": {
+                "date": {
                     "type": "string",
-                    "format": "date"
+                    "format": "date",
+                    "title": "Date"
                 },
-                "Experimenter first name": {"type": "string"},
-                "Experimenter last name": {"type": "string"},
-                "Injection protocol ID": {"type": "number"},
-                "Injection coordinates ML": {"type": "number"},
-                "Injection coordinates AP": {"type": "number"},
-                "Injection coordinates depth": {"type": "number"},
-                "Injection angle (deg)": {"type": "number"},
-                "Injection virus": {"type": "string"},
-                "Injection virus ID": {"type": "number"},
-                "Injection type": {
+                "experimenter_full_name": {
                     "type": "string",
+                    "title": "Experimenter full name",
+                    "description": "First and last name of the experimenter."
+                },
+                "injection_protocol_ID": {
+                    "type": "number",
+                    "title": "Injection protocol ID"
+                },
+                "injection_coordinate_ML": {
+                    "type": "number",
+                    "title": "Injection coordinate ML (mm)",
+                    "units": "mm"
+                },
+                "injection_coordinate_AP": {
+                    "type": "number",
+                    "title": "Injection coordinate AP (mm)",
+                    "units": "mm"
+                },
+                "injection_coordinate_depth": {
+                    "type": "number",
+                    "title": "Injection coodinate depth (mm)",
+                    "units": "mm"
+                },
+                "injection_angle": {
+                    "type": "number",
+                    "title": "Injection angle (deg)",
+                    "units": "deg"
+                },
+                "injection_virus": {
+                    "type": "string",
+                    "title": "Injection virus"
+                },
+                "injection_virus_ID": {
+                    "type": "string",
+                    "title": "Injection virus ID"
+                },
+                "injection_type": {
+                    "type": "string",
+                    "title": "Injection type",
                     "enum": ["Iontophoresis","Nanoject"]
                 },
-                "Injection Duration": {
+                "injection_duration": {
                     "type": "string",
-                    "format": "time"
+                    "format": "time",
+                    "title": "Injection duration"
                 },
-                "Notes": {"type": "string"},
-                "Injection class": {
+                "notes": {
+                    "type": "string",
+                    "title": "Notes"
+                },
+                "injection_class": {
                     "anyOf": [
                         {
                             "type": "object",
                             "properties": {
-                                "Injection type": {
+                                "injection_type": {
                                     "type": "string",
                                     "const": "Nanoject"
                                 },
-                                "Injection volume (nL)": {"type": "number"}
+                                "injection_volume": {
+                                    "type": "number",
+                                    "title": "Injection volume (nL)",
+                                    "units": "nL"
+                                }
                             },
                             "required": [
-                                "Injection type",
-                                "Injection volume (nL)"
+                                "injection_type",
+                                "injection_volume"
                             ]
                         },
                         {
                             "type": "object",
                             "properties": {
-                                "Injection type": {
+                                "injection_type": {
                                     "type": "string",
                                     "const": "Iontophoresis"
                                 },
-                                "Injection current (uA)": {"type": "number"},
-                                "Alternating current": {"type": "string"}
+                                "injection_current": {
+                                    "type": "number",
+                                    "title": "Injection current (uA)",
+                                    "units": "uA"
+                                },
+                                "alternating_current": {
+                                    "type": "string",
+                                    "title": "Alternating current"
+                                }
                             },
                             "required": [
-                                "Injection type",
-                                "Injection current (uA)",
-                                "Alternating current"
+                                "injection_type",
+                                "injection_current",
+                                "alternating_current"
                             ]
                         }
                     ]
                 }
             },            
             "required": [
-                "Date",
-                "Experimenter first name",
-                "Experimenter last name",
-                "Injection protocol ID",
-                "Injection coordinates ML",
-                "Injection coordinates AP",
-                "Injection coordinates depth",
-                "Injection angle (deg)",
-                "Injection virus",
-                "Injection type",
-                "Injection duration"
+                "date",
+                "experimenter_full_name",
+                "injection_protocol_ID",
+                "injection_coordinate_ML",
+                "injection_coordinate_AP",
+                "injection_coordinate_depth",
+                "injection_angle",
+                "injection_virus",
+                "injection_type",
+                "injection_duration"
             ]
         },
         "prep": {
             "type": "object",
             "properties": {
-                "Date": {
+                "date": {
                     "type": "string",
-                    "format": "date"
+                    "format": "date",
+                    "title": "Date"
                 },
-                "Experimenter first name": {"type": "string"},
-                "Experimenter last name": {"type": "string"},
-                "Type": {
+                "experimenter_full_name": {
                     "type": "string",
+                    "title": "Experimenter full name",
+                    "description": "First and last name of the experimenter."
+                },
+                "type": {
+                    "type": "string",
+                    "title": "Procedure type",
                     "enum": ["expansion", "perfusion", "dissection"]
                 },
-                "Protocol ID": {"type": "string"},
-                "Notes": {"type": "string"}
+                "protocol_ID": {
+                    "type": "string",
+                    "title": "Protocol ID"
+                },
+                "notes": {
+                    "type": "string",
+                    "title": "Notes"
+                }
             },
             "required": [
-                "Date",
-                "Experimenter first name",
-                "Experimenter last name",
-                "Type",
-                "Protocol ID"
+                "date",
+                "experimenter_full_name",
+                "type",
+                "protocol_ID"
             ]
         }
     },
     "required": [
-        "Specimen ID"
+        "specimen_ID"
         ]
 }
