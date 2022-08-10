@@ -1,0 +1,37 @@
+{
+    "version": "0.0.1",
+    "Specimen ID": 296929,
+    "Injections": [
+        {
+            "Date": "2022-03-07",
+            "Experimenter first name": "Sally",
+            "Experimenter last name": "Ride",
+            "Injection protocol ID": 228,
+            "Injection coordinates ML": 4,
+            "Injection coordinates AP": -4.16,
+            "Injection coordinates depth": 0.7,
+            "Injection angle (deg)": 0,
+            "Injection virus": "AAV1-pSyn-CVS-N2C-g-TVA-tdTomato",
+            "Injection type": "Iontophoresis",
+            "Injection Duration": "00:05:00+00:00",
+            "Injection Current (uA)": 5,
+            "Alternating Current": "7/7"
+        }
+    ],
+    "Tissue Prep": [
+        {
+            "Date": "2022-07-14",
+            "Experimenter first name": "Gus",
+            "Experiment last name": "Grissom",
+            "Type": "expansion",
+            "Protocol ID": "293"
+        },
+        {
+            "Date": "2022-07-12",
+            "Experimenter first name": "Neil",
+            "Experimenter last name": "Armstrong",
+            "Type": "perfusion",
+            "Protocol ID": "3.2"
+        }
+    ]
+}

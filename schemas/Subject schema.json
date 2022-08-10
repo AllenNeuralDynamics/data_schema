@@ -1,0 +1,96 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"type": "object",
+	"properties": {
+		"version": {
+			"type": "string",
+			"const": "0.1.0",
+			"description": "schema version",
+            "title": "Version"
+		},
+		"species": {
+			"type": "string",
+			"enum": ["Mus musculus", "Callithrix jacchus", "Macacca", "Homo sapiens"],
+            "title": "Species"
+		},
+		"specimen_ID": {
+			"type": "string",
+            "title": "Specimen ID",
+			"description": "Unique identifier for the subject. If this is not a Allen LAS ID, indicate this in the Notes."
+		},
+		"sex": {
+			"type": "string",
+			"enum": ["Female", "Male"],
+            "title": "Sex"
+		},	
+		"date_of_birth": {
+			"type": "string",
+			"format": "date",
+            "title": "Date of birth"	
+		},
+		"genotype": {
+			"type": "string",
+            "description": "Genotype of the animal providing both alleles",
+            "title": "Genotype"
+		},
+		"background_strain":{
+			"type": "string",
+			"enum": ["C57BL/6J", "BALB/c"],
+            "title": "Background strain"
+		},
+		"source": {
+			"type": "string",
+			"description": "If the subject was not bred in house, where was it acquired from.",
+            "title": "Source"
+		},
+		"restrictions": {
+			"type": "string",
+			"description": "Any restrictions on use or publishing based on specimen source",
+            "title": "Restrictions"
+		},
+		"breeding_group": {
+			"type": "string",
+            "title": "Breeding Group"
+			},
+		"maternal_ID": {
+			"type": "string",
+            "title": "Maternal specimen ID"
+		},
+		"maternal_genotype": {
+			"type": "string",
+            "title": "Maternal genotype"
+		},
+		"paternal_ID": {
+			"type": "string",
+            "title": "Paternal specimen ID"
+		},
+		"paternal_genotype": {
+			"type": "string",
+            "title": "Paternal genotype"
+		},
+		"light_cycle": {
+			"type": "string",
+			"enum": ["regular", "reverse"],
+            "title": "Light cycle"
+		},
+		"home_cage_enrichment": {
+			"type": "string",
+			"enum": ["none", "running wheel", "other"],
+            "title": "Home cage enrichment"
+		},
+		"notes": {
+			"type": "string",
+            "title": "Notes"
+		}
+	},
+	"required": [
+		"version",
+		"species",
+		"specimen_ID",
+		"sex",
+		"date_of_birth",
+		"genotype",
+		"light_cycle"
+		]
+}
+

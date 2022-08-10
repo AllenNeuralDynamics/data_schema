@@ -6,6 +6,10 @@
 			"type": "string",
 			"const": "0.0.1",
 			"description": "schema version"
+		},
+		"Instrument ID": {
+			"type": "string",
+			"description": "unique identifier for this instrument configuration"
 		},	
 		"Microscope Type": {
 	    	"type": "string",
@@ -111,7 +115,7 @@
 				},
 				"Manufacturer": {
 					"type": "string",
-					"enum": ["Hamamtsu", "PCO", "other"]
+					"enum": ["Hamamatsu", "PCO", "other"]
 				},
 				"Model": {
 					"type": "string"

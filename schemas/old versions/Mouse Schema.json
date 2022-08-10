@@ -9,7 +9,7 @@
 		},
 		"Species": {
 			"type": "string",
-			"enum": ["mus musculus"]
+			"enum": ["Mus musculus", "Callithrix jacchus", "Macacca", "Homo sapiens"]
 		},
 		"Specimen ID": {
 			"type": "integer"
@@ -58,13 +58,10 @@
 		},
 		"Home cage enrichment": {
 			"type": "string",
-			"enum": ["none", "running wheel","other"]
+			"enum": ["none", "running wheel", "other"]
 		},
-		"Water restriction protocol": {
-			"type": "number"
-		},
-		"Training protocol": {
-			"type": "number"
+		"Notes": {
+			"type": "string"
 		}
 	},
 	"required": [

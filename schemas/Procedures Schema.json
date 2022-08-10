@@ -3,17 +3,17 @@
     "type": "object",
     "properties": {
         "version": {
-			"type": "string",
-			"const": "0.0.1",
-			"description": "schema version"
-		},
+            "type": "string",
+            "const": "0.0.1",
+            "description": "schema version"
+        },
         "Specimen ID": {
             "type": "integer"
         },
         "Headframe": {
             "type": "array",
             "items": { "$ref": "#/$defs/frame" },
-			"uniqueItems": true
+            "uniqueItems": true
         },
         "Craniotomy": {
             "type": "array",
@@ -29,6 +29,20 @@
             "type": "array",
             "items": {"$ref": "#/$defs/prep"},
             "uniqueItems": true
+        },
+        "Water restriction protocol": {
+            "type": "number"
+        },
+        "Water restriction start date": {
+            "type": "string",
+            "format": "date"
+        },
+        "Training protocol": {
+            "type": "number"
+        },
+        "Training start date": {
+            "type": "string",
+            "format": "date"
         },
         "Notes": {
             "type": "string"
@@ -127,7 +141,7 @@
                     "type": "string",
                     "format": "time"
                 },
-                "Notes": {"type": "string"}
+                "Notes": {"type": "string"},
                 "Injection class": {
                     "anyOf": [
                         {

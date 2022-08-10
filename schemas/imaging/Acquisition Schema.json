@@ -42,6 +42,9 @@
 			"type": "array",
 			"items": {"$ref": "#/$defs/laser"},
 			"uniqueItems": true
+		},
+		"Notes": {
+			"type": "string"
 		}
 
 	},
@@ -110,7 +113,6 @@
 		"Session start time",
 		"Session end time",
 		"Specimen ID",
-		"Project ID",
 		"Instrument ID",
 		"Positions",
 		"Lasers"
