@@ -1,37 +1,34 @@
 {
-    "version": "0.0.1",
-    "Specimen ID": 296929,
-    "Injections": [
+    "version": "0.1.0",
+    "specimen_id": "296929",
+    "injections": [
         {
-            "Date": "2022-03-07",
-            "Experimenter first name": "Sally",
-            "Experimenter last name": "Ride",
-            "Injection protocol ID": 228,
-            "Injection coordinates ML": 4,
-            "Injection coordinates AP": -4.16,
-            "Injection coordinates depth": 0.7,
-            "Injection angle (deg)": 0,
-            "Injection virus": "AAV1-pSyn-CVS-N2C-g-TVA-tdTomato",
-            "Injection type": "Iontophoresis",
-            "Injection Duration": "00:05:00+00:00",
-            "Injection Current (uA)": 5,
-            "Alternating Current": "7/7"
+            "date": "2022-03-07",
+            "experimenter_full_name": "Sally Ride",
+            "injection_protocol_id": "228",
+            "injection_coordinate_ml": 4,
+            "injection_coordinate_ap": -4.16,
+            "injection_coordinate_depth": 0.7,
+            "injection_angle": 0,
+            "injection_virus": "AAV1-pSyn-CVS-N2C-g-TVA-tdTomato",
+            "injection_type": "Iontophoresis",
+            "injection_duration": "00:05:00+00:00",
+            "injection_current (uA)": 5,
+            "alternating_current": "7/7"
         }
     ],
-    "Tissue Prep": [
+    "tissue_prep": [
         {
-            "Date": "2022-07-14",
-            "Experimenter first name": "Gus",
-            "Experiment last name": "Grissom",
-            "Type": "expansion",
-            "Protocol ID": "293"
+            "date": "2022-07-14",
+            "experimenter_full_name": "Gus Grissom",            
+            "type": "expansion",
+            "protocol_id": "293"
         },
         {
-            "Date": "2022-07-12",
-            "Experimenter first name": "Neil",
-            "Experimenter last name": "Armstrong",
-            "Type": "perfusion",
-            "Protocol ID": "3.2"
+            "date": "2022-07-12",
+            "experimenter_full_name": "Neil Armstrong",
+            "type": "perfusion",
+            "protocol_id": "3.2"
         }
     ]
 }
