@@ -9,7 +9,7 @@
 		},
 		"Species": {
 			"type": "string",
-			"enum": ["mus musculus"]
+			"enum": ["Mus musculus", "Callithrix jacchus", "Macacca", "Homo sapiens"]
 		},
 		"Specimen ID": {
 			"type": "integer"
