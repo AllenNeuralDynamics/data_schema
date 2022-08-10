@@ -37,9 +37,9 @@
             "title": "Tissue Prep"
         },
         "water_restriction_protocol_id": {
-			"type": "string",
+            "type": "string",
             "title": "Water restriction protocol number"
-		},
+        },
         "water_restriction_start_date": {
             "type": "string",
             "format": "date",
