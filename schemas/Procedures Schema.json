@@ -216,7 +216,7 @@
                     "description": "First and last name of the experimenter."
                 },
                 "injection_protocol_id": {
-                    "type": "number",
+                    "type": "string",
                     "title": "Injection protocol ID"
                 },
                 "injection_coordinate_ml": {
