@@ -7,7 +7,7 @@
 			"const": "0.1.0",
 			"description": "schema version"
 		},
-        "specimen_ID": {
+        "specimen_id": {
             "type": "string",
             "title": "Specimen ID",
             "description": "Unique identifier for the subject. If this is not a Allen LAS ID, indicate this in the Notes."
@@ -36,7 +36,7 @@
             "uniqueItems": true,
             "title": "Tissue Prep"
         },
-        "water_restriction_protocol_ID": {
+        "water_restriction_protocol_id": {
 			"type": "string",
             "title": "Water restriction protocol number"
 		},
@@ -66,7 +66,7 @@
         "training": {
             "type": "object",
             "properties": {
-                "training_protocol_ID": {
+                "training_protocol_id": {
                     "type": "string",
                     "title": "Training protocol ID"
                 },
@@ -86,7 +86,7 @@
                 }
             },
             "required": [
-                "training_protocol_ID",
+                "training_protocol_id",
                 "training_protocol_start_date"
             ]
         },
@@ -103,7 +103,7 @@
                     "title": "Experimenter full name",
                     "description": "First and last name of the experimenter."
                 },
-                "headframe_protocol_ID": {
+                "headframe_protocol_id": {
                     "type": "string",
                     "title": "Headframe protocol ID"
                 },
@@ -133,7 +133,7 @@
             "required": [
                 "date",
                 "experimenter_full_name",
-                "headframe_protocol_ID",
+                "headframe_protocol_id",
                 "headframe_part_number",
                 "headframe_material" 
             ]
@@ -151,16 +151,16 @@
                     "title": "Experimenter full name",
                     "description": "First and last name of the experimenter."
                 },
-                "craniotomy_protocol_ID": {
+                "craniotomy_protocol_id": {
                     "type": "string",
                     "title": "Craniotomy protocol ID"
                 },
-                "craniotomy_coordinate_ML": {
+                "craniotomy_coordinate_ml": {
                     "type": "number",
                     "title": "Craniotomy coordinate ML (mm)",
                     "units": "mm"
                 },
-                "craniotomy_coordinates_AP": {
+                "craniotomy_coordinates_ap": {
                     "type": "number",
                     "title": "Craniotomy coordinates AP (mm)",
                     "units": "mm"
@@ -196,9 +196,9 @@
             "required": [
                 "date",
                 "experimenter_full_name",
-                "craniotomy_protocol_ID",
-                "craniotomy_coordinates_ML",
-                "craniotomy_coordinates_AP",
+                "craniotomy_protocol_id",
+                "craniotomy_coordinates_ml",
+                "craniotomy_coordinates_ap",
                 "craniotomy_size"
             ]
         },
@@ -215,16 +215,16 @@
                     "title": "Experimenter full name",
                     "description": "First and last name of the experimenter."
                 },
-                "injection_protocol_ID": {
+                "injection_protocol_id": {
                     "type": "number",
                     "title": "Injection protocol ID"
                 },
-                "injection_coordinate_ML": {
+                "injection_coordinate_ml": {
                     "type": "number",
                     "title": "Injection coordinate ML (mm)",
                     "units": "mm"
                 },
-                "injection_coordinate_AP": {
+                "injection_coordinate_ap": {
                     "type": "number",
                     "title": "Injection coordinate AP (mm)",
                     "units": "mm"
@@ -243,7 +243,7 @@
                     "type": "string",
                     "title": "Injection virus"
                 },
-                "injection_virus_ID": {
+                "injection_virus_id": {
                     "type": "string",
                     "title": "Injection virus ID"
                 },
@@ -310,9 +310,9 @@
             "required": [
                 "date",
                 "experimenter_full_name",
-                "injection_protocol_ID",
-                "injection_coordinate_ML",
-                "injection_coordinate_AP",
+                "injection_protocol_id",
+                "injection_coordinate_ml",
+                "injection_coordinate_ap",
                 "injection_coordinate_depth",
                 "injection_angle",
                 "injection_virus",
@@ -338,7 +338,7 @@
                     "title": "Procedure type",
                     "enum": ["expansion", "perfusion", "dissection"]
                 },
-                "protocol_ID": {
+                "protocol_id": {
                     "type": "string",
                     "title": "Protocol ID"
                 },
@@ -351,11 +351,11 @@
                 "date",
                 "experimenter_full_name",
                 "type",
-                "protocol_ID"
+                "protocol_id"
             ]
         }
     },
     "required": [
-        "specimen_ID"
+        "specimen_id"
         ]
 }
