@@ -15,7 +15,7 @@
         "headframe": {
             "type": "array",
             "items": { "$ref": "#/$defs/frame" },
-			"uniqueItems": true,
+            "uniqueItems": true,
             "title": "Headframe"
         },
         "craniotomy": {
