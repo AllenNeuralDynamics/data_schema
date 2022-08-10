@@ -12,17 +12,17 @@
             "title": "Specimen ID",
             "description": "Unique identifier for the subject. If this is not a Allen LAS ID, indicate this in the Notes."
         },
-        "headframe": {
+        "headframes": {
             "type": "array",
-            "items": { "$ref": "#/$defs/frame" },
+            "items": { "$ref": "#/$defs/headframe" },
             "uniqueItems": true,
-            "title": "Headframe"
+            "title": "Headframes"
         },
-        "craniotomy": {
+        "craniotomies": {
             "type": "array",
-            "items": {"$ref": "#/$defs/cran" },
+            "items": {"$ref": "#/$defs/craniotomy" },
             "uniqueItems": true,
-            "title": "Craniotomy"
+            "title": "Craniotomies"
         },
         "injections": {
             "type": "array",
@@ -30,11 +30,11 @@
             "uniqueItems": true,
             "title": "Injections"
         },
-        "tissue_prep": {
+        "tissue_preps": {
             "type": "array",
-            "items": {"$ref": "#/$defs/prep"},
+            "items": {"$ref": "#/$defs/tissue_prep"},
             "uniqueItems": true,
-            "title": "Tissue Prep"
+            "title": "Tissue Preps"
         },
         "water_restriction_protocol_id": {
             "type": "string",
@@ -52,7 +52,7 @@
         },
         "training_protocols":{
             "type": "array",
-            "items": {"$ref": "#/$defs/training"},
+            "items": {"$ref": "#/$defs/training_protocol"},
             "uniqueItems": true,
             "title": "Training protocols"
         },
@@ -63,7 +63,7 @@
     },
     
     "$defs": {
-        "training": {
+        "training_protocol": {
             "type": "object",
             "properties": {
                 "training_protocol_id": {
@@ -90,7 +90,7 @@
                 "training_protocol_start_date"
             ]
         },
-        "frame": {
+        "headframe": {
             "type": "object",
             "properties": {
                 "date": {
@@ -138,7 +138,7 @@
                 "headframe_material" 
             ]
         },
-        "cran": {
+        "craniotomy": {
             "type": "object",
             "properties": {
                 "date": {
@@ -320,7 +320,7 @@
                 "injection_duration"
             ]
         },
-        "prep": {
+        "tissue_prep": {
             "type": "object",
             "properties": {
                 "date": {
