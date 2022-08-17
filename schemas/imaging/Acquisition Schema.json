@@ -3,48 +3,98 @@
 	"properties":{
 		"version": {
 			"type": "string",
-			"const": "0.0.1",
-			"description": "schema version"
+			"const": "0.1.0",
+			"description": "schema version",
+			"title": "Version"
 		},
-		"Institution": {
+		"institution": {
 			"type": "string",
-			"enum": ["AIND","AIBS"]
+			"enum": ["AIND","AIBS"],
+			"title": "Institution"
 		},
-		"Experimenter first name": {
-			"type": "string"
-		},
-		"Experimenter last name": {
-			"type": "string"
-		},
-		"Session start time": {
+		"experimenter_full_name": {
 			"type": "string",
-			"format": "date-time"
+			"title": "Experimenter full name",
+			"description": "First and last name of the experimenter."
 		},
-		"Specimen ID": {
-			"type": "integer"
-		},
-		"Project ID": {
-			"type": "integer"
-		},
-		"Instrument ID": {
-			"type": "string"
-		},
-		"Session end time": {
+		"session_start_time": {
 			"type": "string",
-			"format": "date-time"
+			"format": "date-time",
+			"title": "Session start time"
 		},
-		"Positions": {
+		"specimen_id": {
+			"type": "integer",
+			"title": "Specimen ID"
+		},
+		"project_name": {
+			"type": "string",
+			"title": "Project name"
+		},
+		"project_id": {
+			"type": "string",
+			"title": "Project ID"
+		},
+		"instrument_id": {
+			"type": "string",
+			"title": "Instrument ID"
+		},
+		"session_end_time": {
+			"type": "string",
+			"format": "date-time",
+			"title": "Session end time"
+		},
+		"ref_1": {
+			"type": "string",
+			"enum": ["X", "Y", "Z"],
+			"title": "Ref1",
+			"description": "Reference axis 1 for stitching"
+		},
+		"ref_2": {
+			"type": "string",
+			"enum": ["X", "Y", "Z"],
+			"title": "Ref2",
+			"description": "Reference axis 2 for stitiching"
+		},
+		"ref_3": {
+			"type": "string",
+			"enum": ["X", "Y", "Z"],
+			"title": "Ref3",
+			"description": "Reference axis 3 for stitching"
+		},
+		"voxel_size_1": {
+			"type": "number",
+			"title": "Voxel size 1 (um)",
+			"units": "um"
+		},
+		"voxel_size_2": {
+			"type": "number",
+			"title": "Voxel size 2 (um)",
+			"units": "um"
+		},
+		"voxels_size_3": {
+			"type": "number",
+			"title": "Voxel size 3 (um)",
+			"units": "um"
+		},
+		"additional_parameters": {
+			"type": "string",
+			"title": "Additional parameters"
+		},
+		"positions": {
 			"type": "array",
 			"items": {"$ref": "#/$defs/position"},
-			"uniqueItems": true
+			"uniqueItems": true,
+			"title": "Positions"
 		},
-		"Lasers": {
+		"lasers": {
 			"type": "array",
 			"items": {"$ref": "#/$defs/laser"},
-			"uniqueItems": true
+			"uniqueItems": true,
+			"title": "Lasers"
 		},
-		"Notes": {
-			"type": "string"
+		"notes": {
+			"type": "string",
+			"title": "Notes"
 		}
 
 	},
@@ -75,46 +125,59 @@
 		"laser": {
 			"type": "object",
 			"properties": {
-				"Name": {
-					"type": "string"
+				"name": {
+					"type": "string",
+					"title": "Name"
 				},
-				"Channel": {
-					"type": "integer"
+				"channel": {
+					"type": "integer",
+					"title": "Channel"
 				},
-				"Enabled": {
-					"type": "boolean"
+				"enabled": {
+					"type": "boolean",
+					"title": "Enabled"
 				},
-				"Wavelength": {
-					"type": "integer"
+				"wavelength": {
+					"type": "integer",
+					"title": "Wavelength (nm)",
+					"units": "nm"
 				},
-				"Power": {
-					"type": "number"
+				"power": {
+					"type": "number",
+					"title": "Power"
 				},
-				"Delay (s)": {
-					"type": "number"
+				"delay": {
+					"type": "number",
+					"title": "Delay (s)",
+					"units": "s"
 				}
 				
 			},
 			"required": [
-				"Name",
-				"Channel",
-				"Enabled",
-				"Wavelength (nm)",
-				"Power",
-				"Delay (s)"
+				"name",
+				"channel",
+				"enabled",
+				"wavelength",
+				"power",
+				"delay"
 			]
 		}
 	},
 	"required": [
 		"version",
-		"Institution",
-		"Experimenter first name",
-		"Experimenter last name",
-		"Session start time",
-		"Session end time",
-		"Specimen ID",
-		"Instrument ID",
-		"Positions",
-		"Lasers"
+		"institution",
+		"experimenter_full_name",
+		"session_start_time",
+		"session_end_time",
+		"specimen_id",
+		"instrument_id",
+		"positions",
+		"lasers",
+		"ref_1",
+		"ref_2",
+		"ref_3",
+		"voxel_size_1",
+		"voxel_size_2",
+		"voxel_size_3"
 	]
 }
