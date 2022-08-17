@@ -1,0 +1,14 @@
+{
+    "version": "0.1.0",
+    "specimen_id": "296929",
+    "species": "Mus musculus",
+    "sex": "Female",
+    "date_of_birth": "2022-01-01",
+    "genotype": "Vip-IRES-Cre/wt; Ai132/wt",
+    "background_strain": "C57BL/6J",
+    "breeding_group": "Vip;Ai132 AIND",
+    "maternal_genotype": "VIP-IRES-Cre/VIP-IRES-Cre",
+    "paternal_genotype": "Ai132/wt",
+    "light_cycle": "regular",
+    "home_cage_enrichment": "running wheel"
+}
