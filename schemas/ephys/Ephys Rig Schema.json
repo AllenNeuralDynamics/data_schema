@@ -83,7 +83,8 @@
 				},
 				"coupling_efficiency": {
 					"type": "number",
-					"title": "Coupling efficiency"
+					"title": "Coupling efficiency (percent)",
+					"units": "percent"
 				},
 				"calibration_data": {
 					"type": "string",
