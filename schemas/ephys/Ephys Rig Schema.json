@@ -1,0 +1,309 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"type": "object",
+	"properties": {
+		"version": {
+			"type": "string",
+			"const": "0.1.0",
+			"description": "schema version",
+			"title": "Version"
+		},
+		"rig_id": {
+			"type": "string",
+			"const": "0_0_0",
+			"description": "room_stim apparatus_version",
+			"title": "Rig ID"
+		},
+		"devices": {
+			"type": "object",
+			"properties": {
+				"probes": {
+					"type": "array",
+					"items": { "$ref": "#/$defs/probe" },
+					"uniqueItems": true,
+					"title": "Probes"
+				},
+				"cameras": {
+					"type": "array",
+					"items": {"$ref": "#/$defs/camera" },
+					"uniqueItems": true,
+					"title": "Cameras"
+				},
+				"lasers": {
+					"type": "array",
+					"items": {"$ref": "#/$defs/laser" },
+					"uniqueItems": true,
+					"title": "Lasers"
+				},
+				"visual_monitor": {
+					"type": "array",
+					"items": {"$ref": "#/$defs/monitor"},
+					"uniqueItems": true,
+					"title": "Visual monitor"
+				},
+				"running_disk": {
+					"type": "array",
+					"items": {"$ref": "#/$defs/disk"},
+					"maxItems": 1,
+					"title": "Running disk"
+				}
+			}
+		}
+	},
+	"$defs": {
+		"laser": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string",
+					"enum": ["Laser A", "Laser B"],
+					"title": "Name"
+				},
+				"manufacturer": {
+					"type": "string",
+					"title": "Manufacturer"
+				},
+				"model": {
+					"type": "string",
+					"title": "Model"
+				},
+				"serial_number": {
+					"type": "string",
+					"title": "Serial number"
+				},
+				"wavelength": {
+					"type": "integer",
+					"title": "Wavelength (nm)",
+					"units": "nm"
+				},
+				"maximum_power": {
+					"type": "number",
+					"title": "Maximum power (mW)",
+					"units": "mW"
+				},
+				"coupling_efficiency": {
+					"type": "number",
+					"title": "Coupling efficiency"
+				},
+				"calibration_data": {
+					"type": "string",
+					"description": "path to calibration data",
+					"title": "Calibration data"
+				},
+				"calibration_date":{
+					"type": "string",
+					"format": "date-time",
+					"title": "Calibration date"
+				}
+			},
+			"required": [
+				"name",
+				"manufacturer",
+				"model",
+				"serial_number"
+			]
+		},
+		"camera": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string",
+					"enum": ["Body Camera", "Eye Camera", "Face Camera"],
+					"title": "Name"
+				},
+				"manufacturer": {
+					"type": "string",
+					"title": "Manufacturer"
+				},
+				"model": {
+					"type": "string",
+					"title": "Model"
+				},
+				"serial_number": {
+					"type": "string",
+					"title": "Serial number"
+				},
+				"position_x": {
+					"type": "number",
+					"title": "Position X"
+				},
+				"position_y": {
+					"type": "number",
+					"title": "Position Y"
+				},
+				"position_z": {
+					"type": "number",
+					"title": "Position Z"
+				},
+				"angle_pitch": {
+					"type": "number",
+					"title": "Angle pitch (deg)",
+					"units": "deg"
+				},
+				"angle_yaw": {
+					"type": "number",
+					"title": "Angle yaw (deg)",
+					"units": "deg"
+				},
+				"angle_roll": {
+					"type": "number",
+					"title": "Angle roll (deg)",
+					"units": "deg"
+				},
+				"recording_software": {
+					"type": "string",
+					"title": "Recording software"
+				},
+				"recording_software_version": {
+					"type": "string",
+					"title": "Recording software version"
+				}
+			},
+			"required": [
+				"name",
+				"manufacturer",
+				"model",
+				"serial_number",
+				"position_x",
+				"position_y",
+				"position_z",
+				"angle_pitch",
+				"angle_yaw",
+				"angle_roll"
+			]	
+		},
+		"probe": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string",
+					"enum": ["Probe A", "Probe B", "Probe C", "Probe D", "Probe E", "Probe F", 
+						"Probe G", "Probe H", "Probe I", "Probe J"],
+					"title": "Name"
+				},
+				"type": {
+					"type": "string",
+					"title": "Type"
+				},
+				"serial_number": {
+					"type": "string",
+					"title": "Serial number"
+				}
+			},
+			"required": ["name", "type", "serial_number"]
+		},
+		"monitor": {
+			"type": "object",
+			"properties": {
+				"manufacturer": {
+					"type": "string",
+					"title": "Manufacturer"
+				},
+				"model": {
+					"type": "string",
+					"title": "Model"
+				},
+				"serial_number": {
+					"type": "string",
+					"title": "Serial number"
+				},
+				"refresh_rate": {
+					"type": "integer",
+					"title": "Refresh rate (Hz)",
+					"units": "Hz"
+				},
+				"width": {
+					"type": "integer",
+					"title": "Width (pixels)",
+					"units": "pixels"
+				},
+				"height": {
+					"type": "integer",
+					"title": "Height (pixels)",
+					"units": "pixels"
+				},
+				"viewing_distance": {
+					"type": "number",
+					"title": "Viewing distance (cm)",
+					"units": "cm"
+				},
+				"position_x": {
+					"type": "number",
+					"title": "Position X"
+				},
+				"position_y": {
+					"type": "number",
+					"title": "Position Y"
+				},
+				"position_z": {
+					"type": "number",
+					"title": "Position Z"
+				},
+				"angle_pitch": {
+					"type": "number",
+					"title": "Angle pitch (deg)",
+					"units": "deg"
+				},
+				"angle_yaw": {
+					"type": "number",
+					"title": "Angle yaw (deg)",
+					"units": "deg"
+				},
+				"angle_roll": {
+					"type": "number",
+					"title": "Angle roll (deg)",
+					"units": "deg"
+				},
+				"contrast": {
+					"type": "integer",
+					"description": "Monitor's contrast setting",
+					"title": "Contrast (percent)",
+					"units": "percent"
+				},
+				"brightness": {
+					"type": "integer",
+					"title": "Brightness",
+					"description": "Monitor's brightness setting"
+				}
+			},
+			"required": [
+				"manufacturer",
+				"model",
+				"serial_number",
+				"refresh_rate",
+				"width",
+				"height",
+				"viewing_distance",
+				"position_x",
+				"position_y",
+				"position_z",
+				"angle_pitch",
+				"angle_yaw",
+				"angle_roll",
+				"contrast",
+				"brightness"
+			]
+		},
+		"disk": {
+			"type": "object",
+			"properties": {
+				"radius": {
+					"type": "number",
+					"title": "Radius (cm)",
+					"units": "cm"
+				},
+				"surface": {
+					"type": "string",
+					"title": "Surface",
+					"enum": ["none", "foam"]
+				},
+				"date_surface_replaced": {
+					"type": "string",
+					"format": "date-time",
+					"title": "Date surface replaced"
+				}
+			},
+			"required": ["radius"]
+		}		
+	}
+}
