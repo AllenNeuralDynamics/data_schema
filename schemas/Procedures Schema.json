@@ -56,6 +56,12 @@
             "uniqueItems": true,
             "title": "Training protocols"
         },
+        "tissue_preparation": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/tissue_prep"},
+            "uniqueItems": true,
+            "title": "Tissue preparation"
+        },
         "notes": {
             "type": "string",
             "title": "Notes"
@@ -63,6 +69,46 @@
     },
     
     "$defs": {
+        "tissue_prep": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "enum": [
+                        "Perfusion",
+                        "Fixation",
+                        "Double delipidation",
+                        "DCM delipidation",
+                        "Immunostaining",
+                        "Gelation"
+                    ],
+                    "title": "Name"
+                },
+                "date_started": {
+                    "type": "string",
+                    "format": "date",
+                    "title": "Date started"
+                },
+                "date_ended": {
+                    "type": "string",
+                    "format": "date",
+                    "title": "Date ended"
+                },
+                "experimenter_full_name": {
+                    "type": "string",
+                    "title": "Experimenter full name",
+                    "description": "First and last name of the experimenter."
+                },
+                "protocol_id": {
+                    "type": "string",
+                    "title": "Protocol ID"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": ["name", "date_started", "protocol_id"]
+        },
         "training_protocol": {
             "type": "object",
             "properties": {
