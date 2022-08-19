@@ -219,6 +219,11 @@
                     "type": "string",
                     "title": "Injection protocol ID"
                 },
+                "injection_hemisphere": {
+                    "type": "string",
+                    "title": "Injection hemisphere",
+                    "enum": ["left", "right"]
+                },
                 "injection_coordinate_ml": {
                     "type": "number",
                     "title": "Injection coordinate ML (mm)",
