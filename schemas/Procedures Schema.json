@@ -56,7 +56,7 @@
             "uniqueItems": true,
             "title": "Training protocols"
         },
-        "tissue_preparation": {
+        "tissue_preparations": {
             "type": "array",
             "items": {"$ref": "#/$defs/tissue_prep"},
             "uniqueItems": true,
@@ -369,40 +369,6 @@
                 "injection_virus",
                 "injection_type",
                 "injection_duration"
-            ]
-        },
-        "tissue_prep": {
-            "type": "object",
-            "properties": {
-                "date": {
-                    "type": "string",
-                    "format": "date",
-                    "title": "Date"
-                },
-                "experimenter_full_name": {
-                    "type": "string",
-                    "title": "Experimenter full name",
-                    "description": "First and last name of the experimenter."
-                },
-                "type": {
-                    "type": "string",
-                    "title": "Procedure type",
-                    "enum": ["expansion", "perfusion", "dissection"]
-                },
-                "protocol_id": {
-                    "type": "string",
-                    "title": "Protocol ID"
-                },
-                "notes": {
-                    "type": "string",
-                    "title": "Notes"
-                }
-            },
-            "required": [
-                "date",
-                "experimenter_full_name",
-                "type",
-                "protocol_id"
             ]
         }
     },
