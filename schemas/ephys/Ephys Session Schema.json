@@ -1,105 +1,153 @@
 {
-	"$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "properties": {
-		"version": {
-			"type": "string",
-			"const": "0.1.0",
-			"description": "schema version",
-			"title": "Version"
-		},
-		"institution": {
-			"type": "string",
-			"enum": ["AIND", "MSP"],
-			"title": "Institution"
-		},
-		"experimenter_full_name": {
-				"type": "string",
-				"title": "Experimenter full name",
-				"description": "First and last name of the experimenter."
-		},
-		"session_start_time": {
-			"type": "string", 
-			"format": "date-time",
-			"title": "Session start time"
-		},
-		"session_end_time": {
-			"type": "string", 
-			"format": "date-time",
-			"title": "Session end time"
-		},	
-		"specimen_id": {
-			"type": "integer",
-			"title": "Specimen ID"
-		},
-		"project_name": {
-			"type": "string",
-			"title": "Project name"
-		},
-		"project_id": {
-			"type": "string",
-			"title": "Project ID"
-		},
-		"session_type": {
-			"type": "string", 
-			"enum": ["Test", "Foraging A", "Spontaneous", "Foraging B"],
-			"title": "Session type"
-		},
-		"stimulus_protocol_id": {
-			"type": "string",
-			"title": "Stimulus protocol ID"
-		},
-		"rig_id": {
-			"type": "string",
-			"title": "Rig ID"
-		},
-		"probes": {
-			"type": "array",
-			"items": { "$ref": "#/$defs/probe" },
-			"uniqueItems": true,
-			"title": "Probes"
-		},
-		"lasers": {
-			"type": "array",
-			"items": {"$ref": "#/$defs/laser"},
-			"uniqueItems": true,
-			"title": "Lasers"
-		},
-		"ccf_version": {
-			"type": "string",
-			"enum": ["CCFv3"],
-			"title": "CCF version"
-		},
-		"coordinate_transform": {
-			"type": "string",
-			"title": "Coordinate transform",
-			"description": "Path to file that details the coordinate transform."
-		},
-		"notes": {
-			"type": "string"
-		}
-	},
-	"$defs": {
-		"probe": {
-			"type": "object",
-			"properties": {
-				"name": {
-					"type": "string",
-					"title": "Name"
-				},
-				"position_start_time": {
-					"type": "string",
-					"format": "date-time",
-					"title": "Position start time"
-				},
-				"position_end_time": {
-					"type": "string",
-					"format": "date-time",
-					"title": "Position end time"
-				},
-				"tip_targeted_structure": {
-					"type": "string"
-				},
+        "version": {
+            "type": "string",
+            "const": "0.1.0",
+            "description": "schema version",
+            "title": "Version"
+        },
+        "institution": {
+            "type": "string",
+            "enum": ["AIND", "MSP"],
+            "title": "Institution"
+        },
+        "experimenter_full_name": {
+                "type": "string",
+                "title": "Experimenter full name",
+                "description": "First and last name of the experimenter."
+        },
+        "session_start_time": {
+            "type": "string", 
+            "format": "date-time",
+            "title": "Session start time"
+        },
+        "session_end_time": {
+            "type": "string", 
+            "format": "date-time",
+            "title": "Session end time"
+        },	
+        "specimen_id": {
+            "type": "integer",
+            "title": "Specimen ID"
+        },
+        "project_name": {
+            "type": "string",
+            "title": "Project name"
+        },
+        "project_id": {
+            "type": "string",
+            "title": "Project ID"
+        },
+        "session_type": {
+            "type": "string", 
+            "enum": ["Test", "Foraging A", "Spontaneous", "Foraging B"],
+            "title": "Session type"
+        },
+        "stimulus_protocol_id": {
+            "type": "string",
+            "title": "Stimulus protocol ID"
+        },
+        "rig_id": {
+            "type": "string",
+            "title": "Rig ID"
+        },
+        "probes": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/probe" },
+            "uniqueItems": true,
+            "title": "Probes"
+        },
+        "lasers": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/laser"},
+            "uniqueItems": true,
+            "title": "Lasers"
+        },
+        "ccf_version": {
+            "type": "string",
+            "enum": ["CCFv3"],
+            "title": "CCF version"
+        },
+        "coordinate_transform": {
+            "type": "string",
+            "title": "Coordinate transform",
+            "description": "Path to file that details the coordinate transform."
+        },
+        "notes": {
+            "type": "string"
+        }
+    },
+    "$defs": {
+        "ccf_coords": {
+            "type": "object",
+            "properties": {
+                "direction": {
+                    "type": "string",
+                    "enum": ["ML", "AP", "DV"],
+                    "title": "Direction"
+                },
+                "value": {
+                    "type": "number",
+                    "title": "Value (um)",
+                    "units": "um"
+                }
+            },
+            "required": ["direction", "value"]
+        },
+        "3d_coordinates_mm": {
+            "type": "object",
+            "properties": {
+                "direction": {
+                    "type": "string",
+                    "enum": ["X", "Y", "Z"],
+                    "title": "Direction"
+                },
+                "value": {
+                    "type": "number",
+                    "title": "Value (mm)",
+                    "units": "mm"
+                }
+            },
+            "required": ["direction", "value"]
+        },
+        "manipulator_angles": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "enum": ["XY", "XZ", "YZ"],
+                    "title": "Name"
+                },
+                "value": {
+                    "type": "number",
+                    "units": "deg",
+                    "title": "Value (deg)"
+                }
+            },
+            "required": ["name", "value"]
+        },
+        "probe": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name"
+                },
+                "position_start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Position start time"
+                },
+                "position_end_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Position end time"
+                },
+                "tip_targeted_structure": {
+                    "type": "string"
+                },
                 "other_targeted_structures": {
                     "type": "string"
                 },
@@ -111,10 +159,10 @@
                     "maxItems": 3,
                     "title": "Targeted CCF coordinates"
                 },
-				"CCF version": {
-					"type": "string",
-					"enum": ["CCFv3"]
-				},
+                "CCF version": {
+                    "type": "string",
+                    "enum": ["CCFv3"]
+                },
                 "targeted_lab_coordinates": {
                     "type": "array",
                     "items": {"$ref": "#/$defs/3d_coordinates_mm"},
@@ -139,99 +187,49 @@
                     "title": "Manipulator angles"
                 }
             },
-            "$defs": {
-                "ccf_coords": {
-                    "type": "object",
-                    "properties": {
-                        "direction": {
-                            "type": "string",
-                            "enum": ["ML", "AP", "DV"],
-                            "title": "Direction"
-                        },
-                        "value": {
-                            "type": "number",
-                            "title": "Value (um)",
-							"units": "um"
-                        }
-                    },
-                    "required": ["direction", "value"]
-                },
-                "3d_coordinates_mm": {
-                    "type": "object",
-                    "properties": {
-                        "direction": {
-                            "type": "string",
-                            "enum": ["X", "Y", "Z"],
-                            "title": "Direction"
-                        },
-                        "value": {
-                            "type": "number",
-                            "title": "Value (mm)",
-                            "units": "mm"
-                        }
-                    },
-                    "required": ["direction", "value"]
-                },
-                "manipulator_angles": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string",
-                            "enum": ["XY", "XZ", "YZ"],
-                            "title": "Name"
-                        },
-                        "value": {
-                            "type": "number",
-                            "units": "deg",
-                            "title": "Value (deg)"
-                        }
-                    },
-                    "required": ["name", "value"]
-                }
-            },
             "required": [
                 "name",
-				"position_start_time",
-				"position_end_time",
+                "position_start_time",
+                "position_end_time",
                 "tip_targeted_structure",
                 "targeted_ccf_coordinates",
                 "targeted_lab_coordinates",
                 "manipulator_coordinates",
                 "manipulator_angles"
-			]
-		},
-		"laser": {
-			"type": "object",
-			"properties": {
-				"name": {
-					"type": "string",
+            ]
+        },
+        "laser": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
                     "title": "Name"
-				},
-				"wavelength": {
-					"type": "integer",
+                },
+                "wavelength": {
+                    "type": "integer",
                     "title": "Wavelength (nm)",
                     "units": "nm"
-				},
-				"power": {
-					"type": "number",
-					"units": "mW",
-					"title": "Power (mW)"
-				},
-				"position_start_time": {
-					"type": "string",
-					"format": "date-time",
-					"title": "Position start time"
-				},
-				"position_end_time": {
-					"type": "string",
-					"format": "date-time",
-					"title": "Position end time"
-				},
-				"targeted_structure": {
-					"type": "string",
-					"title": "Targeted structure"
-				},
-				"targeted_ccf_coordinates": {
+                },
+                "power": {
+                    "type": "number",
+                    "units": "mW",
+                    "title": "Power (mW)"
+                },
+                "position_start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Position start time"
+                },
+                "position_end_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Position end time"
+                },
+                "targeted_structure": {
+                    "type": "string",
+                    "title": "Targeted structure"
+                },
+                "targeted_ccf_coordinates": {
                     "type": "array",
                     "items": {"$ref": "#/$defs/ccf_coords"},
                     "uniqueItems": true,
@@ -262,34 +260,34 @@
                     "uniqueItems": true,
                     "title": "Manipulator angles"
                 }
-			},
-			"required": [
-					"name",
-					"wavelength",
-					"power",
-					"position_start_time",
-					"position_end_time",
-					"targeted_structure",
-					"targeted_ccf_coordinates",
-					"targeted_lab_coordinates",
-					"manipulator_coordinates",
-					"manipulator_angles"
-				]
-		}
+            },
+            "required": [
+                    "name",
+                    "wavelength",
+                    "power",
+                    "position_start_time",
+                    "position_end_time",
+                    "targeted_structure",
+                    "targeted_ccf_coordinates",
+                    "targeted_lab_coordinates",
+                    "manipulator_coordinates",
+                    "manipulator_angles"
+                ]
+        }
 
-	},	
-	"required": [
-		"version",
-		"institution",
-		"experimenter_full_name",
-		"session_start_time",
-		"session_end_time",
-		"specimen_id",
-		"project_id",
-		"session_type",
-		"rig_id",
-		"probes",
-		"lasers",
-		"ccf_version"
-	]
+    },	
+    "required": [
+        "version",
+        "institution",
+        "experimenter_full_name",
+        "session_start_time",
+        "session_end_time",
+        "specimen_id",
+        "project_id",
+        "session_type",
+        "rig_id",
+        "probes",
+        "lasers",
+        "ccf_version"
+    ]
 }
