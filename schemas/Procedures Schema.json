@@ -56,6 +56,12 @@
             "uniqueItems": true,
             "title": "Training protocols"
         },
+        "tissue_preparations": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/tissue_prep"},
+            "uniqueItems": true,
+            "title": "Tissue preparation"
+        },
         "notes": {
             "type": "string",
             "title": "Notes"
@@ -63,6 +69,46 @@
     },
     
     "$defs": {
+        "tissue_prep": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "enum": [
+                        "Perfusion",
+                        "Fixation",
+                        "Double delipidation",
+                        "DCM delipidation",
+                        "Immunostaining",
+                        "Gelation"
+                    ],
+                    "title": "Name"
+                },
+                "date_started": {
+                    "type": "string",
+                    "format": "date",
+                    "title": "Date started"
+                },
+                "date_ended": {
+                    "type": "string",
+                    "format": "date",
+                    "title": "Date ended"
+                },
+                "experimenter_full_name": {
+                    "type": "string",
+                    "title": "Experimenter full name",
+                    "description": "First and last name of the experimenter."
+                },
+                "protocol_id": {
+                    "type": "string",
+                    "title": "Protocol ID"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": ["name", "date_started", "protocol_id"]
+        },
         "training_protocol": {
             "type": "object",
             "properties": {
@@ -219,6 +265,11 @@
                     "type": "string",
                     "title": "Injection protocol ID"
                 },
+                "injection_hemisphere": {
+                    "type": "string",
+                    "title": "Injection hemisphere",
+                    "enum": ["left", "right"]
+                },
                 "injection_coordinate_ml": {
                     "type": "number",
                     "title": "Injection coordinate ML (mm)",
@@ -318,40 +369,6 @@
                 "injection_virus",
                 "injection_type",
                 "injection_duration"
-            ]
-        },
-        "tissue_prep": {
-            "type": "object",
-            "properties": {
-                "date": {
-                    "type": "string",
-                    "format": "date",
-                    "title": "Date"
-                },
-                "experimenter_full_name": {
-                    "type": "string",
-                    "title": "Experimenter full name",
-                    "description": "First and last name of the experimenter."
-                },
-                "type": {
-                    "type": "string",
-                    "title": "Procedure type",
-                    "enum": ["expansion", "perfusion", "dissection"]
-                },
-                "protocol_id": {
-                    "type": "string",
-                    "title": "Protocol ID"
-                },
-                "notes": {
-                    "type": "string",
-                    "title": "Notes"
-                }
-            },
-            "required": [
-                "date",
-                "experimenter_full_name",
-                "type",
-                "protocol_id"
             ]
         }
     },
