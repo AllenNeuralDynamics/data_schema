@@ -30,12 +30,6 @@
             "uniqueItems": true,
             "title": "Injections"
         },
-        "tissue_preps": {
-            "type": "array",
-            "items": {"$ref": "#/$defs/tissue_prep"},
-            "uniqueItems": true,
-            "title": "Tissue Preps"
-        },
         "water_restriction_protocol_id": {
             "type": "string",
             "title": "Water restriction protocol number"
@@ -60,7 +54,7 @@
             "type": "array",
             "items": {"$ref": "#/$defs/tissue_prep"},
             "uniqueItems": true,
-            "title": "Tissue preparation"
+            "title": "Tissue preparations"
         },
         "notes": {
             "type": "string",
