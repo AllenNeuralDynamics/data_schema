@@ -2,10 +2,17 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "properties": {
+        "describedBy": {
+            "type": "string",
+            "const": "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/procedures.json",
+            "description": "The URL reference to the schema.",
+            "title": "Described by"
+        },
         "version": {
             "type": "string",
-            "const": "0.1.0",
-            "description": "schema version"
+            "const": "0.1.1",
+            "description": "schema version",
+            "title": "Version"
         },
         "specimen_id": {
             "type": "string",
@@ -292,11 +299,6 @@
                     "type": "string",
                     "title": "Injection virus ID"
                 },
-                "injection_type": {
-                    "type": "string",
-                    "title": "Injection type",
-                    "enum": ["Iontophoresis","Nanoject"]
-                },
                 "injection_duration": {
                     "type": "string",
                     "format": "time",
@@ -310,6 +312,7 @@
                     "anyOf": [
                         {
                             "type": "object",
+                            "title": "Nanoject",
                             "properties": {
                                 "injection_type": {
                                     "type": "string",
@@ -328,6 +331,7 @@
                         },
                         {
                             "type": "object",
+                            "title": "Iontophoresis",
                             "properties": {
                                 "injection_type": {
                                     "type": "string",
@@ -367,6 +371,8 @@
         }
     },
     "required": [
+        "describedBy",
+        "version",
         "specimen_id"
         ]
 }

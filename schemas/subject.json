@@ -2,11 +2,11 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "properties": {
-        "id": {
+        "describedBy": {
                 "type": "string",
-                "const": "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/Subject%20schema.json",
-                "description": "schema url",
-                "title": "ID"
+                "const": "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/subject.json",
+                "description": "The URL reference to the schema.",
+                "title": "Described by"
         },
         "version": {
                 "type": "string",
@@ -97,7 +97,7 @@
     }
     },
         "required": [
-                "id",
+                "describedBy",
                 "version",
                 "species",
                 "specimen_id",

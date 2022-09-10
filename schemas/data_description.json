@@ -2,6 +2,12 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "properties": {
+        "describedBy": {
+            "type": "string",
+            "const": "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/data_description.json",
+            "description": "The URL reference to the schema.",
+            "title": "Described by"
+        },
         "version": {
             "type": "string",
             "const": "0.1.0",
