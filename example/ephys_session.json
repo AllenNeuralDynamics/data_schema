@@ -1,0 +1,94 @@
+{
+    "institution": "AIND",
+    "experimenter_full_name": "Jane Doe",
+    "session_start_time": "2022-04-01T10:34:17+00:00",
+    "session_end_time": "2022-04-01T11:12:53+00:00",
+    "specimen_id": 296929,
+    "project_id": "7",
+    "session_type": "Foraging A",
+    "stimulus_protocol_id": "101",
+    "rig_id": "2.0.3",
+    "version": "0.1.0",
+    "ccf_version": "CCFv3",
+    "probes": [
+        {
+            "name": "Probe A",
+            "tip_targeted_structure": "VISp",
+            "targeted_ccf_coordinates": [ 
+              { "direction": "ML", "value": -1.2 }, 
+              { "direction": "AP", "value": 2.0 },
+              { "direction": "DV", "value": 0.7 }
+            ],
+            "targeted_lab_coordinates": [
+              { "direction": "X", "value": -1.2 }, 
+              { "direction": "Y", "value": 2.0 },
+              { "direction": "Z", "value": 0.7 }
+             ],
+            "manipulator_coordinates": [
+              { "direction": "X", "value": -1.2 }, 
+              { "direction": "Y", "value": 2.0 },
+              { "direction": "Z", "value": 0.7 }
+             ],
+          	"manipulator_angles": [
+              { "name": "XY", "value": 32 }, 
+              { "name": "YZ", "value": 43.3 },
+            ],          
+            "position_start_time": "2022-04-01T10:34:17+00:00",
+            "position_end_time": "2022-04-01T11:12:53+00:00"            
+        },
+        {
+            "name": "Probe B",
+            "tip_targeted_structure": "VISl",
+            "targeted_ccf_coordinates": [ 
+              { "direction": "ML", "value": -1.2 }, 
+              { "direction": "AP", "value": 2.0 },
+              { "direction": "DV", "value": 0.7 }
+            ],
+            "targeted_lab_coordinates": [
+              { "direction": "X", "value": -1.2 }, 
+              { "direction": "Y", "value": 2.0 },
+              { "direction": "Z", "value": 0.7 }
+             ],
+            "manipulator_coordinates": [
+              { "direction": "X", "value": -1.2 }, 
+              { "direction": "Y", "value": 2.0 },
+              { "direction": "Z", "value": 0.7 }
+             ],
+          	"manipulator_angles": [
+              { "name": "XY", "value": 32 }, 
+              { "name": "YZ", "value": 43.3 },
+            ],          
+            "position_start_time": "2022-04-01T10:34:17+00:00",
+            "position_end_time": "2022-04-01T11:12:53+00:00"    
+        }
+    ],
+    "lasers": [
+        {
+            "name": "Laser A",
+            "wavelength": 920,
+            "power": 2.0,
+            "targeted_structure": "VISp",
+            "targeted_ccf_coordinates": [ 
+              { "direction": "ML", "value": -1.2 }, 
+              { "direction": "AP", "value": 2.0 },
+              { "direction": "DV", "value": 0.7 }
+            ],
+            "targeted_lab_coordinates": [
+              { "direction": "X", "value": -1.2 }, 
+              { "direction": "Y", "value": 2.0 },
+              { "direction": "Z", "value": 0.7 }
+             ],
+            "manipulator_coordinates": [
+              { "direction": "X", "value": -1.2 }, 
+              { "direction": "Y", "value": 2.0 },
+              { "direction": "Z", "value": 0.7 }
+             ],
+          	"manipulator_angles": [
+              { "name": "XY", "value": 32 }, 
+              { "name": "YZ", "value": 43.3 },
+            ],          
+            "position_start_time": "2022-04-01T10:34:17+00:00",
+            "position_end_time": "2022-04-01T11:12:53+00:00"   
+        }
+    ]
+}
