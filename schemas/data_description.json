@@ -39,6 +39,11 @@
             "enum": ["ephys", "ophys", "MSMA", "behavior"],
             "title": "Group"
         },
+        "modality": {
+            "type": "string",
+            "enum": ["ecephys", "ExASPIM", "SmartSPIM", "mesoSPIM", "ophys"],
+            "title": "Modality"
+        },
         "project_name": {
             "type": "string",
             "title": "Project Name"           
@@ -47,5 +52,12 @@
             "type": "string",
             "title": "Project ID"
         }
-    }
+    },
+    "required": [
+        "describedby",
+        "version",
+        "license",
+        "data_level",
+        "institution"
+    ]
 }
