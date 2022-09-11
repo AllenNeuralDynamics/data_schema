@@ -10,7 +10,7 @@
         },
         "version": {
             "type": "string",
-            "const": "0.1.1",
+            "const": "0.2.0",
             "description": "schema version",
             "title": "Version"
         },
@@ -30,6 +30,12 @@
             "items": {"$ref": "#/$defs/craniotomy" },
             "uniqueItems": true,
             "title": "Craniotomies"
+        },
+        "mri_scans": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/mris"},
+            "uniqueItems": true,
+            "title": "MRI Scans"
         },
         "injections": {
             "type": "array",
@@ -70,6 +76,41 @@
     },
     
     "$defs": {
+        "mris": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string",
+                    "format": "date",
+                    "title": "Date"
+                },
+                "experimenter_full_name": {
+                    "type": "string",
+                    "title": "Experimenter full name",
+                    "description": "First and last name of the experimenter."
+                },
+                "scan_type": {
+                    "type": "string",
+                    "title": "Scan type",
+                    "enum": ["RARE"]
+                },
+                "resolution": {
+                    "type": "number",
+                    "title": "Resolution"
+                },
+                "protocol_id": {
+                    "type": "string",
+                    "title": "Protocol ID"
+                }
+            },
+            "required": [
+                "date",
+                "experimenter_full_name",
+                "scan_type",
+                "resolution",
+                "protocol_id"
+            ]
+        },
         "tissue_prep": {
             "type": "object",
             "properties": {
