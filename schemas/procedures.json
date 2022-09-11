@@ -35,7 +35,7 @@
             "type": "array",
             "items": {"$ref": "#/$defs/mris"},
             "uniqueItems": true,
-            "title": "MRI Scans"
+            "title": "MRI scans"
         },
         "injections": {
             "type": "array",
