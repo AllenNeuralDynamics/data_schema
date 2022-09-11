@@ -1,0 +1,119 @@
+{
+  "version": "",
+  "Instrument ID": "001",
+  "Microscope Type": "exaSPIM",
+  "Microscope Manufacturer": "custom",
+  "Microscope Model": "001",
+  "Microscope Serial Number": "001",
+  "Microscope Location": "Room 440",
+  "Temperature control": false,
+  "Humidity control": false,
+  "Vibration control": true,
+  "Optical table model": "VIS3648-PG2-325A",
+  "Optical table size": "36x48",
+  "Objectives": [
+    {
+      "Manufacturer": "Schneider Optics",
+      "Model": "JM_DIAMOND 5.0X/1.3",
+      "Serial number": "001",
+      "Numerical aperture": 0.305,
+      "Magnification": 5,
+      "Immersion": "air"
+    },
+    {
+      "Manufacturer": "Olympus",
+      "Model": "XLFLUOR 2X/0.14",
+      "Serial number": "001",
+      "Numerical aperture": 0.14,
+      "Magnification": 2,
+      "Immersion": "air"
+    }
+  ],
+  "Detectors": [
+    {
+      "Type": "CMOS camera",
+      "Manufacturer": "Vieworks",
+      "Model": "VNP-604MX",
+      "Serial number": "001",
+      "Data interface": "CXP-6",
+      "Cooling": "air"
+    }
+  ],
+  "Light sources": [
+    {
+      "Type": "laser",
+      "Manufacturer": "Oxxius",
+      "Model": "L6cc",
+      "Serial number": "001",
+      "Coupling": "SMF",
+      "Wavelength (nm)": 405,
+      "Max power (mW)": 200
+    },
+    {
+      "Type": "laser",
+      "Manufacturer": "Oxxius",
+      "Model": "L6cc",
+      "Serial number": "001",
+      "Coupling": "SMF",
+      "Wavelength (nm)": 488,
+      "Max power (mW)": 300
+    },
+    {
+      "Type": "laser",
+      "Manufacturer": "Oxxius",
+      "Model": "L6cc",
+      "Serial number": "001",
+      "Coupling": "SMF",
+      "Wavelength (nm)": 561,
+      "Max power (mW)": 200
+    },
+    {
+      "Type": "laser",
+      "Manufacturer": "Oxxius",
+      "Model": "L6cc",
+      "Serial number": "001",
+      "Coupling": "SMF",
+      "Wavelength (nm)": 638,
+      "Max power (mW)": 200
+    }
+  ],
+"Fluorescence filters": [
+    {
+      "Type": "Multi band",
+      "Manufacturer": "Semrock",
+      "Model": "FF01-523/610",
+      "Size (mm)": "44"
+    }
+  ],
+  "Motorized stages": [
+    {
+      "Type": "XY",
+      "Manufacturer": "Applied Scientific Instrumentation",
+      "Model": "MS8000",
+      "Serial number": "001"
+    },
+    {
+      "Type": "Z",
+      "Manufacturer": "Applied Scientific Instrumentation",
+      "Model": "LS100",
+      "Serial number": "001"
+    }
+  ],
+  "Additional devices": [
+    {
+      "Type": "Tunable lens",
+      "Manufacturer": "Optotune",
+      "Model": "EL-16-40-TC-VIS-20D-C",
+      "Serial number": "001",
+      "Comments": ""
+    },
+    {
+      "Type": "other",
+      "Manufacturer": "Thorlabs",
+      "Model": "K10CR1",
+      "Serial number": "001",
+      "Comments": ""
+    }
+  ],
+  "Notes": ""
+}
