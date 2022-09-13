@@ -10,7 +10,7 @@
         },
         "version": {
             "type": "string",
-            "const": "0.1.0",
+            "const": "0.1.1",
             "description": "schema version",
             "title": "Version"
         },
@@ -21,6 +21,7 @@
         },
         "data_level": {
             "type": "string",
+            "description": "level of processing that data has undergone",
             "enum": ["raw data", "derived data"],
             "title": "Data Level"            
         },
@@ -32,25 +33,30 @@
         "institution": {
             "type": "string",
             "enum": ["AIND", "AIBS"],
+            "description": "An established society, corporation, foundation or other organization that collected this data",
             "title": "Institution"
         },
         "group": {
             "type": "string",
             "enum": ["ephys", "ophys", "MSMA", "behavior"],
+            "description": "A short name for the group of individuals that collected this data",
             "title": "Group"
         },
         "modality": {
             "type": "string",
             "enum": ["ecephys", "ExASPIM", "SmartSPIM", "mesoSPIM", "ophys"],
+            "description": "A short name for the specific manner, characteristic, pattern of application, or the employment of any technology or formal procedure to generate data for a study",
             "title": "Modality"
         },
         "project_name": {
             "type": "string",
-            "title": "Project Name"           
+            "title": "Project Name",
+            "description": "A name for a set of coordinated activities intended to achieve one or more objectives"
         },
         "project_id": {
             "type": "string",
-            "title": "Project ID"
+            "title": "Project ID",
+            "description": "A database or other identifier for a project"
         }
     },
     "required": [
