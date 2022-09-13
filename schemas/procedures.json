@@ -94,6 +94,17 @@
                     "title": "Scan type",
                     "enum": ["RARE"]
                 },
+                "scanner_location": {
+                    "type": "string",
+                    "title": "Scanner location",
+                    "enum": ["UW SLU", "Fred Hutch"]
+                },
+                "magnetic_strength": {
+                    "type": "integer",
+                    "title": "Magnetic strength (T)",
+                    "enum": [7, 14],
+                    "units": "T"
+                },
                 "resolution": {
                     "type": "number",
                     "title": "Resolution"
