@@ -7,67 +7,67 @@
 			"const": "0.0.1",
 			"description": "schema version"
 		},
-		"Instrument ID": {
+		"instrument_id": {
 			"type": "string",
 			"description": "unique identifier for this instrument configuration"
 		},	
-		"Microscope Type": {
+		"microscope_type": {
 	    	"type": "string",
 	    	"enum": ["mesoSPIM", "exaSPIM", "diSPIM", "smartSPIM", "confocal", "two photon","other"]
 	  	},
-	  	"Microscope Manufacturer": {
+	  	"microscope_manufacturer": {
 	    	"type": "string",
 			"enum": ["Olympus", "Leica", "LifeCanvas", "custom"]
 	  	},
-	  	"Microscope Model": {
+	  	"microscope_model": {
 	    	"type": "number"
 	  	},
-	  	"Microscope Serial Number": {
+	  	"microscope_serial_number": {
 	    	"type": "string"
 	  	},
-	  	"Microscope Location": {
+	  	"microscope_location": {
 			"type": "string"
 	  	},
-	  	"Temperature control": {
+	  	"temperature_control": {
 			"type": "boolean"
 	  	},
-	  	"Humidity control": {
+	  	"humidity_control": {
 			"type": "boolean"
 	  	},
-	  	"Vibration control": {
+	  	"vibration_control": {
 			"type": "boolean"
 	  	},
-	  	"Optical table model": {
+	  	"optical_table_model": {
 			"type": "string"
 	  	},
-	  	"Optical table size": {
+	  	"optical_table_size": {
 			"type": "number"
 	  	},
-	  	"Objectives": {
+	  	"objectives": {
 			"type": "array",
 			"items": { "$ref": "#/$defs/objective" }
 		},
-		"Detectors": {
+		"cetectors": {
 			"type": "array",
 			"items": { "$ref": "#/$defs/detector"}
 		},
-		"Light sources": {
+		"light_sources": {
 			"type": "array",
 			"items": { "$ref": "#/$defs/lightsource"}
 		},
-		"Flourescence filters": {
+		"flourescence_filters": {
 			"type": "array",
 			"items": { "$ref": "#/defs/filter"}
 		},
-		"Motorized stages": {
+		"motorized_stages": {
 			"type": "array",
 			"items": { "$ref": "#/defs/stage"}
 		},
-		"Additional devices": {
+		"additional_devices": {
 			"type": "array",
 			"items": { "$ref": "#/defs/device"}
 		},
-		"Notes": {
+		"notes": {
 			"type": "string"
 		}
 	  },
@@ -75,183 +75,183 @@
 		"objective": {
 			"type": "object",
 			"properties": {
-				"Manufacturer": {
+				"manufacturer": {
 					"type": "string",
 					"enum": ["Olympus", "Nikon", "Special Optics", "ThorLabs"] 
 				},
-				"Model": {
+				"model": {
 					"type": "number"
 				},
-				"Serial number": {
+				"serial_number": {
 					"type": "string"
 				},
-				"Numerical aperture": {
+				"numerical_aperture": {
 					"type": "number",
 					"enum": [0.2, 0.4, 0.7]
 				},
-				"Magnification": {
+				"magnification": {
 					"type": "string",
 					"enum": ["3.6X", "10X", "20X"]
 				},
-				"Immersion": {
+				"immersion": {
 					"type": "string",
 					"enum": ["air","water", "oil", "multi"]
 				}
 			},
 			"required": [
-				"Manufacturer",
-				"Model",
-				"Numerical aperture",
-				"Magnification",
-				"Immersion"
+				"manufacturer",
+				"model",
+				"numerical_aperture",
+				"magnification",
+				"immersion"
 			]
 		},
 		"detector": {
 			"type": "object",
 			"properties": {
-				"Type": {
+				"type": {
 					"type": "string",
 					"enum": ["Camera", "PMT", "other"]
 				},
-				"Manufacturer": {
+				"manufacturer": {
 					"type": "string",
 					"enum": ["Hamamatsu", "PCO", "other"]
 				},
-				"Model": {
+				"model": {
 					"type": "string"
 				},
-				"Serial number": {
+				"serial_number": {
 					"type": "string"
 				},
-				"Data interface": {
+				"data_interface": {
 					"type": "string",
 					"enum": ["USB", "CameraLink", "Coax", "other"]
 				},
-				"Cooling": {
+				"cooling": {
 					"type": "string",
 					"enum": ["air", "water"]
 				},
-				"Immersion": {
+				"immersion": {
 					"type": "string",
 					"enum": ["air","water", "oil"]
 				}
 			},
 			"required": [
-				"Type",
-				"Manufacturer",
-				"Model",
-				"Data interface",
-				"Cooling",
-				"Immersion"
+				"type",
+				"manufacturer",
+				"model",
+				"data_interface",
+				"cooling",
+				"immersion"
 			]
 		},
 		"lightsource": {
 			"type": "object",
 			"properties": {
-				"Type": {
+				"type": {
 					"type": "string",
 					"enum": ["lamp", "laser", "LED", "other"]
 				},
-				"Manufacturer": {
+				"manufacturer": {
 					"type": "string",
 					"enum": ["Vortran", "Coherent", "other"]
 				},
-				"Model": {
+				"model": {
 					"type": "string"
 				},
-				"Serial number": {
+				"serial_number": {
 					"type": "string"
 				},
-				"Coupling": {
+				"coupling": {
 					"type": "string",
 					"enum": ["Free-space", "SMF", "MMF", "other"]
 				},
-				"Wavelength (nm)": {
+				"wavelength_nm": {
 					"type": "integer",
 					"enum": [405, 488, 561, 638]
 				},
-				"Max power (mW)": {
+				"max_power_mW": {
 					"type": "integer",
 					"enum": [100, 200]
 				}
 			},
 			"required": [
-				"Type",
-				"Manufacturer",
-				"Model",
-				"Coupling",
-				"Wavelength (nm)",
-				"Max power (mW)"
+				"type",
+				"manufacturer",
+				"model",
+				"coupling",
+				"wavelength_nm",
+				"max_power_mW"
 			]
 		},
 		"filter": {
 			"type": "object",
 			"properties": {
-				"Type": {
+				"type": {
 					"type": "string",
 					"enum": ["Long pass", "Band pass"]
 				},
-				"Manufacturer": {
+				"manufacturer": {
 					"type": "string",
 					"enum": ["Chroma", "Semrock"]
 				},
-				"Model": {
+				"model": {
 					"type": "string"
 				},
-				"Size (mm)": {
+				"size_mm": {
 					"type": "integer",
 					"enum": [25, 32]
 				}
 			},
 			"required": [
-				"Type",
-				"Manufacturer",
-				"Model",
-				"Size (mm)"
+				"type",
+				"manufacturer",
+				"model",
+				"size_mm"
 			]
 		},
 		"stage": {
 			"type": "object",
 			"properties": {
-				"Type": {
+				"type": {
 					"type": "string",
 					"enum": ["Camera", "PMT", "other"]
 				},
-				"Manufacturer": {
+				"manufacturer": {
 					"type": "string",
 					"enum": ["Hamamtsu", "PCO", "other"]
 				},
-				"Model": {
+				"model": {
 					"type": "string"
 				},
-				"Serial number": {
+				"serial_number": {
 					"type": "string"
 				}
 			},
 			"required": [
-				"Type",
-				"Manufacturer",
-				"Model"
+				"type",
+				"manufacturer",
+				"model"
 			]
 		},
 		"device": {
 			"type": "object",
 			"properties": {
-				"Type": {
+				"type": {
 					"type": "string",
 					"enum": ["Tunable lens", "NI DAQ", "Scanning mirror", "other"]
 				},
-				"Manufacturer": {
+				"manufacturer": {
 					"type": "string",
 					"enum": ["Hamamtsu", "PCO", "other"]
 				},
-				"Model": {
+				"model": {
 					"type": "string"
 				},
-				"Serial number": {
+				"serial_number": {
 					"type": "string"
 				},
-				"Comments": {
+				"comments": {
 					"type": "string"
 				}
 			}
@@ -260,12 +260,12 @@
 
 	},
 	"required": [
-		"Microscope Type",
-	    "Microscope Manufacturer",
-	    "Microscope Model",
-	    "Microscope Serial Number",
-	    "Objectives",
-		"Detectors",
-		"Light sources"
+		"microscope_type",
+	    "microscope_manufacturer",
+	    "microscope_model",
+	    "microscope_serial_number",
+	    "objectives",
+		"detectors",
+		"light_sources"
 	]
 }
