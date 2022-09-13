@@ -1,0 +1,58 @@
+{
+  "rig_id": "0_0_0",
+  "devices": {
+      "probes": [
+          {
+              "name": "Probe A",
+              "type": "NP1.0",
+              "serial_number": "34sd2"
+          },
+          {
+              "name": "Probe B",
+              "type": "NP1.0",
+              "serial_number": "23sd2"
+          }
+      ],
+      "lasers": [
+          {
+              "name": "Laser A",
+              "manufacturer": "Sears",
+              "model": "Laser5000",
+              "serial_number": "pr425"
+          }
+      ],
+      "cameras": [
+          {
+              "name": "Body Camera",
+              "manufacturer": "Kodak",
+              "model": "Kodachrome",
+              "serial_number": "vme93s",
+              "position_x": 22.3,
+              "position_y": 66.1,
+              "position_z": 23.4,
+              "angle_pitch": 33,
+              "angle_yaw": 34,
+              "angle_roll": 43
+          }
+      ],
+      "visual_monitors": [
+          {
+              "refresh_rate": 60,
+              "width": 1920,
+              "height": 1024,
+              "viewing_distance": 15,
+              "position_x": 40,
+              "position_y": 0,
+              "position_z": 0,
+              "angle_pitch": 33,
+              "angle_yaw": 34,
+              "angle_roll": 43,
+              "contrast": 50,
+              "brightness": 30,
+              "manufacturer": "Vizio",
+              "model": "VD434",
+              "serial_number": "vm3412343"
+          }
+      ]
+  }
+}

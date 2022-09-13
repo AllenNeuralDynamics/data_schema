@@ -2,5 +2,6 @@
     "version": "0.1.0",
     "license": "CC-BY-4.0",
     "name": "ephys_12345_08-03-1492",
-    "institution": "AIND"
+    "institution": "AIND",
+    "data_level": "raw data"
 }
