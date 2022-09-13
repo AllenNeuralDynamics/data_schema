@@ -1,0 +1,75 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "describedBy": {
+            "type": "string",
+            "const": "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/processing.json",
+            "description": "The URL reference to the schema.",
+            "title": "Described by"
+        },
+        "version": {
+            "type": "string",
+            "const": "0.0.1",
+            "description": "schema version",
+            "title": "Version"
+        },
+        "data_processing": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/processes" },
+            "uniqueItems": true,
+            "title": "Data processing"
+        }
+    },
+    "required": [
+        "describedBy",
+        "version",
+        "data_processing"
+    ],
+    "$defs": {
+        "processes":{
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name"
+                },
+                "version": {
+                    "type": "string",
+                    "title": "Version",
+                    "description": "Version of the algorithm used"
+                },
+                "date_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "data_inputs": {
+                    "type": "string",
+                    "title": "Data inputs",
+                    "description": "Path to data inputs"
+                },
+                "data_outputs": {
+                    "type": "string",
+                    "title": "Data outputs",
+                    "description": "Path to data outputs"
+                },
+                "respository": {
+                    "type": "string",
+                    "title": "Respository",
+                    "description": "Path to code respository"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "version",
+                "date_time",
+                "data_inputs",
+                "data_outputs",
+                "respository"
+            ]
+        }
+    }
+}
