@@ -7,6 +7,12 @@
 			"description": "schema version",
 			"title": "Version"
 		},
+		"describedBy": {
+            "type": "string",
+            "const": "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/imaging/acquisition.json",
+            "description": "The URL reference to the schema.",
+            "title": "Described by"
+        },
 		"institution": {
 			"type": "string",
 			"enum": ["AIND","AIBS"],
