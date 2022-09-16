@@ -366,31 +366,18 @@
                             "type": "object",
                             "title": "Nanoject",
                             "properties": {
-                                "injection_type": {
-                                    "type": "string",
-                                    "const": "Nanoject",
-                                    "title": "Injection type"
-                                },
                                 "injection_volume": {
                                     "type": "number",
                                     "title": "Injection volume (nL)",
                                     "units": "nL"
                                 }
                             },
-                            "required": [
-                                "injection_type",
-                                "injection_volume"
-                            ]
+                            "required": ["injection_volume"]
                         },
                         {
                             "type": "object",
                             "title": "Iontophoresis",
                             "properties": {
-                                "injection_type": {
-                                    "type": "string",
-                                    "const": "Iontophoresis",
-                                    "title": "Injection type"
-                                },
                                 "injection_current": {
                                     "type": "number",
                                     "title": "Injection current (uA)",
@@ -402,7 +389,6 @@
                                 }
                             },
                             "required": [
-                                "injection_type",
                                 "injection_current",
                                 "alternating_current"
                             ]
@@ -419,8 +405,8 @@
                 "injection_coordinate_depth",
                 "injection_angle",
                 "injection_virus",
-                "injection_type",
-                "injection_duration"
+                "injection_duration",
+                "injection_class"
             ]
         }
     },
