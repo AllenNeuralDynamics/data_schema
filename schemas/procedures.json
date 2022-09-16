@@ -368,7 +368,8 @@
                             "properties": {
                                 "injection_type": {
                                     "type": "string",
-                                    "const": "Nanoject"
+                                    "const": "Nanoject",
+                                    "title": "Injection type"
                                 },
                                 "injection_volume": {
                                     "type": "number",
@@ -387,7 +388,8 @@
                             "properties": {
                                 "injection_type": {
                                     "type": "string",
-                                    "const": "Iontophoresis"
+                                    "const": "Iontophoresis",
+                                    "title": "Injection type"
                                 },
                                 "injection_current": {
                                     "type": "number",

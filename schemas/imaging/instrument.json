@@ -195,8 +195,7 @@
                 "manufacturer",
                 "model",
                 "data_interface",
-                "cooling",
-                "immersion"
+                "cooling"
             ]
         },
         "lightsource": {
