@@ -60,7 +60,7 @@
         }
     },
     "required": [
-        "describedby",
+        "describedBy",
         "version",
         "license",
         "data_level",
