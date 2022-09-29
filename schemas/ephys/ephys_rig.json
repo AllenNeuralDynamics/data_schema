@@ -4,7 +4,7 @@
     "properties": {
         "describedBy": {
             "type": "string",
-            "const": "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/ephys_rig.json",
+            "const": "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/ephys/ephys_rig.json",
             "description": "The URL reference to the schema.",
             "title": "Described by"
         },
