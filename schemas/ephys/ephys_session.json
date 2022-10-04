@@ -165,10 +165,6 @@
                     "maxItems": 3,
                     "title": "Targeted CCF coordinates"
                 },
-                "CCF version": {
-                    "type": "string",
-                    "enum": ["CCFv3"]
-                },
                 "targeted_lab_coordinates": {
                     "type": "array",
                     "items": {"$ref": "#/$defs/3d_coordinates_mm"},
