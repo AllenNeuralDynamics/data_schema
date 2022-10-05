@@ -1,2 +1,0 @@
-jsonschema==4.6.0
-jsf==0.3.2
