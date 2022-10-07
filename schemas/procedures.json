@@ -43,6 +43,12 @@
             "uniqueItems": true,
             "title": "Injections"
         },
+        "fiber_implants": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/impant"},
+            "uniqueItems": true,
+            "title": "Fiber implants"
+        },
         "water_restriction_protocol_id": {
             "type": "string",
             "title": "Water restriction protocol number"
@@ -76,6 +82,100 @@
     },
     
     "$defs": {
+        "implant": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string",
+                    "format": "date",
+                    "title": "Date"
+                },
+                "experimenter_full_name": {
+                    "type": "string",
+                    "title": "Experimenter full name",
+                    "description": "First and last name of the experimenter."
+                },
+                "probes": {
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/probe"},
+                    "uniqueItems": true,
+                    "title": "Probes"
+                }
+            },
+            "required": ["date", "experimenter_full_name","probes"]
+        },
+        "probes": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name",
+                    "enum": ["Probe A", "Probe B", "Probe C"]
+                },
+                "manufacturer": {
+                    "type": "string",
+                    "title": "Manufacturer"
+                },
+                "part_number": {
+                    "type": "string",
+                    "title": "Part number"
+                },
+                "core_diameter": {
+                    "type": "number",
+                    "title": "Core diameter (um)",
+                    "units": "um"
+                },
+                "numerical_aperture": {
+                    "type": "number",
+                    "title": "Numerical aperture"
+                },
+                "ferrule_material": {
+                    "type": "string",
+                    "title": "Ferrule material",
+                    "enum": ["Ceramic", "Stainless steel"]
+                },
+                "targeted_structure": {
+                    "type": "string",
+                    "title": "Targeted structure"
+                },
+                "stereotactic_coordinate_ap": {
+                    "type": "number",
+                    "title": "Stereotactic coordinate A/P (mm)",
+                    "units": "mm"
+                },
+                "stereotactic_coordinate_ml": {
+                    "type": "number",
+                    "title": "Stereotactic coodinate M/L (mm)",
+                    "units": "mm"
+                },
+                "stereotactic_coordinate_dv": {
+                    "type": "number",
+                    "title": "Stereotactic coordinate D/V (mm)",
+                    "units": "mm"
+                },
+                "angle": {
+                    "type": "number",
+                    "title": "Angle (deg)",
+                    "units": "degrees"
+                },
+                "notes": {
+                    "type": "string",
+                    "title": "Notes"
+                }
+            },
+            "required": [
+                "name",
+                "manufacturer",
+                "part_number",
+                "core_diameter",
+                "numerical_aperture",
+                "targeted_structure",
+                "stereotactic_coordinate_ap",
+                "stereotactic_coordinate_ml",
+                "stereotactic_coordinate_dv",
+                "angle"
+            ]
+        },
         "mris": {
             "type": "object",
             "properties": {
@@ -254,7 +354,7 @@
                     "type": "string",
                     "title": "Craniotomy protocol ID"
                 },
-                "craniotomy_coordinate_ml": {
+                "craniotomy_coordinates_ml": {
                     "type": "number",
                     "title": "Craniotomy coordinate ML (mm)",
                     "units": "mm"
@@ -366,6 +466,11 @@
                             "type": "object",
                             "title": "Nanoject",
                             "properties": {
+                                "injection_type": {
+                                    "type": "string",
+                                    "const": "Nanoject",
+                                    "title": "Injection type"
+                                },
                                 "injection_volume": {
                                     "type": "number",
                                     "title": "Injection volume (nL)",
@@ -378,6 +483,11 @@
                             "type": "object",
                             "title": "Iontophoresis",
                             "properties": {
+                                "injection_type": {
+                                    "type": "string",
+                                    "const": "Iontophoresis",
+                                    "title": "Injection type"
+                                },
                                 "injection_current": {
                                     "type": "number",
                                     "title": "Injection current (uA)",
