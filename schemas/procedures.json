@@ -45,7 +45,7 @@
         },
         "fiber_implants": {
             "type": "array",
-            "items": {"$ref": "#/$defs/impant"},
+            "items": {"$ref": "#/$defs/implant"},
             "uniqueItems": true,
             "title": "Fiber implants"
         },
@@ -104,7 +104,7 @@
             },
             "required": ["date", "experimenter_full_name","probes"]
         },
-        "probes": {
+        "probe": {
             "type": "object",
             "properties": {
                 "name": {
