@@ -70,7 +70,7 @@
         "detectors": {
             "type": "array",
             "title": "Detectors",
-            "items": { "$ref": "#/$defs/detector"},
+            "items": { "$ref": "#/defs/detector"},
             "uniqueItems": true
         },
         "light_sources": {
@@ -82,19 +82,19 @@
         "fluorescence_filters": {
             "type": "array",
             "title": "Fluorescence filters",
-            "items": { "$ref": "#/defs/filter"},
+            "items": { "$ref": "#/$defs/filter"},
             "uniqueItems": true
         },
         "motorized_stages": {
             "type": "array",
             "title": "Motorized stages",
-            "items": { "$ref": "#/defs/stage"},
+            "items": { "$ref": "#/$defs/stage"},
             "uniqueItems": true
         },
         "additional_devices": {
             "type": "array",
             "title": "Additional devices",
-            "items": { "$ref": "#/defs/device"},
+            "items": { "$ref": "#/$defs/device"},
             "uniqueItems": true
         },
         "calibration_date": {
