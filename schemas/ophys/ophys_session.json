@@ -78,7 +78,7 @@
         },
         "detectors": {
             "type": "array",
-            "itemsn": {"$ref": "#/$defs/dectector"},
+            "itemsn": {"$ref": "#/$defs/detector"},
             "uniqueItems": true,
             "title": "Detectors"
         },
@@ -144,7 +144,7 @@
             },
             "required": ["fiber_name", "patch_cord_name"]
         },
-        "dectector": {
+        "detector": {
             "type": "object",
             "properties": {
                 "name": {
@@ -175,3 +175,4 @@
         "coupling_array"
     ]
 }
+
