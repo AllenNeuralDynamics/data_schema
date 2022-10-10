@@ -17,80 +17,129 @@
         "rig_id": {
             "type": "string",
             "const": "0_0_0",
-            "description": "room_stim apparatus_version",
+            "description": "room number_stim apparatus_version",
             "title": "Rig ID"
         },
-        "devices": {
+        "rig_location": {
             "type": "string",
+            "title": "Rig location"
+        },
+        "temperature_control": {
+            "type": "boolean",
+            "title": "Temperature control"
+        },
+        "humidity_control": {
+            "type": "boolean",
+            "title": "Humidity control"
+        },
+        "vibration_control": {
+            "type": "boolean",
+            "title": "Vibration control"
+        },
+        "patch_cords": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/patch"},
+            "uniqueItems": true,
+            "title":"Patch cords"
+        },
+        "cameras": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/camera" },
+            "uniqueItems": true,
+            "title": "Cameras"
+        },
+        "lasers": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/laser" },
+            "uniqueItems": true,
+            "title": "Lasers"
+        },
+        "detectors": {
+            "type": "array",
+            "title": "Detectors",
+            "items": { "$ref": "#/$defs/detector"},
+            "uniqueItems": true
+        },
+        "filters": {
+            "type": "array",
+            "title": "Filters",
+            "items": { "$ref": "#/$defs/filter"},
+            "uniqueItems": true
+        },
+        "lenses": {
+            "type": "array",
+            "title": "Lenses",
+            "items": { "$ref": "#/$defs/lens"},
+            "uniqueItems": true
+        },
+        "devices": {
+            "type": "array",
             "title": "Devices",
-            "properties":{
-                "photometry_probes": {
-                    "type": "array",
-                    "items": { "$ref": "#/$defs/probe" },
-                    "uniqueItems": true,
-                    "title": "Photometry probes"
-                },
-                "cameras": {
-                    "type": "array",
-                    "items": {"$ref": "#/$defs/camera" },
-                    "uniqueItems": true,
-                    "title": "Cameras"
-                },
-                "lasers": {
-                    "type": "array",
-                    "items": {"$ref": "#/$defs/laser" },
-                    "uniqueItems": true,
-                    "title": "Lasers"
-                },
-                "visual_monitors": {
-                    "type": "array",
-                    "items": {"$ref": "#/$defs/monitor"},
-                    "uniqueItems": true,
-                    "title": "Visual monitor"
-                },
-                "running_disk": {
-                    "$ref": "#/$defs/disk",
-                    "title": "Running disk"
-                }
-            }
+            "items": {"$ref": "#/$defs/device"},
+            "uniqueItems": true
+        },
+        "light_path_diagram": {
+            "type": "string",
+            "title": "Light path diagram",
+            "description": "Path to diagram of the light path."
+        },
+        "notes": {
+            "type": "string",
+            "title": "Notes"
         }
+
     },
     "required": [
         "describedBy",
         "version",
         "rig_id",
-        "devices"
+        "patch_cords",
+        "lasers"
     ],
     "$defs": {
-        "probe": {
+        "patch": {
             "type": "object",
             "properties": {
                 "name": {
                     "type": "string",
-                    "enum": ["Probe A", "Probe B", "Probe C"],
+                    "enum": ["Patch Cord A", "Patch Cord B", "Patch Cord C"],
                     "title": "Name"
                 },
                 "manufacturer": {
                     "type": "string",
                     "title": "Manufacturer"
                 },
-                "model": {
+                "part_number": {
                     "type": "string",
                     "title": "model"
                 },
                 "serial_number": {
                     "type": "string",
                     "title": "Serial number"
+                },
+                "core_diameter": {
+                    "type": "number",
+                    "title": "Core diameter (um)",
+                    "units": "um"
+                },
+                "numerical_aperture": {
+                    "type": "number",
+                    "title": "Numerical aperture"
+                },
+                "photobleaching_date": {
+                    "type": "string",
+                    "format": "date",
+                    "title": "Photobleaching date"
                 }
             },
-            "required": ["name", "model", "serial_number"]
+            "required": ["name", "part_number", "serial_number", "core_diameter", "numerical_aperture"]
         },
         "laser": {
             "type": "object",
             "properties": {
                 "name": {
                     "type": "string",
-                    "enum": ["Laser A", "Laser B"],
+                    "enum": ["Laser A", "Laser B", "Laser C", "Laser D", "Laser E"],
                     "title": "Name"
                 },
                 "manufacturer": {
@@ -100,6 +149,10 @@
                 "model": {
                     "type": "string",
                     "title": "Model"
+                },
+                "item_number": {
+                    "type": "string",
+                    "title": "Item number"
                 },
                 "serial_number": {
                     "type": "string",
@@ -114,6 +167,11 @@
                     "type": "number",
                     "title": "Maximum power (mW)",
                     "units": "mW"
+                },
+                "coupling": {
+                    "type": "string",
+                    "title": "Coupling",
+                    "enum": ["Free-space", "SMF", "MMF", "other"]
                 },
                 "coupling_efficiency": {
                     "type": "number",
@@ -135,7 +193,186 @@
                 "name",
                 "manufacturer",
                 "model",
-                "serial_number"
+                "serial_number",
+                "wavelength",
+                "maximum_power"
+            ]
+        },
+        "filter": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "title": "Type",
+                    "enum": ["Long pass", "Band pass"]
+                },
+                "manufacturer": {
+                    "type": "string",
+                    "title": "Manufacturer",
+                    "enum": ["Chroma", "Semrock"]
+                },
+                "model": {
+                    "type": "string",
+                    "title": "Model"
+                },
+                "size": {
+                    "type": "integer",
+                    "title": "Size (mm)",
+                    "units": "mm",
+                    "enum": [25, 32]
+                },
+                "cut_off_frequency": {
+                    "type": "integer",
+                    "title": "Cut off frequency"
+                },
+                "cut_on_frequency": {
+                    "type": "integer",
+                    "title": "Cut on frequency"
+                },
+                "description": {
+                    "type": "string",
+                    "title": "Description",
+                    "description": "Where/how filter is being used"
+                }
+            },
+            "required": [
+                "type",
+                "manufacturer",
+                "model"
+            ]
+        },
+        "lens": {
+            "type": "object",
+            "properties": {
+                "manufacturer": {
+                    "type": "string",
+                    "title": "Manufacturer"
+                },
+                "model": {
+                    "type": "string",
+                    "title": "Model"
+                },
+                "focal_length": {
+                    "type": "number",
+                    "title": "Focal length (mm)",
+                    "units": "mm"
+                },
+                "size" : {
+                    "type": "integer",
+                    "title": "Size (inches)",
+                    "units": "inches",
+                    "enum": [1,2]
+                },
+                "optimized_wavelength_range": {
+                    "type" : "string",
+                    "title": "Optimized wavelength range (nm)",
+                    "units": "nm"
+                },
+                "notes": {
+                    "type": "string",
+                    "title": "Notes"
+                }
+            },
+            "required": [
+                "Manufacturer",
+                "Model"
+            ]
+        },
+        "device": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Diffuser", 
+                        "Galvo", 
+                        "Beam expander", 
+                        "Laser coupler", 
+                        "Prism", 
+                        "Objective",
+                        "Slit",
+                        "Other"
+                    ],
+                    "title": "Type",
+                    "description": "Type of device. If Other please describe in Notes."
+                },
+                "manufacturer": {
+                    "type": "string",
+                    "title": "Manufacturer",
+                    "enum": [
+                        "Thorlabs", 
+                        "Optotune", 
+                        "Cambridge Technology", 
+                        "Nikon",
+                        "Edmund Optics",
+                        "Ealing",
+                        "Hamamatsu",
+                        "Other"
+                    ]
+                },
+                "model": {
+                    "type": "string",
+                    "title": "Model"
+                },
+                "serial_number": {
+                    "type": "string",
+                    "title": "Serial number"
+                },
+                "notes": {
+                    "type": "string",
+                    "title": "Notes"
+                }
+            },
+            "required": ["type", "manufacturer"]
+        },
+        "detector": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name",
+                    "description": "Brief name to identify detector to match with session information"
+                },
+                "type": {
+                    "type": "string",
+                    "title": "Type",
+                    "enum": ["Camera", "PMT", "other"]
+                },
+                "manufacturer": {
+                    "type": "string",
+                    "title": "Manufacturer",
+                    "enum": ["Hamamatsu", "PCOS", "other"]
+                },
+                "model": {
+                    "type": "string",
+                    "title": "Model"
+                },
+                "serial_number": {
+                    "type": "string",
+                    "title": "Serial number"
+                },
+                "data_interface": {
+                    "type": "string",
+                    "title": "Data interface",
+                    "enum": ["USB", "CameraLink", "Coax", "other"]
+                },
+                "cooling": {
+                    "type": "string",
+                    "title": "Cooling",
+                    "enum": ["air", "water"]
+                },
+                "immersion": {
+                    "type": "string",
+                    "title": "Immersion",
+                    "enum": ["air","water", "oil"]
+                }
+            },
+            "required": [
+                "type",
+                "manufacturer",
+                "model",
+                "data_interface",
+                "cooling"
             ]
         },
         "camera": {
@@ -206,119 +443,6 @@
                 "angle_yaw",
                 "angle_roll"
             ]	
-        },
-        "monitor": {
-            "type": "object",
-            "properties": {
-                "manufacturer": {
-                    "type": "string",
-                    "title": "Manufacturer"
-                },
-                "model": {
-                    "type": "string",
-                    "title": "Model"
-                },
-                "serial_number": {
-                    "type": "string",
-                    "title": "Serial number"
-                },
-                "refresh_rate": {
-                    "type": "integer",
-                    "title": "Refresh rate (Hz)",
-                    "units": "Hz"
-                },
-                "width": {
-                    "type": "integer",
-                    "title": "Width (pixels)",
-                    "units": "pixels"
-                },
-                "height": {
-                    "type": "integer",
-                    "title": "Height (pixels)",
-                    "units": "pixels"
-                },
-                "viewing_distance": {
-                    "type": "number",
-                    "title": "Viewing distance (cm)",
-                    "units": "cm"
-                },
-                "position_x": {
-                    "type": "number",
-                    "title": "Position X"
-                },
-                "position_y": {
-                    "type": "number",
-                    "title": "Position Y"
-                },
-                "position_z": {
-                    "type": "number",
-                    "title": "Position Z"
-                },
-                "angle_pitch": {
-                    "type": "number",
-                    "title": "Angle pitch (deg)",
-                    "units": "deg"
-                },
-                "angle_yaw": {
-                    "type": "number",
-                    "title": "Angle yaw (deg)",
-                    "units": "deg"
-                },
-                "angle_roll": {
-                    "type": "number",
-                    "title": "Angle roll (deg)",
-                    "units": "deg"
-                },
-                "contrast": {
-                    "type": "integer",
-                    "description": "Monitor's contrast setting",
-                    "title": "Contrast (percent)",
-                    "units": "percent"
-                },
-                "brightness": {
-                    "type": "integer",
-                    "title": "Brightness",
-                    "description": "Monitor's brightness setting"
-                }
-            },
-            "required": [
-                "manufacturer",
-                "model",
-                "serial_number",
-                "refresh_rate",
-                "width",
-                "height",
-                "viewing_distance",
-                "position_x",
-                "position_y",
-                "position_z",
-                "angle_pitch",
-                "angle_yaw",
-                "angle_roll",
-                "contrast",
-                "brightness"
-            ]
-        },
-        "disk": {
-            "type": "object",
-            "properties": {
-                "radius": {
-                    "type": "number",
-                    "title": "Radius (cm)",
-                    "units": "cm"
-                },
-                "surface": {
-                    "type": "string",
-                    "title": "Surface",
-                    "enum": ["none", "foam"]
-                },
-                "date_surface_replaced": {
-                    "type": "string",
-                    "format": "date-time",
-                    "title": "Date surface replaced"
-                }
-            },
-            "required": ["radius"]
         }
     }
 }
