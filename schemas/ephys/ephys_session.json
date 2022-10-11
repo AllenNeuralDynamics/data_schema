@@ -4,7 +4,7 @@
     "properties": {
         "version": {
             "type": "string",
-            "const": "0.1.0",
+            "const": "0.2.0",
             "description": "schema version",
             "title": "Version"
         },
@@ -59,17 +59,26 @@
             "type": "string",
             "title": "Rig ID"
         },
-        "probes": {
+        "expected_data_streams": {
             "type": "array",
-            "items": { "$ref": "#/$defs/probe" },
-            "uniqueItems": true,
-            "title": "Probes"
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Neuropixels probes",
+                    "Body camera",
+                    "Face camera",
+                    "Eye camera",
+                    "Bonsai file",
+                    "Harp bin file",
+                    "Other"
+                ]
+            }
         },
-        "lasers": {
+        "probe_streams": {
             "type": "array",
-            "items": {"$ref": "#/$defs/laser"},
+            "items": { "$ref": "#/$defs/stream"},
             "uniqueItems": true,
-            "title": "Lasers"
+            "title": "Probe streams"
         },
         "ccf_version": {
             "type": "string",
@@ -134,22 +143,45 @@
             },
             "required": ["name", "value"]
         },
+        "stream": {
+            "type": "object",
+            "properties": {
+                "stream_start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Stream start time"
+                },
+                "stream_stop_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Stream stop time"
+                },
+                "probes": {
+                    "type": "array",
+                    "items": { "$ref": "#/$defs/probe" },
+                    "uniqueItems": true,
+                    "title": "Probes"
+                },
+                "lasers": {
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/laser"},
+                    "uniqueItems": true,
+                    "title": "Lasers"
+                }
+            },
+            "required": [
+                "stream_start_time",
+                "stream_stop_time",
+                "probes",
+                "lasers"
+            ]
+        },
         "probe": {
             "type": "object",
             "properties": {
                 "name": {
                     "type": "string",
                     "title": "Name"
-                },
-                "position_start_time": {
-                    "type": "string",
-                    "format": "date-time",
-                    "title": "Position start time"
-                },
-                "position_end_time": {
-                    "type": "string",
-                    "format": "date-time",
-                    "title": "Position end time"
                 },
                 "tip_targeted_structure": {
                     "type": "string"
@@ -191,8 +223,6 @@
             },
             "required": [
                 "name",
-                "position_start_time",
-                "position_end_time",
                 "tip_targeted_structure",
                 "targeted_ccf_coordinates",
                 "targeted_lab_coordinates",
@@ -216,16 +246,6 @@
                     "type": "number",
                     "units": "mW",
                     "title": "Power (mW)"
-                },
-                "position_start_time": {
-                    "type": "string",
-                    "format": "date-time",
-                    "title": "Position start time"
-                },
-                "position_end_time": {
-                    "type": "string",
-                    "format": "date-time",
-                    "title": "Position end time"
                 },
                 "targeted_structure": {
                     "type": "string",
@@ -267,8 +287,6 @@
                     "name",
                     "wavelength",
                     "power",
-                    "position_start_time",
-                    "position_end_time",
                     "targeted_structure",
                     "targeted_ccf_coordinates",
                     "targeted_lab_coordinates",
@@ -288,8 +306,7 @@
         "project_id",
         "session_type",
         "rig_id",
-        "probes",
-        "lasers",
+        "probe_streams",
         "ccf_version"
     ]
 }
