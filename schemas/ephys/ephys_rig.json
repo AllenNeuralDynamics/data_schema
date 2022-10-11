@@ -16,7 +16,6 @@
         },
         "rig_id": {
             "type": "string",
-            "const": "0_0_0",
             "description": "room_stim apparatus_version",
             "title": "Rig ID"
         },
@@ -47,13 +46,34 @@
                     "uniqueItems": true,
                     "title": "Visual monitor"
                 },
-                "running_disk": {
-                    "$ref": "#/$defs/disk",
-                    "title": "Running disk"
+                "running_disc": {
+                    "$ref": "#/$defs/disc",
+                    "title": "Running disc"
+                },
+                "harp_devices": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "Behavior",
+                            "WEAR basestation",
+                            "Camera trigger control",
+                            "LED array interface",
+                            "Analog input",
+                            "Multi PWM generator",
+                            "Clock synchronizer"
+                        ]
+                    }
                 }
             }
         }
     },
+    "required": [
+        "describedBy",
+        "version",
+        "rig_id",
+        "devices"
+    ],
     "$defs": {
         "laser": {
             "type": "object",
@@ -289,7 +309,7 @@
                 "brightness"
             ]
         },
-        "disk": {
+        "disc": {
             "type": "object",
             "properties": {
                 "radius": {
