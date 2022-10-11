@@ -78,7 +78,7 @@
         },
         "detectors": {
             "type": "array",
-            "itemsn": {"$ref": "#/$defs/detector"},
+            "items": {"$ref": "#/$defs/detector"},
             "uniqueItems": true,
             "title": "Detectors"
         },
