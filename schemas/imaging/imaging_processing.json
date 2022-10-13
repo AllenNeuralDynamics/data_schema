@@ -1,0 +1,423 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "describedBy": {
+            "type": "string",
+            "const": "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/processing.json",
+            "description": "The URL reference to the schema.",
+            "title": "Described by"
+        },
+        "schema_version": {
+            "type": "string",
+            "const": "0.0.1",
+            "description": "Schema version",
+            "title": "Schema version"
+        },
+        "pipeline_version": {
+            "type": "string",
+            "title": "Pipeline version",
+            "description": "Version of the pipeline"
+        },
+        "pipeline_url": {
+            "type": "string",
+            "title": "Pipeline URL",
+            "description": "URL to the pipeline code"
+        },
+        "data_processes": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/data_process" },
+            "uniqueItems": true,
+            "title": "Data processing"
+        }
+    },
+    "required": [
+        "describedBy",
+        "schema_version",
+        "pipeline_version",
+        "data_processes"
+    ],
+    "$defs": {
+        "parallel_params": {
+            "properties": {
+                "processor_type": {
+                    "type": "string",
+                    "title": "Processor type",
+                    "enum":[ "CPU Cores", "GPU"]
+                },
+                "image_depth": {
+                    "type": "integer",
+                    "title": "Image depth",
+                    "units": "slices"
+                },
+                "estimate_processes": {
+                    "type": "boolean",
+                    "title": "Estimate processes"
+                },
+                "additional_params": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "title": "Additional parameters"
+                },
+                "host_file": {
+                    "type": "string",
+                    "title": "Host file"
+                },
+                "number_processes": {
+                    "type": "integer",
+                    "title": "Number processes"
+                }
+            },
+            "required": [
+                "image_depth",
+                "estimate_processes",
+                "additional_params",
+                "host_file",
+                "number_processes"
+            ]
+        },
+        "data_process":{
+            "type": "object",
+            "properties": {
+                "version": {
+                    "type": "string",
+                    "title": "Version",
+                    "description": "Version of the software used"
+                },
+                "start_date_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Start date time"
+                },
+                "end_date_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "End date time"
+                },
+                "input_location": {
+                    "type": "string",
+                    "title": "Input location",
+                    "description": "Path to data inputs"
+                },
+                "output_location": {
+                    "type": "string",
+                    "title": "Output location",
+                    "description": "Path to data outputs"
+                },
+                "code_url": {
+                    "type": "string",
+                    "title": "Code URL",
+                    "description": "Path to code respository"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "name": {
+                    "anyOf": [
+                        {
+                            "title": "import",
+                            "type": "obejct",
+                            "properties": {
+                                "channel_excitation": {
+                                    "type": "integer",
+                                    "title": "Channel excitation (nm)",
+                                    "units": "nm"
+                                },
+                                "channel_emission": {
+                                    "type": "integer",
+                                    "title": "Channel emission (nm)",
+                                    "units": "nm"
+                                },
+                                "reference_1": {
+                                    "type": "string",
+                                    "title": "Reference 1",
+                                    "enum": ["X", "Y", "Z"]
+                                },
+                                "voxel_size_1": {
+                                    "type": "number",
+                                    "title": "Voxel size 1 (um)",
+                                    "units": "um"
+                                },
+                                "reference_2": {
+                                    "type": "string",
+                                    "title": "Reference 2",
+                                    "enum": ["X", "Y", "Z"]
+                                },
+                                "voxel_size_2": {
+                                    "type": "number",
+                                    "title": "Voxel size 2 (um)",
+                                    "units": "um"
+                                },
+                                "reference_3": {
+                                    "type": "string",
+                                    "title": "Reference 3",
+                                    "enum": ["X", "Y", "Z"]
+                                },
+                                "voxel_size_3": {
+                                    "type": "number",
+                                    "title": "Voxel size 3 (um)",
+                                    "units": "um"
+                                },
+                                "additional_params": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "title": "Additional params"
+                                }
+                            },
+                            "required": [
+                                "channel_excitation",
+                                "channel_emission",
+                                "reference_1",
+                                "voxel_size_1",
+                                "reference_2",
+                                "voxel_size_2",
+                                "reference_3",
+                                "voxel_size_3"
+                            ]
+                        },
+                        {
+                            "title": "import_params_multivolume",
+                            "type": "obejct",
+                            "properties": {
+                                "reference_1": {
+                                    "type": "string",
+                                    "title": "Reference 1",
+                                    "enum": ["X", "Y", "Z"]
+                                },
+                                "voxel_size_1": {
+                                    "type": "number",
+                                    "title": "Voxel size 1 (um)",
+                                    "units": "um"
+                                },
+                                "reference_2": {
+                                    "type": "string",
+                                    "title": "Reference 2",
+                                    "enum": ["X", "Y", "Z"]
+                                },
+                                "voxel_size_2": {
+                                    "type": "number",
+                                    "title": "Voxel size 2 (um)",
+                                    "units": "um"
+                                },
+                                "reference_3": {
+                                    "type": "string",
+                                    "title": "Reference 3",
+                                    "enum": ["X", "Y", "Z"]
+                                },
+                                "voxel_size_3": {
+                                    "type": "number",
+                                    "title": "Voxel size 3 (um)",
+                                    "units": "um"
+                                },
+                                "additional_params": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "title": "Additional params"
+                                },
+                                "stitching_channel": {
+                                    "type": "string",
+                                    "title": "Stitching channel",
+                                    "description": "Ex_XXX_Em_YYY"
+                                },
+                                "volume_input_plugin": {
+                                    "type": "string",
+                                    "title": "Volume input plugin"
+                                }
+                            },
+                            "required": [
+                                "channel_excitation",
+                                "channel_emission",
+                                "reference_1",
+                                "voxel_size_1",
+                                "reference_2",
+                                "voxel_size_2",
+                                "reference_3",
+                                "voxel_size_3",
+                                "stitching_channel",
+                                "volume_input_plugin"
+                            ]
+                        },
+                        {
+                            "title": "align",
+                            "type": "object",
+                            "properties": {
+                                "channel_excitation": {
+                                    "type": "integer",
+                                    "title": "Channel excitation (nm)",
+                                    "units": "nm"
+                                },
+                                "channel_emission": {
+                                    "type": "integer",
+                                    "title": "Channel emission (nm)",
+                                    "units": "nm"
+                                },
+                                "parallel_params": {
+                                    "type": "array",
+                                    "items": {"$ref": "#/$defs/parallel"},
+                                    "uniqueItems": true,
+                                    "title": "Parallel parameters"
+                                },
+                                "subvoldim": {
+                                    "type": "integer",
+                                    "title": "Subvolume dimension",
+                                    "units": "slices"
+                                }
+                            },
+                            "required": [
+                                "excitation",
+                                "emission",
+                                "parallel_params",
+                                "subvoldim"
+                             ]
+                        },
+                        {
+                            "title": "merge_volume",
+                            "type": "object",
+                            "properties": {
+                                "parallel_params": {
+                                    "type": "array",
+                                    "items": {"$ref": "#/$defs/parallel"},
+                                    "uniqueItems": true,
+                                    "title": "Parallel parameters"
+                                },
+                                "s": {
+                                    "type": "string",
+                                    "title": "s"
+                                },
+                                "d": {
+                                    "type": "string",
+                                    "title": "d"
+                                },
+                                "sfmt": {
+                                    "type": "string",
+                                    "title": "sfmt"
+                                },
+                                "dfmt": {
+                                    "type": "string",
+                                    "title": "dfmt"
+                                },
+                                "width": {
+                                    "type": "integer",
+                                    "title": "Width (pixels)",
+                                    "units": "pixels"
+                                },
+                                "height": {
+                                    "type": "integer",
+                                    "title": "Height (pixels)",
+                                    "units": "pixels"
+                                },
+                                "depth": {
+                                    "type": "integer",
+                                    "title": "Depth (pixels)",
+                                    "units": "pixels"
+                                }
+                            },
+                            "required": [
+                                "parallel_params",
+                                "s",
+                                "d",
+                                "sfmt",
+                                "dfmt",
+                                "width",
+                                "height",
+                                "depth"
+                            ]
+                        },
+                        {
+                            "title": "ome_zarr",
+                            "type": "object",
+                            "properties": {
+                                "clevel": {
+                                    "type": "integer"
+                                },
+                                "codec": {
+                                    "type": "string",
+                                    "title": "Codec"
+                                },
+                                "pyramid_levels": {
+                                    "type": "integer",
+                                    "title": "Pyramid levels"
+                                },
+                                "physical_pixels": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 3,
+                                    "title": "Physical pixels"
+                                },
+                                "scale_factor": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "number",
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 3,
+                                    "title": "Scale factor"
+                                }
+                            },
+                            "required": [
+                                "clevel",
+                                "codec",
+                                "pyramid_levels",
+                                "physical_pixels",
+                                "scale_factor"
+                            ]
+                        },
+                        {
+                            "title": "pystripe",
+                            "type": "object",
+                            "properties": {
+                                "channel_excitation": {
+                                    "type": "integer",
+                                    "title": "Channel excitation (nm)",
+                                    "units": "nm"
+                                },
+                                "channel_emission": {
+                                    "type": "integer",
+                                    "title": "Channel emission (nm)",
+                                    "units": "nm"
+                                },
+                                "sigma_1": {
+                                    "type": "integer",
+                                    "title": "Sigma 1"
+                                },
+                                "sigma_2": {
+                                    "type": "integer",
+                                    "title": "Sigma 2"
+                                },
+                                "workers": {
+                                    "type": "integer",
+                                    "title": "workers"
+                                }
+                            },
+                            "required": [
+                                "channel_excitation",
+                                "channel_emission",
+                                "sigma_1",
+                                "sigma_2",
+                                "workers",
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "version",
+                "start_date_time",
+                "end_date_time",
+                "input_location",
+                "output_location",
+                "code_url",
+                "name"
+            ]
+        }
+    }
+}

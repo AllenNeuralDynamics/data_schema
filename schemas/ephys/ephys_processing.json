@@ -1,0 +1,193 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "describedBy": {
+            "type": "string",
+            "const": "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/processing.json",
+            "description": "The URL reference to the schema.",
+            "title": "Described by"
+        },
+        "schema_version": {
+            "type": "string",
+            "const": "0.0.1",
+            "description": "Schema version",
+            "title": "Schema version"
+        },
+        "pipeline_version": {
+            "type": "string",
+            "title": "Pipeline version",
+            "description": "Version of the pipeline"
+        },
+        "pipeline_url": {
+            "type": "string",
+            "title": "Pipeline URL",
+            "description": "URL to the pipeline code"
+        },
+        "data_processes": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/data_process" },
+            "uniqueItems": true,
+            "title": "Data processing"
+        }
+    },
+    "required": [
+        "describedBy",
+        "version",
+        "data_processes"
+    ],
+    "$defs": {
+        "data_process":{
+            "type": "object",
+            "properties": {
+                "version": {
+                    "type": "string",
+                    "title": "Version",
+                    "description": "Version of the software used"
+                },
+                "start_date_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Start date time"
+                },
+                "end_date_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "End date time"
+                },
+                "input_location": {
+                    "type": "string",
+                    "title": "Input location",
+                    "description": "Path to data inputs"
+                },
+                "output_location": {
+                    "type": "string",
+                    "title": "Output location",
+                    "description": "Path to data outputs"
+                },
+                "code_url": {
+                    "type": "string",
+                    "title": "Code URL",
+                    "description": "Path to code respository"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "name": {
+                    "anyOf": [
+                        {
+                            "title": "preprocessing",
+                            "type": "object",
+                            "properties": {
+                                "highpass_filter": {
+                                    "type": "object",
+                                    "properties": {
+                                        "freq_min": {
+                                            "type": "number",
+                                            "title": "Frequency minimum"
+                                        },
+                                        "margin_ms": {
+                                            "type": "number",
+                                            "title": "Margin (ms)",
+                                            "units": "ms"
+                                        }
+                                    },
+                                    "required": ["freq_min", "margin_ms"]
+                                },
+                                "phase_shift": {
+                                    "type": "object",
+                                    "properties": {
+                                        "margin_ms": {
+                                            "type": "number",
+                                            "title": "Margin (ms)",
+                                            "units": "ms"
+                                        }
+                                    },
+                                    "required": ["margin_ms"]
+                                },
+                                "common_refrence": {
+                                    "type": "object",
+                                    "properties": {
+                                        "reference": {
+                                            "type": "string",
+                                            "title": "Reference",
+                                            "enum": ["global"]
+                                        },
+                                        "operator": {
+                                            "type": "string",
+                                            "title": "Operator",
+                                            "enum": ["median"]
+                                        }
+                                    },
+                                    "required": ["reference", "operator"]
+                                }
+                            },
+                            "required": ["highpass_filter", "phase_shift", "common_reference"]
+                        },
+                        {
+                            "title": "align_params_Ex_488_Em_525",
+                            "type": "object",
+                            "properties": {
+                                "cpu_params": {
+                                    "type": "object",
+                                    "title": "CPU parameters",
+                                    "properties": {
+                                        "image_depth": {
+                                            "type": "integer",
+                                            "title": "Image depth"
+                                        },
+                                        "estimate_processes": {
+                                            "type": "boolean",
+                                            "title": "Estimate processes"
+                                        },
+                                        "additional_params": {
+                                            "type": "string",
+                                            "title": "Additional parameters"
+                                        },
+                                        "host_file": {
+                                            "type": "string",
+                                            "title": "Host file"
+                                        },
+                                        "number_processes": {
+                                            "type": "integer",
+                                            "title": "Number processes"
+                                        }
+                                    },
+                                    "required": [
+                                        "image_depth",
+                                        "estimate_processes",
+                                        "additional_params",
+                                        "host_file",
+                                        "number_processes"
+                                    ]
+                                },
+                                "subvoldim": {
+                                    "type": "integer",
+                                    "title": "Subvolume dimension"
+                                }
+                            },
+                            "required": ["cpu_params", "subvoldim"]
+                        },
+                        {
+                            "title": "displproj_params_Ex_488_Em_525",
+                            "type": "object",
+                            "properties": {
+
+                            },
+                            "required": []
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "version",
+                "start_date_time",
+                "end_date_time",
+                "input_location",
+                "output_location",
+                "code_url"
+            ]
+        }
+    }
+}
