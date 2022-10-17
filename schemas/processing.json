@@ -43,11 +43,17 @@
                 "name": {
                     "type": "string",
                     "title": "Name",
-                    "enum": [
-                        "other", 
+                    "enum": [ 
                         "ephys preprocessing",
                         "spike sorting",
-                        "ephys postprocessing"
+                        "ephys postprocessing",
+                        "image_import",
+                        "image_align",
+                        "merge_volume",
+                        "ome_zarr",
+                        "pystripe",
+                        "displthresh",
+                        "other"
                     ]
                 },
                 "version": {
