@@ -8,11 +8,11 @@
             "description": "The URL reference to the schema.",
             "title": "Described by"
         },
-        "version": {
+        "schema_version": {
             "type": "string",
             "const": "0.0.1",
             "description": "Schema version",
-            "title": "Version"
+            "title": "Schema version"
         },
         "pipeline_version": {
             "type": "string",
@@ -42,7 +42,13 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "title": "Name"
+                    "title": "Name",
+                    "enum": [
+                        "other", 
+                        "ephys preprocessing",
+                        "spike sorting",
+                        "ephys postprocessing"
+                    ]
                 },
                 "version": {
                     "type": "string",
@@ -74,9 +80,15 @@
                     "title": "Code URL",
                     "description": "Path to code respository"
                 },
+                "parameters": {
+                    "type ": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
                 "notes": {
                     "type": "string"
-                }
+                },
             },
             "required": [
                 "name",
@@ -85,7 +97,8 @@
                 "end_date_time",
                 "input_location",
                 "output_location",
-                "code_url"
+                "code_url",
+                "parameters"
             ]
         }
     }
