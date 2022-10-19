@@ -44,16 +44,16 @@
                     "type": "string",
                     "title": "Name",
                     "enum": [ 
-                        "ephys preprocessing",
-                        "spike sorting",
-                        "ephys postprocessing",
-                        "image_import",
-                        "image_align",
-                        "merge_volume",
-                        "ome_zarr",
-                        "pystripe",
-                        "displthresh",
-                        "other"
+                        "Ephys preprocessing",
+                        "Spike sorting",
+                        "Ephys postprocessing",
+                        "Image import",
+                        "Image align",
+                        "Merge volume",
+                        "OME zarr",
+                        "Pystripe",
+                        "Displthresh",
+                        "Other"
                     ]
                 },
                 "version": {
@@ -87,7 +87,7 @@
                     "description": "Path to code respository"
                 },
                 "parameters": {
-                    "type ": "array",
+                    "type ": "object",
                     "items": {
                         "type": "object"
                     }
