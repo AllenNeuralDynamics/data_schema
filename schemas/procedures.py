@@ -167,7 +167,7 @@ class TrainingProtocol(BaseModel):
     notes: Optional[str] = Field(None, title='Notes')
 
 
-class Name1(Enum):
+class ProbeName(Enum):
     Probe_A = 'Probe A'
     Probe_B = 'Probe B'
     Probe_C = 'Probe C'
@@ -179,7 +179,7 @@ class FerruleMaterial(Enum):
 
 
 class Probe(BaseModel):
-    name: Name1 = Field(..., title='Name')
+    name: ProbeName = Field(..., title='Name')
     manufacturer: str = Field(..., title='Manufacturer')
     part_number: str = Field(..., title='Part number')
     core_diameter: float = Field(..., title='Core diameter (um)')
