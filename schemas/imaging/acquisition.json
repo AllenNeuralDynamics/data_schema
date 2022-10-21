@@ -128,12 +128,12 @@
                 "direction": {
                     "type": "string",
                     "enum": [
-                        "Left-to-right",
-                        "Right-to-left",
-                        "Anterior-to-posterior",
-                        "Posterior-to-anterior",
+                        "Left_to_right",
+                        "Right_to_left",
+                        "Anterior_to_posterior",
+                        "Posterior_to_anterior",
                         "Inferior_to_superior",
-                        "Superior-to-inferior",
+                        "Superior_to_inferior",
                         "Other"
                     ],
                     "description": "Tissue direction as the value of axis increases. If Other describe in notes."
