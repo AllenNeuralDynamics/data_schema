@@ -42,9 +42,9 @@ class DataProcess(BaseModel):
     notes: Optional[str] = None
 
 
-class Process(BaseModel):
+class Processing(BaseModel):
     describedBy: str = Field(
-        'https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/process.py', description='The URL reference to the schema.', title='Described by', const=True
+        'https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/processing.py', description='The URL reference to the schema.', title='Described by', const=True
     )
     schema_version: Optional[str] = Field(
         '0.0.1', description='Schema version', title='Schema version', const=True
