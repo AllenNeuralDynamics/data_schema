@@ -27,7 +27,7 @@
         "data_processes": {
             "type": "array",
             "items": { "$ref": "#/$defs/data_process" },
-            "uniqueItems": true,
+            "uniqueItems": "true",
             "title": "Data processing"
         }
     },
