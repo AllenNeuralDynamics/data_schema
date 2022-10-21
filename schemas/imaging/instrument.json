@@ -108,6 +108,37 @@
             "title": "Calibration data",
             "description": "Path to calibration data from most recent calibration"
         },
+        "daq_device_name": {
+            "type": "string",
+            "description": "DAQ device name as it appears to the PC",
+            "title": "DAQ device name"
+        },
+        "daq_output_trigger_name": {
+            "type": "string",
+            "title": "DAQ output trigger name"
+        },
+        "daq_update_frequency": {
+            "type": "number",
+            "title": "DAQ update frequency (Hz)",
+            "units": "Hz"
+        },
+        "daq_ao_names_to_channel": {
+            "type": "array",
+            "title": "DAQ analog outputs",
+            "items": { "$ref": "#/$defs/ao"},
+            "uniqueItems": true
+        },
+        "com_ports": {
+            "type": "array",
+            "title": "COM ports",
+            "items": {"$ref": "#/$defs/com"},
+            "uniqueItems": true
+        },
+        "waveform_start_of_frame_delay": {
+            "type": "number",
+            "title": "Waveform start of frame delay (s)",
+            "units": "s"
+        },
         "notes": {
             "type": "string"
         }
@@ -125,6 +156,34 @@
         "light_sources"
     ],
     "$defs": {
+        "ao": {
+            "type": "object",
+            "properties": {
+                "hardware_name": {
+                    "type": "string",
+                    "title": "Hardware name"
+                },
+                "ao_channel": {
+                    "type": "integer",
+                    "title": "AO channel"
+                }
+            },
+            "required": ["hardware_name", "ao_channel"]
+        },
+        "com": {
+            "type": "object",
+            "properties": {
+                "hardware_name": {
+                    "type": "string",
+                    "title": "Hardware name"
+                },
+                "com_port": {
+                    "type": "string",
+                    "title": "COM port"
+                }
+            },
+            "required": ["hardware_name", "com_port"]
+        },
         "objective": {
             "type": "object",
             "properties": {
@@ -251,6 +310,28 @@
                     "title":" Maximum power (mW)",
                     "units": "mW",
                     "enum": [100, 200]
+                },
+                "driver": {
+                    "type": "string",
+                    "title": "Driver"
+                },
+                "color": {
+                    "type": "string",
+                    "title": "Color"
+                },
+                "filter_index": {
+                    "type": "int",
+                    "title": "Filter index"
+                },
+                "disable_voltage": {
+                    "type": "number",
+                    "title": "Disable voltage (V)",
+                    "units": "V"
+                },
+                "enable_voltage": {
+                    "type": "number",
+                    "title": "Enable voltage (V)",
+                    "units": "V"
                 }
             },
             "required": [
@@ -351,7 +432,7 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "enum": ["Tunable lens", "NI DAQ", "Scanning mirror", "Other"],
+                    "enum": ["Tunable lens", "DAQ", "Scanning mirror", "Other"],
                     "title": "Type",
                     "description": "Type of device. If Other please describe in Notes"
                 },
