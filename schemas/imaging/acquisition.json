@@ -49,6 +49,95 @@
 			"format": "date-time",
 			"title": "Session end time"
 		},
+		"local_storage_directory": {
+			"type": "string",
+			"title": "Local storage directory"
+		},
+		"external_storage_directory": {
+			"type": "string",
+			"title": "External storage directory"
+		},
+		"x_axis": {
+			"type": "string",
+			"title": "X axis",
+			"description": "Tissue direction as one moves from the left side of the image to the right side of the image.",
+			"enum": [
+				"Left-to-right",
+				"Right-to-left",
+				"Anterior-to-posterior",
+				"Posterior-to-anterior",
+				"Inferior_to_superior",
+				"Superior-to-inferior"
+			]
+		},
+		"y_axis": {
+			"type": "string",
+			"title": "Y axis",
+			"description": "Tissue direction as one moves from the top of the image to the bottom of the image.",
+			"enum": [
+				"Left-to-right",
+				"Right-to-left",
+				"Anterior-to-posterior",
+				"Posterior-to-anterior",
+				"Inferior_to_superior",
+				"Superior-to-inferior"
+			]
+		},
+		"z_axis": {
+			"type": "string",
+			"title": "Z axis",
+			"description": "Tissue direction as one moves through the stack from the first to the last image.",
+			"enum": [
+				"Left-to-right",
+				"Right-to-left",
+				"Anterior-to-posterior",
+				"Posterior-to-anterior",
+				"Inferior_to_superior",
+				"Superior-to-inferior"
+			]
+		},
+		"tile_prefix": {
+			"type": "string",
+			"title": "Tile prefix",
+			"description": "Zstacks will be named: <tile_prefix>_<x>_<y>_<wavelength>.tiff"
+		},
+		"tile_overlap_x": {
+			"type": "number",
+			"title": "Tile overlap x (percent)",
+			"units": "percent"
+		},
+		"tile_overlap_y": {
+			"type": "number",
+			"title": "Tile overlap y (percent)",
+			"units": "percent"
+		},
+		"step_size_z": {
+			"type": "number",
+			"title": "Step size z (um)",
+			"units": "um"
+		},
+		"volume_x": {
+			"type": "number",
+			"title": "Volume x (um)",
+			"units": "um"
+		},
+		"volume_y": {
+			"type": "number",
+			"title": "Volume y (um)",
+			"units": "um"
+		},
+		"volume_z": {
+			"type": "number",
+			"title": "Volume z (um)",
+			"units": "um"
+		},
+		"start_of_frame_delay": {
+			"type": "number",
+			"title": "Start of frame delay",
+			"units": "s",
+			"description": "Time between external trigger and first hsync"
+		},
+
 		"ref_1": {
 			"type": "string",
 			"enum": ["X", "Y", "Z"],
@@ -156,6 +245,43 @@
 					"type": "number",
 					"title": "Delay (s)",
 					"units": "s"
+				},
+				"settling_time": {
+					"type": "number",
+					"title": "Settling time (s)",
+					"units": "s"
+				},
+				"driver": {
+					"type": "string",
+					"title": "Driver"
+				},
+				"color": {
+					"type": "string",
+					"title": "Color"
+				},
+				"disable_voltage": {
+					"type": "number",
+					"title": "Disable voltage (V)",
+					"units": "V"
+				},
+				"enable_voltage": {
+					"type": "number",
+					"title": "Enable voltage (V)",
+					"units": "V"
+				},
+				"minimum_voltage": {
+					"type": "number",
+					"title": "Minimum voltage (V)",
+					"units": "V"
+				},
+				"maximum_voltage": {
+					"type": "number",
+					"title": "Maximum voltage (V)",
+					"units": "V"
+				},
+				"amplitude": {
+					"type": "number",
+					"title": "Amplitude"
 				}
 				
 			},

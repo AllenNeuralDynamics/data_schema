@@ -4,7 +4,7 @@
     "properties": {
         "version": {
             "type": "string",
-            "const": "0.0.1",
+            "const": "0.1.0",
             "description": "schema version",
             "title": "Version"
         },
@@ -23,45 +23,45 @@
             "type": "string",
             "enum": ["mesoSPIM", "exaSPIM", "diSPIM", "smartSPIM", "Confocal", "Two photon","Other"],
             "title": "Microscope type"
-          },
-          "microscope_manufacturer": {
+        },
+        "microscope_manufacturer": {
             "type": "string",
             "enum": ["Olympus", "Leica", "LifeCanvas", "Custom"],
             "title": "Microscope manufacturer"
-          },
-          "microscope_model": {
+        },
+        "microscope_model": {
             "type": "number",
             "title": "Microscope model"
-          },
-          "microscope_serial_number": {
+        },
+        "microscope_serial_number": {
             "type": "string",
             "title": "Microscope serial number"
-          },
-          "microscope_location": {
+        },
+        "microscope_location": {
             "type": "string",
             "title": "Microscope location"
-          },
-          "temperature_control": {
+        },
+        "temperature_control": {
             "type": "boolean",
             "title": "Temperature control"
-          },
-          "humidity_control": {
+        },
+        "humidity_control": {
             "type": "boolean",
             "title": "Humidity control"
-          },
-          "vibration_control": {
+        },
+        "vibration_control": {
             "type": "boolean",
             "title": "Vibration control"
-          },
-          "optical_table_model": {
+        },
+        "optical_table_model": {
             "type": "string",
             "title": "Optical table model"
-          },
-          "optical_table_size": {
+        },
+        "optical_table_size": {
             "type": "number",
             "title": "Optical table size"
-          },
-          "objectives": {
+        },
+        "objectives": {
             "type": "array",
             "title": "Objectives",
             "items": { "$ref": "#/$defs/objective" },
@@ -111,8 +111,20 @@
         "notes": {
             "type": "string"
         }
-      },
-      "$defs": {
+    },
+    "required": [
+        "version",
+        "describedBy",
+        "microscope_location",
+        "microscope_type",
+        "microscope_manufacturer",
+        "microscope_model",
+        "microscope_serial_number",
+        "objectives",
+        "detectors",
+        "light_sources"
+    ],
+    "$defs": {
         "objective": {
             "type": "object",
             "properties": {
@@ -299,8 +311,7 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "title": "Type",
-                    "enum": ["Camera", "PMT", "other"]
+                    "title": "Type"
                 },
                 "manufacturer": {
                     "type": "string",
@@ -314,12 +325,25 @@
                 "serial_number": {
                     "type": "string",
                     "title": "Serial number"
+                },
+                "move_time": {
+                    "type": "number",
+                    "title": "Stage move time (s)",
+                    "description": "Time it takes the stage to move 1 um and settle",
+                    "units": "s"
+                },
+                "backlash_reset_distance": {
+                    "type": "number",
+                    "title": "Stage backlash reset distance",
+                    "units": "um"
                 }
             },
             "required": [
-                "type",
                 "manufacturer",
-                "model"
+                "model",
+                "serial_number",
+                "move_time",
+                "backlash_reset_distance"
             ]
         },
         "device": {
@@ -350,14 +374,5 @@
                 }
             }
         }
-    },
-    "required": [
-        "microscope_type",
-        "microscope_manufacturer",
-        "microscope_model",
-        "microscope_serial_number",
-        "objectives",
-        "detectors",
-        "light_sources"
-    ]
+    }
 }
