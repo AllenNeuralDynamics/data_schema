@@ -134,7 +134,7 @@ class MriScan(BaseModel):
     protocol_id: str = Field(..., title='Protocol ID')
 
 
-class Name(Enum):
+class TissuePrepName(Enum):
     Perfusion = 'Perfusion'
     Fixation = 'Fixation'
     Double_delipidation = 'Double delipidation'
@@ -144,7 +144,7 @@ class Name(Enum):
 
 
 class TissuePrep(BaseModel):
-    name: Name = Field(..., title='Name')
+    name: TissuePrepName = Field(..., title='Name')
     date_started: date = Field(..., title='Date started')
     date_ended: Optional[date] = Field(None, title='Date ended')
     experimenter_full_name: Optional[str] = Field(
