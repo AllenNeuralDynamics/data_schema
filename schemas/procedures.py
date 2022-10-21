@@ -221,7 +221,7 @@ class WaterRestriction(BaseModel):
 
 class Procedures(BaseModel):
     describedBy: str = Field(
-        '.../procedures.json', description='The URL reference to the schema.', title='Described by', const=True
+        'https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/procedures.py', description='The URL reference to the schema.', title='Described by', const=True
     )
     schema_version: str = Field('0.2.0', description='schema version', title='Version', const=True)
     specimen_id: str = Field(

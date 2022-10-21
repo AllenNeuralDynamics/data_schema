@@ -44,7 +44,7 @@ class HomeCageEnrichment(Enum):
 
 class Subject(BaseModel):
     describedBy: str = Field(
-        '.../subject.json', description='The URL reference to the schema.', title='Described by', const=True
+        'https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/subject.json', description='The URL reference to the schema.', title='Described by', const=True
     )
     schema_version: str = Field('0.1.0', description='schema version', title='Version', const=True)
     species: Species = Field(..., title='Species')

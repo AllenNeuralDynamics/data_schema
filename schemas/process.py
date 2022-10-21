@@ -44,7 +44,7 @@ class DataProcess(BaseModel):
 
 class Process(BaseModel):
     describedBy: str = Field(
-        '.../process.json', description='The URL reference to the schema.', title='Described by', const=True
+        'https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/process.py', description='The URL reference to the schema.', title='Described by', const=True
     )
     schema_version: Optional[str] = Field(
         '0.0.1', description='Schema version', title='Schema version', const=True

@@ -37,7 +37,7 @@ class Modality(Enum):
 
 class DataDescription(BaseModel):
     describedBy: str = Field(
-        "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/data_description.json", description='The URL reference to the schema.', title='Described by', const=True
+        "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/data_description.py", description='The URL reference to the schema.', title='Described by', const=True
     )
     schema_version: str = Field('0.0.1', description='schema version', title='Version', const=True)
     license: str = Field('CC-BY-4.0', title='License', const=True)
