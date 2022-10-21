@@ -35,9 +35,9 @@ class Camera(BaseModel):
     position_x: float = Field(..., title='Position X')
     position_y: float = Field(..., title='Position Y')
     position_z: float = Field(..., title='Position Z')
-    angle_pitch: float = Field(..., title='Angle pitch (deg)')
-    angle_yaw: float = Field(..., title='Angle yaw (deg)')
-    angle_roll: float = Field(..., title='Angle roll (deg)')
+    angle_pitch: float = Field(..., title='Angle pitch (deg)', units="deg")
+    angle_yaw: float = Field(..., title='Angle yaw (deg)', units="deg")
+    angle_roll: float = Field(..., title='Angle roll (deg)', units="deg")
     recording_software: Optional[str] = Field(None, title='Recording software')
     recording_software_version: Optional[str] = Field(
         None, title='Recording software version'
@@ -50,7 +50,7 @@ class Surface(Enum):
 
 
 class Disc(BaseModel):
-    radius: float = Field(..., title='Radius (cm)')
+    radius: float = Field(..., title='Radius (cm)', units="cm")
     surface: Optional[Surface] = Field(None, title='Surface')
     date_surface_replaced: Optional[datetime] = Field(
         None, title='Date surface replaced'
@@ -67,10 +67,10 @@ class Laser(BaseModel):
     manufacturer: str = Field(..., title='Manufacturer')
     model: str = Field(..., title='Model')
     serial_number: str = Field(..., title='Serial number')
-    wavelength: Optional[int] = Field(None, title='Wavelength (nm)')
-    maximum_power: Optional[float] = Field(None, title='Maximum power (mW)')
+    wavelength: Optional[int] = Field(None, title='Wavelength (nm)', units="nm")
+    maximum_power: Optional[float] = Field(None, title='Maximum power (mW)', units="mW")
     coupling_efficiency: Optional[float] = Field(
-        None, title='Coupling efficiency (percent)'
+        None, title='Coupling efficiency (percent)', units="percent"
     )
     calibration_data: Optional[str] = Field(
         None, description='path to calibration data', title='Calibration data'
@@ -82,18 +82,18 @@ class Monitor(BaseModel):
     manufacturer: str = Field(..., title='Manufacturer')
     model: str = Field(..., title='Model')
     serial_number: str = Field(..., title='Serial number')
-    refresh_rate: int = Field(..., title='Refresh rate (Hz)')
-    width: int = Field(..., title='Width (pixels)')
-    height: int = Field(..., title='Height (pixels)')
-    viewing_distance: float = Field(..., title='Viewing distance (cm)')
+    refresh_rate: int = Field(..., title='Refresh rate (Hz)', units="Hz")
+    width: int = Field(..., title='Width (pixels)', units="pixels")
+    height: int = Field(..., title='Height (pixels)', units="pixels")
+    viewing_distance: float = Field(..., title='Viewing distance (cm)', units="cm")
     position_x: float = Field(..., title='Position X')
     position_y: float = Field(..., title='Position Y')
     position_z: float = Field(..., title='Position Z')
-    angle_pitch: float = Field(..., title='Angle pitch (deg)')
-    angle_yaw: float = Field(..., title='Angle yaw (deg)')
-    angle_roll: float = Field(..., title='Angle roll (deg)')
+    angle_pitch: float = Field(..., title='Angle pitch (deg)', units="deg")
+    angle_yaw: float = Field(..., title='Angle yaw (deg)', units="deg")
+    angle_roll: float = Field(..., title='Angle roll (deg)', units="deg")
     contrast: int = Field(
-        ..., description="Monitor's contrast setting", title='Contrast (percent)'
+        ..., description="Monitor's contrast setting", title='Contrast (percent)', units="percent"
     )
     brightness: int = Field(
         ..., description="Monitor's brightness setting", title='Brightness'

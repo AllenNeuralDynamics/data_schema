@@ -45,7 +45,7 @@ class Direction(Enum):
 
 class Field3dCoordinatesMm(BaseModel):
     direction: Direction = Field(..., title='Direction')
-    value: float = Field(..., title='Value (mm)')
+    value: float = Field(..., title='Value (mm)', units="mm")
 
 
 class AnatomicalDirection(Enum):
@@ -56,7 +56,7 @@ class AnatomicalDirection(Enum):
 
 class CcfCoords(BaseModel):
     direction: AnatomicalDirection = Field(..., title='AnatomicalDirection')
-    value: float = Field(..., title='Value (um)')
+    value: float = Field(..., title='Value (um)', units="mm")
 
 
 class AngleName(Enum):
@@ -67,13 +67,13 @@ class AngleName(Enum):
 
 class ManipulatorAngles(BaseModel):
     name: AngleName = Field(..., title='AngleName')
-    value: float = Field(..., title='Value (deg)')
+    value: float = Field(..., title='Value (deg)', units="deg")
 
 
 class Laser(BaseModel):
     name: str = Field(..., title='Name')
-    wavelength: int = Field(..., title='Wavelength (nm)')
-    power: float = Field(..., title='Power (mW)')
+    wavelength: int = Field(..., title='Wavelength (nm)', units="nm")
+    power: float = Field(..., title='Power (mW)', units="mW")
     targeted_structure: str = Field(..., title='Targeted structure')
     targeted_ccf_coordinates: List[CcfCoords] = Field(
         ...,
