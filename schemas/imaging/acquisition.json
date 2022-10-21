@@ -1,315 +1,279 @@
 {
-	"type": "object",
-	"properties":{
-		"version": {
-			"type": "string",
-			"const": "0.1.0",
-			"description": "schema version",
-			"title": "Version"
-		},
-		"describedBy": {
+    "type": "object",
+    "properties":{
+        "version": {
+            "type": "string",
+            "const": "0.1.0",
+            "description": "schema version",
+            "title": "Version"
+        },
+        "describedBy": {
             "type": "string",
             "const": "https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/imaging/acquisition.json",
             "description": "The URL reference to the schema.",
             "title": "Described by"
         },
-		"institution": {
-			"type": "string",
-			"enum": ["AIND","AIBS"],
-			"title": "Institution"
-		},
-		"experimenter_full_name": {
-			"type": "string",
-			"title": "Experimenter full name",
-			"description": "First and last name of the experimenter."
-		},
-		"session_start_time": {
-			"type": "string",
-			"format": "date-time",
-			"title": "Session start time"
-		},
-		"specimen_id": {
-			"type": "integer",
-			"title": "Specimen ID"
-		},
-		"project_name": {
-			"type": "string",
-			"title": "Project name"
-		},
-		"project_id": {
-			"type": "string",
-			"title": "Project ID"
-		},
-		"instrument_id": {
-			"type": "string",
-			"title": "Instrument ID"
-		},
-		"session_end_time": {
-			"type": "string",
-			"format": "date-time",
-			"title": "Session end time"
-		},
-		"local_storage_directory": {
-			"type": "string",
-			"title": "Local storage directory"
-		},
-		"external_storage_directory": {
-			"type": "string",
-			"title": "External storage directory"
-		},
-		"x_axis": {
-			"type": "string",
-			"title": "X axis",
-			"description": "Tissue direction as one moves from the left side of the image to the right side of the image.",
-			"enum": [
-				"Left-to-right",
-				"Right-to-left",
-				"Anterior-to-posterior",
-				"Posterior-to-anterior",
-				"Inferior_to_superior",
-				"Superior-to-inferior"
-			]
-		},
-		"y_axis": {
-			"type": "string",
-			"title": "Y axis",
-			"description": "Tissue direction as one moves from the top of the image to the bottom of the image.",
-			"enum": [
-				"Left-to-right",
-				"Right-to-left",
-				"Anterior-to-posterior",
-				"Posterior-to-anterior",
-				"Inferior_to_superior",
-				"Superior-to-inferior"
-			]
-		},
-		"z_axis": {
-			"type": "string",
-			"title": "Z axis",
-			"description": "Tissue direction as one moves through the stack from the first to the last image.",
-			"enum": [
-				"Left-to-right",
-				"Right-to-left",
-				"Anterior-to-posterior",
-				"Posterior-to-anterior",
-				"Inferior_to_superior",
-				"Superior-to-inferior"
-			]
-		},
-		"tile_prefix": {
-			"type": "string",
-			"title": "Tile prefix",
-			"description": "Zstacks will be named: <tile_prefix>_<x>_<y>_<wavelength>.tiff"
-		},
-		"tile_overlap_x": {
-			"type": "number",
-			"title": "Tile overlap x (percent)",
-			"units": "percent"
-		},
-		"tile_overlap_y": {
-			"type": "number",
-			"title": "Tile overlap y (percent)",
-			"units": "percent"
-		},
-		"step_size_z": {
-			"type": "number",
-			"title": "Step size z (um)",
-			"units": "um"
-		},
-		"volume_x": {
-			"type": "number",
-			"title": "Volume x (um)",
-			"units": "um"
-		},
-		"volume_y": {
-			"type": "number",
-			"title": "Volume y (um)",
-			"units": "um"
-		},
-		"volume_z": {
-			"type": "number",
-			"title": "Volume z (um)",
-			"units": "um"
-		},
-		"start_of_frame_delay": {
-			"type": "number",
-			"title": "Start of frame delay",
-			"units": "s",
-			"description": "Time between external trigger and first hsync"
-		},
+        "institution": {
+            "type": "string",
+            "enum": ["AIND","AIBS"],
+            "title": "Institution"
+        },
+        "experimenter_full_name": {
+            "type": "string",
+            "title": "Experimenter full name",
+            "description": "First and last name of the experimenter."
+        },
+        "session_start_time": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Session start time"
+        },
+        "specimen_id": {
+            "type": "integer",
+            "title": "Specimen ID"
+        },
+        "project_name": {
+            "type": "string",
+            "title": "Project name"
+        },
+        "project_id": {
+            "type": "string",
+            "title": "Project ID"
+        },
+        "instrument_id": {
+            "type": "string",
+            "title": "Instrument ID"
+        },
+        "session_end_time": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Session end time"
+        },
+        "local_storage_directory": {
+            "type": "string",
+            "title": "Local storage directory"
+        },
+        "external_storage_directory": {
+            "type": "string",
+            "title": "External storage directory"
+        },
+        "tile_prefix": {
+            "type": "string",
+            "title": "Tile prefix",
+            "description": "Zstacks will be named: <tile_prefix>_<x>_<y>_<wavelength>.tiff"
+        },
+        "tile_overlap_x": {
+            "type": "number",
+            "title": "Tile overlap x (percent)",
+            "units": "percent"
+        },
+        "tile_overlap_y": {
+            "type": "number",
+            "title": "Tile overlap y (percent)",
+            "units": "percent"
+        },
+        "step_size_z": {
+            "type": "number",
+            "title": "Step size z (um)",
+            "units": "um"
+        },
+        "start_of_frame_delay": {
+            "type": "number",
+            "title": "Start of frame delay",
+            "units": "s",
+            "description": "Time between external trigger and first hsync"
+        },
+        "axes": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/axis"},
+            "uniqueItems": true,
+            "title": "Axes"
+        },
+        "additional_parameters": {
+            "type": "string",
+            "title": "Additional parameters"
+        },
+        "positions": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/position"},
+            "uniqueItems": true,
+            "title": "Positions"
+        },
+        "lasers": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/laser"},
+            "uniqueItems": true,
+            "title": "Lasers"
+        },
+        "notes": {
+            "type": "string",
+            "title": "Notes"
+        }
 
-		"ref_1": {
-			"type": "string",
-			"enum": ["X", "Y", "Z"],
-			"title": "Ref1",
-			"description": "Reference axis 1 for stitching"
-		},
-		"ref_2": {
-			"type": "string",
-			"enum": ["X", "Y", "Z"],
-			"title": "Ref2",
-			"description": "Reference axis 2 for stitiching"
-		},
-		"ref_3": {
-			"type": "string",
-			"enum": ["X", "Y", "Z"],
-			"title": "Ref3",
-			"description": "Reference axis 3 for stitching"
-		},
-		"voxel_size_1": {
-			"type": "number",
-			"title": "Voxel size 1 (um)",
-			"units": "um"
-		},
-		"voxel_size_2": {
-			"type": "number",
-			"title": "Voxel size 2 (um)",
-			"units": "um"
-		},
-		"voxels_size_3": {
-			"type": "number",
-			"title": "Voxel size 3 (um)",
-			"units": "um"
-		},
-		"additional_parameters": {
-			"type": "string",
-			"title": "Additional parameters"
-		},
-		"positions": {
-			"type": "array",
-			"items": {"$ref": "#/$defs/position"},
-			"uniqueItems": true,
-			"title": "Positions"
-		},
-		"lasers": {
-			"type": "array",
-			"items": {"$ref": "#/$defs/laser"},
-			"uniqueItems": true,
-			"title": "Lasers"
-		},
-		"notes": {
-			"type": "string",
-			"title": "Notes"
-		}
-
-	},
-	"$defs": {
-		"position": {
-			"type": "object",
-			"properties": {
-				"x_start_um": {
-					"type": "number"
-				},
-				"x_end_um": {
-					"type": "number"
-				},
-				"y_start_um": {
-					"type": "number"
-				},
-				"x_step_um": {
-					"type": "number"
-				}
-			},
-			"required": [
-				"x_start_um",
-				"x_end_um",
-				"y_start_um",
-				"x_step_um"
-			]
-		},
-		"laser": {
-			"type": "object",
-			"properties": {
-				"name": {
-					"type": "string",
-					"title": "Name"
-				},
-				"channel": {
-					"type": "integer",
-					"title": "Channel"
-				},
-				"enabled": {
-					"type": "boolean",
-					"title": "Enabled"
-				},
-				"wavelength": {
-					"type": "integer",
-					"title": "Wavelength (nm)",
-					"units": "nm"
-				},
-				"power": {
-					"type": "number",
-					"title": "Power"
-				},
-				"delay": {
-					"type": "number",
-					"title": "Delay (s)",
-					"units": "s"
-				},
-				"settling_time": {
-					"type": "number",
-					"title": "Settling time (s)",
-					"units": "s"
-				},
-				"driver": {
-					"type": "string",
-					"title": "Driver"
-				},
-				"color": {
-					"type": "string",
-					"title": "Color"
-				},
-				"disable_voltage": {
-					"type": "number",
-					"title": "Disable voltage (V)",
-					"units": "V"
-				},
-				"enable_voltage": {
-					"type": "number",
-					"title": "Enable voltage (V)",
-					"units": "V"
-				},
-				"minimum_voltage": {
-					"type": "number",
-					"title": "Minimum voltage (V)",
-					"units": "V"
-				},
-				"maximum_voltage": {
-					"type": "number",
-					"title": "Maximum voltage (V)",
-					"units": "V"
-				},
-				"amplitude": {
-					"type": "number",
-					"title": "Amplitude"
-				}
-				
-			},
-			"required": [
-				"name",
-				"channel",
-				"enabled",
-				"wavelength",
-				"power",
-				"delay"
-			]
-		}
-	},
-	"required": [
-		"version",
-		"institution",
-		"experimenter_full_name",
-		"session_start_time",
-		"session_end_time",
-		"specimen_id",
-		"instrument_id",
-		"positions",
-		"lasers",
-		"ref_1",
-		"ref_2",
-		"ref_3",
-		"voxel_size_1",
-		"voxel_size_2",
-		"voxel_size_3"
-	]
+    },
+    "$defs": {
+        "axis": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "enum": ["X", "Y", "Z"],
+                    "title": "Name"
+                },
+                "dimension": {
+                    "type": "int",
+                    "title": "Dimension",
+                    "description": "Reference axis number for stitching"
+                },
+                "direction": {
+                    "type": "string",
+                    "enum": [
+                        "Left-to-right",
+                        "Right-to-left",
+                        "Anterior-to-posterior",
+                        "Posterior-to-anterior",
+                        "Inferior_to_superior",
+                        "Superior-to-inferior",
+                        "Other"
+                    ],
+                    "description": "Tissue direction as the value of axis increases. If Other describe in notes."
+                },
+                "voxel_size": {
+                    "type": "number",
+                    "title": "Voxel size (um)",
+                    "units": "um"
+                },
+                "volume_size": {
+                    "type": "number",
+                    "title": "Volume size (um)",
+                    "units": "um",
+                    "description": "Size of the volume for this dimension."
+                }
+            },
+            "required": [
+                "name",
+                "dimension",
+                "direction",
+                "voxel_size",
+                "volume_size"
+            ]
+        },
+        "position": {
+            "type": "object",
+            "properties": {
+                "x_start_um": {
+                    "type": "number"
+                },
+                "x_end_um": {
+                    "type": "number"
+                },
+                "y_start_um": {
+                    "type": "number"
+                },
+                "x_step_um": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "x_start_um",
+                "x_end_um",
+                "y_start_um",
+                "x_step_um"
+            ]
+        },
+        "laser": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name"
+                },
+                "channel": {
+                    "type": "integer",
+                    "title": "Channel"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "title": "Enabled"
+                },
+                "wavelength": {
+                    "type": "integer",
+                    "title": "Wavelength (nm)",
+                    "units": "nm"
+                },
+                "power": {
+                    "type": "number",
+                    "title": "Power"
+                },
+                "delay": {
+                    "type": "number",
+                    "title": "Delay (s)",
+                    "units": "s"
+                },
+                "settling_time": {
+                    "type": "number",
+                    "title": "Settling time (s)",
+                    "units": "s"
+                },
+                "minimum_voltage": {
+                    "type": "number",
+                    "title": "Minimum voltage (V)",
+                    "units": "V"
+                },
+                "maximum_voltage": {
+                    "type": "number",
+                    "title": "Maximum voltage (V)",
+                    "units": "V"
+                },
+                "amplitude": {
+                    "type": "number",
+                    "title": "Amplitude"
+                },
+                "offset": {
+                    "type": "number",
+                    "title": "Offset"
+                },
+                "nonlinear": {
+                    "type": "number",
+                    "title": "Nonlinear"
+                },
+                "interp_time": {
+                    "type": "number",
+                    "title": "Interp time (s)",
+                    "units": "s"
+                },
+                "buffer_time": {
+                    "type": "number",
+                    "title": "Buffer time (s)",
+                    "units": "s"
+                }
+                
+            },
+            "required": [
+                "name",
+                "channel",
+                "wavelength",
+                "power",
+                "delay",
+                "settling_time"
+            ]
+        }
+    },
+    "required": [
+        "version",
+        "institution",
+        "experimenter_full_name",
+        "session_start_time",
+        "session_end_time",
+        "specimen_id",
+        "instrument_id",
+        "positions",
+        "lasers",
+        "ref_1",
+        "ref_2",
+        "ref_3",
+        "voxel_size_1",
+        "voxel_size_2",
+        "voxel_size_3"
+    ]
 }
