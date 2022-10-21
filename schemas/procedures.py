@@ -74,7 +74,7 @@ class NanojectInjection(BaseModel):
     injection_volume: float = Field(..., title='Injection volume (nL)')
 
 
-class IontophoresisInjection(InjectionClass):
+class IontophoresisInjection(BaseModel):
     injection_type: str = Field('Iontophoresis', title='Injection type', const=True)
     injection_current: float = Field(..., title='Injection current (uA)')
     alternating_current: str = Field(..., title='Alternating current')
@@ -101,7 +101,7 @@ class Injection(BaseModel):
     injection_virus_id: Optional[str] = Field(None, title='Injection virus ID')
     injection_duration: time = Field(..., title='Injection duration')
     notes: Optional[str] = Field(None, title='Notes')
-    injection_class: InjectionClass
+    injection_class: Union[NanojectInjection, IontophoresisInjection]
 
 
 class ScanType(Enum):
