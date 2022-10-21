@@ -46,7 +46,7 @@ class Processing(BaseModel):
     describedBy: str = Field(
         'https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/processing.py', description='The URL reference to the schema.', title='Described by', const=True
     )
-    schema_version: Optional[str] = Field(
+    schema_version: str = Field(
         '0.0.1', description='Schema version', title='Schema version', const=True
     )
     pipeline_version: Optional[str] = Field(
