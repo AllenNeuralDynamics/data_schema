@@ -8,7 +8,7 @@
             "description": "The URL reference to the schema.",
             "title": "Described by"
         },
-        "version": {
+        "schema_version": {
             "type": "string",
             "const": "0.0.1",
             "description": "Schema version",
@@ -33,7 +33,7 @@
     },
     "required": [
         "describedBy",
-        "version",
+        "schema_version",
         "data_processes"
     ],
     "$defs": {
