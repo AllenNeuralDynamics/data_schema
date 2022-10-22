@@ -94,7 +94,7 @@
                 },
                 "notes": {
                     "type": "string"
-                },
+                }
             },
             "required": [
                 "name",
