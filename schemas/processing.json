@@ -8,7 +8,7 @@
             "description": "The URL reference to the schema.",
             "title": "Described by"
         },
-        "schema_version": {
+        "version": {
             "type": "string",
             "const": "0.0.1",
             "description": "Schema version",
