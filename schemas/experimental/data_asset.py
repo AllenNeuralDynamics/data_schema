@@ -7,10 +7,15 @@ import re
 
 from pydantic import BaseModel, Field, ValidationError, validator, root_validator
 
+class RegexParts(Enum):
+    DATE = '\d{4}-\d{2}-\d{2}'
+    TIME = '\d{2}-\d{2}-\d{2}'
+
 class DataRegex(Enum):
-    NAME = '(.+?)_(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})'
+    DATA_ASSET = f'^(?P<label>.+?)_(?P<acq_date>{RegexParts.DATE.value})_(?P<acq_time>{RegexParts.TIME.value})$'
+    ACQUISITION = f'^(?P<modality>.+?)_(?P<subject_id>.+?)_(?P<acq_date>{RegexParts.DATE.value})_(?P<acq_time>{RegexParts.TIME.value})$'
+    RESULT = f'^(?P<input>.+?_{RegexParts.DATE.value}_{RegexParts.TIME.value})_(?P<label>.+?)_(?P<acq_date>{RegexParts.DATE.value})_(?P<acq_time>{RegexParts.TIME.value})'
     LOCATION = '^(s3|file|gs)://.+$'
-    ACQUISITION = '(.+?)_(.+?)_(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})'
     NO_UNDERSCORES = '^[^_]+$'
 
 def datetime_tostring(d, t):
@@ -31,45 +36,47 @@ class DataAsset(BaseModel):
     name: Optional[str]
     location: Optional[str] = Field(regex=DataRegex.LOCATION.value)
 
-    @validator('name', always=True)
-    def build_name(cls, v, values):
+    @root_validator(pre=True)
+    def build_fields(cls, values):
         dt_str = datetime_tostring(values['acquisition_date'], values['acquisition_time'])
-        return f'{values["label"]}_{dt_str}'
+        values['name'] = f'{values["label"]}_{dt_str}'
+        return values
     
 
     @classmethod
     def from_name(cls, name):
-        m = re.match(f'^{DataRegex.NAME.value}$', name)
-
+        m = re.match(f'{DataRegex.DATA_ASSET.value}', name)
+        
         if m is None:
             raise ValueError(f"name({name}) does not match pattern")
 
         label = m.group(1)
-        acquisition_date, acquisition_time = datetime_fromstring(m.group(2), m.group(3))
+        acquisition_date, acquisition_time = datetime_fromstring(m.group('acq_date'), m.group('acq_time'))
         
-        return cls(label=label, acquisition_date=acquisition_date, acquisition_time=acquisition_time)
+        return cls(label=m.group('label'), acquisition_date=acquisition_date, acquisition_time=acquisition_time)
 
 class Result(DataAsset):
     input_data: DataAsset
 
     short_name: Optional[str]
 
-    @validator('short_name', always=True)
-    def build_short_name(cls, v, values):
+    @root_validator(pre=True)
+    def build_fields(cls, values):
         dt_str = datetime_tostring(values['acquisition_date'], values['acquisition_time'])
-        return f'{values["label"]}_{dt_str}'
-
+        values['name'] = f'{values["input_data"].name}_{values["label"]}_{dt_str}'
+        values['short_name'] = f'{values["label"]}_{dt_str}'
+        return values
 
     @classmethod
     def from_name(cls, name):
         # look for input data name
-        m = re.match(f'^({DataRegex.NAME.value})_({DataRegex.NAME.value})$', name)
+        m = re.match(f'{DataRegex.RESULT.value}', name)
 
         # data asset with inputs
-        input_data = DataAsset.from_name(m.group(1))
+        input_data = DataAsset.from_name(m.group('input'))
 
-        label = m.group(6)
-        acquisition_date, acquisition_time = datetime_fromstring(m.group(7), m.group(8))
+        label = m.group('label')
+        acquisition_date, acquisition_time = datetime_fromstring(m.group('acq_date'), m.group('acq_time'))
 
         return cls(label=label, acquisition_date=acquisition_date, acquisition_time=acquisition_time, input_data=input_data)
 
@@ -77,30 +84,29 @@ class Acquisition(DataAsset):
     modality: str = Field(..., regex=DataRegex.NO_UNDERSCORES.value)
     subject_id: str = Field(..., regex=DataRegex.NO_UNDERSCORES.value)
 
-    # workaround - I want to construct label, then use DataAsset.build_name to construct the name from the label
-    # subclass validators always go after superclass ones, so I have to use a root_validator instead.
     @root_validator(pre=True)
-    def build_label(cls, values):
+    def build_fields(cls, values):
+        dt_str = datetime_tostring(values['acquisition_date'], values['acquisition_time'])
         values['label'] = f'{values["modality"]}_{values["subject_id"]}'
+        values['name'] = f'{values["label"]}_{dt_str}'
         return values
 
     @classmethod
     def from_name(cls, name):
-        m = re.match(f'^{DataRegex.ACQUISITION.value}$', name)
+        m = re.match(f'{DataRegex.ACQUISITION.value}', name)
 
         if m is None:
             raise ValueError(f"name({name}) does not match pattern")
-    
-        modality = m.group(1)
-        subject_id = m.group(2)
 
-        return cls(modality=modality, 
-                   subject_id=subject_id, 
-                   acquisition_date=da.acquisition_date, 
-                   acquisition_time=da.acquisition_time)
+        acquisition_date, acquisition_time = datetime_fromstring(m.group('acq_date'), m.group('acq_time'))
+
+        return cls(modality=m.group('modality'), 
+                   subject_id=m.group('subject_id'), 
+                   acquisition_date=acquisition_date, 
+                   acquisition_time=acquisition_time)
 
     
-if __name__ == "__main__":
+def main():
     print("data asset from name -------------------------------------")
     da = DataAsset.from_name("ecephys_1234_3033-12-21_04-22-11")
     print(da)
@@ -119,7 +125,7 @@ if __name__ == "__main__":
     da = DataAsset(label='ecephys_1234', acquisition_date=dt.date(), acquisition_time=dt.time())
     print(da)
     
-    print("result from data asset -------------------------------------"),
+    print("result from acquisition -------------------------------------"),
     r1 = Result(input_data=ad, label="spikesort-ks25", acquisition_date=dt.date(), acquisition_time=dt.time())
     print(r1)
     print(r1.input_data)
@@ -135,3 +141,5 @@ if __name__ == "__main__":
     print("acquisition data from parts -------------------------------------")
     ad = Acquisition(modality='ecephys', subject_id='1234', acquisition_date=dt.date(), acquisition_time=dt.time())
     print(ad)
+
+if __name__ == "__main__": main()
