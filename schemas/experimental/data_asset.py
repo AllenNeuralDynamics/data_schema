@@ -31,15 +31,11 @@ class DataAsset(BaseModel):
     name: Optional[str]
     location: Optional[str] = Field(regex=DataRegex.LOCATION.value)
 
-    @root_validator(pre=True)
-    def build_name(cls, values):
+    @validator('name', always=True)
+    def build_name(cls, v, values):
         dt_str = datetime_tostring(values['acquisition_date'], values['acquisition_time'])
-        label = values['label']
-
-        values['name'] = f'{label}_{dt_str}'
-
-        return values
-        
+        return f'{values["label"]}_{dt_str}'
+    
 
     @classmethod
     def from_name(cls, name):
@@ -58,21 +54,11 @@ class Result(DataAsset):
 
     short_name: Optional[str]
 
-    @root_validator(pre=True)
-    def build_name(cls, values):
+    @validator('short_name', always=True)
+    def build_short_name(cls, v, values):
         dt_str = datetime_tostring(values['acquisition_date'], values['acquisition_time'])
+        return f'{values["label"]}_{dt_str}'
 
-        label = values['label']
-        input_data = values['input_data']
-        input_name = input_data.short_name if isinstance(input_data, Result) else input_data.name
-
-        short_name = f'{label}_{dt_str}'
-
-        values['short_name'] = short_name
-        values['name'] = f'{input_name}_{short_name}'
-
-        return values
-        
 
     @classmethod
     def from_name(cls, name):
@@ -91,16 +77,11 @@ class Acquisition(DataAsset):
     modality: str = Field(..., regex=DataRegex.NO_UNDERSCORES.value)
     subject_id: str = Field(..., regex=DataRegex.NO_UNDERSCORES.value)
 
+    # workaround - I want to construct label, then use DataAsset.build_name to construct the name from the label
+    # subclass validators always go after superclass ones, so I have to use a root_validator instead.
     @root_validator(pre=True)
-    def build_name(cls, values):
-        modality = values['modality']
-        subject_id = values['subject_id']
-        dt_str = datetime_tostring(values['acquisition_date'], values['acquisition_time'])
-
-        label = f'{modality}_{subject_id}'
-        values['label'] = label
-        values['name'] = f'{label}_{dt_str}'
-
+    def build_label(cls, values):
+        values['label'] = f'{values["modality"]}_{values["subject_id"]}'
         return values
 
     @classmethod
@@ -134,6 +115,10 @@ if __name__ == "__main__":
 
     dt = datetime.now()
 
+    print("data asset from parts ----------------")
+    da = DataAsset(label='ecephys_1234', acquisition_date=dt.date(), acquisition_time=dt.time())
+    print(da)
+    
     print("result from data asset -------------------------------------"),
     r1 = Result(input_data=ad, label="spikesort-ks25", acquisition_date=dt.date(), acquisition_time=dt.time())
     print(r1)
