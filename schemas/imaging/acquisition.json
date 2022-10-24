@@ -3,7 +3,7 @@
     "properties":{
         "version": {
             "type": "string",
-            "const": "0.1.0",
+            "const": "0.1.1",
             "description": "schema version",
             "title": "Version"
         },
