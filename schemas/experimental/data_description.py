@@ -21,8 +21,7 @@ class DataRegex(Enum):
 
 class DataLevel(Enum):
     raw_data = 'raw data'
-    derived_data = 'derived data'
-    analysis_data = 'analysis data'
+    derived_data = 'derived data'    
 
 
 class Institution(Enum):
