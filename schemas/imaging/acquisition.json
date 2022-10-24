@@ -235,13 +235,12 @@
             ]
         },
         "daq": {
-             "properties": {
-                }
-                
-            },
-            "required": [
-            ]           
-        }
+            "type ": "object",
+            "title": "parameters",
+            "properties": {},
+            "additionalProperties": true,
+            "description": "Parameters used to define DAQ waveforms (system specific)"
+        },
     },
     "required": [
         "version",
