@@ -145,40 +145,24 @@ class RawDataDescription(DataDescription):
                    **kwargs)
 
     
-def main():
-    print("data description from name -------------------------------------")
+def test_cases():
     da = DataDescription.from_name(name="ecephys_1234_3033-12-21_04-22-11", institution='AIND', data_level='raw data')
     print(da)
-
-    print("raw description from name -------------------------------------")
     ad = RawDataDescription.from_name("ecephys_1234_3033-12-21_04-22-11", institution='AIND')
     print(ad)
-
-    print("derived description from name -------------------------------------")
     ra = DerivedDataDescription.from_name("ecephys_1234_3033-12-21_04-22-11_spikesorted-ks25_2022-10-12_23-23-11", institution='AIND')
     print(ra)
-
+    
     dt = datetime.now()
-
-    print("data description from parts ----------------")
     da = DataDescription(label='ecephys_1234', acquisition_date=dt.date(), acquisition_time=dt.time(), institution='AIND', data_level='raw data')
     print(da)
-    
-    print("derived description from raw description -------------------------------------"),
     r1 = DerivedDataDescription(input_data=ad, label="spikesort-ks25", acquisition_date=dt.date(), acquisition_time=dt.time(), institution='AIND')
     print(r1)
-    print(r1.input_data)
-
-    print("derived description from derived description -------------------------------------")
     r2 = DerivedDataDescription(input_data=r1, label="some-model", acquisition_date=dt.date(), acquisition_time=dt.time(), institution='AIND')
     print(r2)
-
-    print("derived from derived from derived -------------------------------------")
     r3 = DerivedDataDescription(input_data=r2, label="a-paper", acquisition_date=dt.date(), acquisition_time=dt.time(), institution='AIND')
     print(r3)
-
-    print("raw data from parts -------------------------------------")
     ad = RawDataDescription(modality='ecephys', subject_id='1234', acquisition_date=dt.date(), acquisition_time=dt.time(), institution='AIND')
     print(ad)
 
-if __name__ == "__main__": main()
+if __name__ == "__main__": test_cases()
