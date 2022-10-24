@@ -70,7 +70,7 @@
         "detectors": {
             "type": "array",
             "title": "Detectors",
-            "items": { "$ref": "#/defs/detector"},
+            "items": { "$ref": "#/$defs/detector"},
             "uniqueItems": true
         },
         "light_sources": {
@@ -292,7 +292,7 @@
                     "units": "mW"
                 },
                 "filter_wheel_index": {
-                    "type": "int",
+                    "type": "integer",
                     "title": "Filter index"
                 },
             },
