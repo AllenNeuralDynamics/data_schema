@@ -33,7 +33,7 @@
     },
     "required": [
         "describedBy",
-        "version",
+        "schema_version",
         "data_processes"
     ],
     "$defs": {
