@@ -15,8 +15,7 @@ class RegexParts(Enum):
 class DataRegex(Enum):
     DATA = f'^(?P<label>.+?)_(?P<acq_date>{RegexParts.DATE.value})_(?P<acq_time>{RegexParts.TIME.value})$'
     RAW_DATA = f'^(?P<modality>.+?)_(?P<subject_id>.+?)_(?P<acq_date>{RegexParts.DATE.value})_(?P<acq_time>{RegexParts.TIME.value})$'
-    DERIVED_DATA = f'^(?P<input>.+?_{RegexParts.DATE.value}_{RegexParts.TIME.value})_(?P<label>.+?)_(?P<acq_date>{RegexParts.DATE.value})_(?P<acq_time>{RegexParts.TIME.value})'
-    LOCATION = '^(s3|file|gs)://.+$'
+    DERIVED_DATA = f'^(?P<input>.+?_{RegexParts.DATE.value}_{RegexParts.TIME.value})_(?P<label>.+?)_(?P<acq_date>{RegexParts.DATE.value})_(?P<acq_time>{RegexParts.TIME.value})'    
     NO_UNDERSCORES = '^[^_]+$'
 
 
@@ -64,8 +63,7 @@ class DataDescription(BaseModel):
     acquisition_date: date = Field(..., description='Day that data acquisition started', title='Acquisition Date')
     label: str = Field(..., description='Generic label for method of acquisition', title='Label')
     name: str = Field(..., description='Name of data, conventionally also the name of the directory containing all data and metadata', title='Name')
-
-    location: Optional[str] = Field(None, regex=DataRegex.LOCATION.value, description="Storage location of data", title='Location')
+    
     data_level: Optional[DataLevel] = Field(None, description='level of processing that data has undergone', title='Data Level')
     institution: Institution = Field(None, description='An established society, corporation, foundation or other organization that collected this data', title='Institution')
     group: Optional[Group] = Field(None, description='A short name for the group of individuals that collected this data', title='Group')    
