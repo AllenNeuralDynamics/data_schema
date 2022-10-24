@@ -63,7 +63,9 @@ class Result(DataAsset):
     @root_validator(pre=True)
     def build_fields(cls, values):
         dt_str = datetime_tostring(values['acquisition_date'], values['acquisition_time'])
-        values['name'] = f'{values["input_data"].name}_{values["label"]}_{dt_str}'
+        d = values['input_data']
+        name = d.short_name if isinstance(d, Result) else d.name
+        values['name'] = f'{name}_{values["label"]}_{dt_str}'
         values['short_name'] = f'{values["label"]}_{dt_str}'
         return values
 
