@@ -113,9 +113,10 @@
             "description": "DAQ device name as it appears to the PC",
             "title": "DAQ device name"
         },
-        "daq_output_trigger_name": {
+        "daq_model_name": {
             "type": "string",
-            "title": "DAQ output trigger name"
+            "description": "DAQ product name",
+            "title": "DAQ model"
         },
         "daq_update_frequency": {
             "type": "number",
@@ -133,11 +134,6 @@
             "title": "COM ports",
             "items": {"$ref": "#/$defs/com"},
             "uniqueItems": true
-        },
-        "waveform_start_of_frame_delay": {
-            "type": "number",
-            "title": "Waveform start of frame delay (s)",
-            "units": "s"
         },
         "notes": {
             "type": "string"
@@ -159,9 +155,9 @@
         "ao": {
             "type": "object",
             "properties": {
-                "hardware_name": {
+                "hardware_device": {
                     "type": "string",
-                    "title": "Hardware name"
+                    "title": "Controlled hardware device"
                 },
                 "ao_channel": {
                     "type": "integer",
@@ -175,7 +171,7 @@
             "properties": {
                 "hardware_name": {
                     "type": "string",
-                    "title": "Hardware name"
+                    "title": "Controlled hardware device"
                 },
                 "com_port": {
                     "type": "string",
@@ -189,11 +185,10 @@
             "properties": {
                 "manufacturer": {
                     "type": "string",
-                    "title": "Manufacturer",
-                    "enum": ["Olympus", "Nikon", "Special Optics", "ThorLabs"] 
+                    "title": "Manufacturer"
                 },
                 "model": {
-                    "type": "number",
+                    "type": "string",
                     "title": "Model"
                 },
                 "serial_number": {
@@ -202,18 +197,16 @@
                 },
                 "numerical_aperture": {
                     "type": "number",
-                    "title": "Numerical aperture",
-                    "enum": [0.2, 0.4, 0.7]
+                    "title": "Numerical aperture (in air)"
                 },
                 "magnification": {
-                    "type": "string",
-                    "title": "Magnification",
-                    "enum": ["3.6X", "10X", "20X"]
+                    "type": "number",
+                    "title": "Magnification"
                 },
                 "immersion": {
                     "type": "string",
                     "title": "Immersion",
-                    "enum": ["air","water", "oil", "multi"]
+                    "enum": ["air","water", "oil", "multi", "other"]
                 }
             },
             "required": [
@@ -234,8 +227,7 @@
                 },
                 "manufacturer": {
                     "type": "string",
-                    "title": "Manufacturer",
-                    "enum": ["Hamamatsu", "PCO", "other"]
+                    "title": "Manufacturer"
                 },
                 "model": {
                     "type": "string",
@@ -254,11 +246,6 @@
                     "type": "string",
                     "title": "Cooling",
                     "enum": ["air", "water"]
-                },
-                "immersion": {
-                    "type": "string",
-                    "title": "Immersion",
-                    "enum": ["air","water", "oil"]
                 }
             },
             "required": [
@@ -277,14 +264,9 @@
                     "title": "Type",
                     "enum": ["lamp", "laser", "LED", "other"]
                 },
-                "name": {
-                    "type": "string",
-                    "title": "Name"
-                },
                 "manufacturer": {
                     "type": "string",
-                    "title": "Manufacturer",
-                    "enum": ["Vortran", "Coherent", "other"]
+                    "title": "Manufacturer"
                 },
                 "model": {
                     "type": "string",
@@ -300,39 +282,19 @@
                     "enum": ["Free-space", "SMF", "MMF", "other"]
                 },
                 "wavelength": {
-                    "type": "integer",
+                    "type": "number",
                     "title": "Wavelength (nm)",
-                    "units": "nm",
-                    "enum": [405, 488, 561, 638]
+                    "units": "nm"
                 },
                 "max_power": {
-                    "type": "integer",
+                    "type": "number",
                     "title":" Maximum power (mW)",
-                    "units": "mW",
-                    "enum": [100, 200]
+                    "units": "mW"
                 },
-                "driver": {
-                    "type": "string",
-                    "title": "Driver"
-                },
-                "color": {
-                    "type": "string",
-                    "title": "Color"
-                },
-                "filter_index": {
+                "filter_wheel_index": {
                     "type": "int",
                     "title": "Filter index"
                 },
-                "disable_voltage": {
-                    "type": "number",
-                    "title": "Disable voltage (V)",
-                    "units": "V"
-                },
-                "enable_voltage": {
-                    "type": "number",
-                    "title": "Enable voltage (V)",
-                    "units": "V"
-                }
             },
             "required": [
                 "type",
@@ -340,7 +302,8 @@
                 "model",
                 "coupling",
                 "wavelength",
-                "max_power"
+                "max_power",
+                "filter_wheel_index"
             ]
         },
         "filter": {
@@ -349,30 +312,26 @@
                 "type": {
                     "type": "string",
                     "title": "Type",
-                    "enum": ["Long pass", "Band pass"]
+                    "enum": ["Long pass", "Band pass", "Short pass", "Multiband"]
                 },
                 "manufacturer": {
                     "type": "string",
                     "title": "Manufacturer",
-                    "enum": ["Chroma", "Semrock"]
+                    "enum": ["Chroma", "Semrock", "Other"]
                 },
                 "model": {
                     "type": "string",
                     "title": "Model"
                 },
-                "size": {
-                    "type": "integer",
+                "diameter": {
+                    "type": "number",
                     "title": "Size (mm)",
-                    "units": "mm",
-                    "enum": [25, 32]
+                    "units": "mm"
                 },
-                "cut_off_frequency": {
-                    "type": "integer",
-                    "title": "Cut off frequency"
-                },
-                "cut_on_frequency": {
-                    "type": "integer",
-                    "title": "Cut on frequency"
+                "thickness": {
+                    "type": "number",
+                    "title": "Size (mm)",
+                    "units": "mm"
                 },
                 "description": {
                     "type": "string",
@@ -384,7 +343,8 @@
                 "type",
                 "manufacturer",
                 "model",
-                "size"
+                "diameter",
+                "thickness"
             ]
         },
         "stage": {
@@ -396,8 +356,7 @@
                 },
                 "manufacturer": {
                     "type": "string",
-                    "title": "Manufacturer",
-                    "enum": ["Hamamtsu", "PCO", "other"]
+                    "title": "Manufacturer"
                 },
                 "model": {
                     "type": "string",
@@ -407,24 +366,11 @@
                     "type": "string",
                     "title": "Serial number"
                 },
-                "move_time": {
-                    "type": "number",
-                    "title": "Stage move time (s)",
-                    "description": "Time it takes the stage to move 1 um and settle",
-                    "units": "s"
-                },
-                "backlash_reset_distance": {
-                    "type": "number",
-                    "title": "Stage backlash reset distance",
-                    "units": "um"
-                }
             },
             "required": [
                 "manufacturer",
                 "model",
-                "serial_number",
-                "move_time",
-                "backlash_reset_distance"
+                "serial_number"
             ]
         },
         "device": {
@@ -432,14 +378,12 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "enum": ["Tunable lens", "DAQ", "Scanning mirror", "Other"],
                     "title": "Type",
-                    "description": "Type of device. If Other please describe in Notes"
+                    "description": "Additional devices"
                 },
                 "manufacturer": {
                     "type": "string",
-                    "title": "Manufacturer",
-                    "enum": ["Hamamtsu", "PCO", "other"]
+                    "title": "Manufacturer"
                 },
                 "model": {
                     "type": "string",

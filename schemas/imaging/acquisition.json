@@ -77,12 +77,6 @@
             "title": "Step size z (um)",
             "units": "um"
         },
-        "start_of_frame_delay": {
-            "type": "number",
-            "title": "Start of frame delay",
-            "units": "s",
-            "description": "Time between external trigger and first hsync"
-        },
         "axes": {
             "type": "array",
             "items": {"$ref": "#/$defs/axis"},
@@ -104,6 +98,12 @@
             "items": {"$ref": "#/$defs/laser"},
             "uniqueItems": true,
             "title": "Lasers"
+        },
+        "daq": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/daq"},
+            "uniqueItems": true,
+            "title": "DAQ"
         },
         "notes": {
             "type": "string",
@@ -167,18 +167,38 @@
                 "x_end_um": {
                     "type": "number"
                 },
+                "x_step_um": {
+                    "type": "number"
+                },
                 "y_start_um": {
                     "type": "number"
                 },
-                "x_step_um": {
+                "y_end_um": {
+                    "type": "number"
+                },
+                "y_step_um": {
+                    "type": "number"
+                },
+                "z_start_um": {
+                    "type": "number"
+                },
+                "z_end_um": {
+                    "type": "number"
+                },
+                "z_step_um": {
                     "type": "number"
                 }
             },
             "required": [
                 "x_start_um",
                 "x_end_um",
+                "x_step_um",
                 "y_start_um",
-                "x_step_um"
+                "y_end_um",
+                "y_step_um",
+                "z_start_um",
+                "z_end_um",
+                "z_step_um",
             ]
         },
         "laser": {
@@ -204,48 +224,6 @@
                 "power": {
                     "type": "number",
                     "title": "Power"
-                },
-                "delay": {
-                    "type": "number",
-                    "title": "Delay (s)",
-                    "units": "s"
-                },
-                "settling_time": {
-                    "type": "number",
-                    "title": "Settling time (s)",
-                    "units": "s"
-                },
-                "minimum_voltage": {
-                    "type": "number",
-                    "title": "Minimum voltage (V)",
-                    "units": "V"
-                },
-                "maximum_voltage": {
-                    "type": "number",
-                    "title": "Maximum voltage (V)",
-                    "units": "V"
-                },
-                "amplitude": {
-                    "type": "number",
-                    "title": "Amplitude"
-                },
-                "offset": {
-                    "type": "number",
-                    "title": "Offset"
-                },
-                "nonlinear": {
-                    "type": "number",
-                    "title": "Nonlinear"
-                },
-                "interp_time": {
-                    "type": "number",
-                    "title": "Interp time (s)",
-                    "units": "s"
-                },
-                "buffer_time": {
-                    "type": "number",
-                    "title": "Buffer time (s)",
-                    "units": "s"
                 }
                 
             },
@@ -254,10 +232,15 @@
                 "channel",
                 "wavelength",
                 "power",
-                "delay",
-                "settling_time"
             ]
-        }
+        },
+        "daq": {
+            "type ": "object",
+            "title": "parameters",
+            "properties": {},
+            "additionalProperties": true,
+            "description": "Parameters used to define DAQ waveforms (system specific)"
+        },
     },
     "required": [
         "version",
