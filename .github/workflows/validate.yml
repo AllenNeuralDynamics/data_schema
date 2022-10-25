@@ -1,0 +1,20 @@
+name: Validate JSON Schema
+on:
+  push:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Validate schema
+            uses: snapcart/json-schema-validator@v1.0.0
+            with:
+              token: ${{ secrets.GITHUB_TOKEN }}
+              json_schema: ./schemas/schema.schema # Schema to validate against
+              json_path_pattern: .*schema.json$
+
+
